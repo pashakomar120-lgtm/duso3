@@ -2,50 +2,32 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import ScrollingText from "./components/ScrollingText";
-import ServicesSection from "./components/ServicesSection";
-import RatingsSection from "./components/RatingsSection";
-import TestimonialsSection from "./components/TestimonialsSection";
-import TrustedBySection from "./components/TrustedBySection";
-import StatsSection from "./components/StatsSection";
-import CaseStudiesSection from "./components/CaseStudiesSection";
-import AwardsSection from "./components/AwardsSection";
-import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
-
-const HomePage = () => {
-  return (
-    <div className="min-h-screen bg-[#0a0a0b]">
-      <Header />
-      <main>
-        <section id="solutions">
-          <HeroSection />
-        </section>
-        <ScrollingText />
-        <ServicesSection />
-        <RatingsSection />
-        <TestimonialsSection />
-        <TrustedBySection />
-        <StatsSection />
-        <CaseStudiesSection />
-        <section id="resources">
-          <AwardsSection />
-        </section>
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
-  );
-};
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import PortfolioPage from "./pages/PortfolioPage";
+import ResourcesPage from "./pages/ResourcesPage";
+import ContactPage from "./pages/ContactPage";
+import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+        <Toaster />
       </BrowserRouter>
     </div>
   );
