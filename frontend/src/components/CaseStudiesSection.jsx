@@ -27,12 +27,12 @@ const CaseStudiesSection = () => {
   };
 
   return (
-    <section className="bg-[#0a0a0b] py-24">
+    <section id="portfolio" className="bg-[#0a0a0b] py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            <span className="text-[#3b82f6]">Історії успіху,</span> варті уваги
+            <span className="text-[#10b981]">Истории успеха,</span> достойные внимания
           </h2>
 
           {/* Navigation Arrows */}
@@ -42,7 +42,7 @@ const CaseStudiesSection = () => {
               disabled={!canScrollLeft}
               className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
                 canScrollLeft
-                  ? 'bg-[#3b82f6] text-white hover:bg-[#2563eb]'
+                  ? 'bg-[#f97316] text-white hover:bg-[#ea580c]'
                   : 'bg-[#1e293b] text-gray-500 cursor-not-allowed'
               }`}
             >
@@ -53,7 +53,7 @@ const CaseStudiesSection = () => {
               disabled={!canScrollRight}
               className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
                 canScrollRight
-                  ? 'bg-[#3b82f6] text-white hover:bg-[#2563eb]'
+                  ? 'bg-[#f97316] text-white hover:bg-[#ea580c]'
                   : 'bg-[#1e293b] text-gray-500 cursor-not-allowed'
               }`}
             >
@@ -73,8 +73,9 @@ const CaseStudiesSection = () => {
             <div
               key={study.id}
               className="flex-shrink-0 w-80 group cursor-pointer"
+              onClick={() => window.open(`https://${study.website}`, '_blank')}
             >
-              <div className="relative rounded-2xl overflow-hidden bg-[#111827]">
+              <div className="relative rounded-2xl overflow-hidden bg-[#111827] border border-[#1e293b] hover:border-[#f97316] transition-colors duration-300">
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -88,8 +89,8 @@ const CaseStudiesSection = () => {
                 {/* Content */}
                 <div className="p-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-[#3b82f6] font-medium">{study.website}</span>
-                    <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-[#3b82f6] transition-colors" />
+                    <span className="text-[#f97316] font-medium">{study.website}</span>
+                    <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-[#10b981] transition-colors" />
                   </div>
                 </div>
               </div>

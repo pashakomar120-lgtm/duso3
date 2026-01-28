@@ -10,12 +10,12 @@ const AwardsSection = () => {
     <section className="bg-[#0a0a0b] py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Main Container */}
-        <div className="bg-[#111827] rounded-3xl p-8 md:p-12">
+        <div className="bg-[#111827] rounded-3xl p-8 md:p-12 border border-[#1e293b]">
           {/* Header */}
           <div className="mb-12">
-            <span className="text-[#3b82f6] text-lg font-medium">Нагороди</span>
+            <span className="text-[#f97316] text-lg font-medium">Награды</span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mt-2">
-              & Сертифікація
+              & Сертификация
             </h2>
           </div>
 
@@ -24,10 +24,10 @@ const AwardsSection = () => {
             {/* Shopify Certifications */}
             <div>
               <h3 className="text-xl font-semibold text-white mb-4">
-                Сертифіковані Shopify Експерти
+                Сертифицированные Shopify Эксперты
               </h3>
               <p className="text-gray-400 mb-8">
-                Внутрішня команда сертифікованих Shopify професіоналів з експертизою у розробці, міграції та маркетингу, та ідеальним рейтингом 5.0 на Shopify.
+                Внутренняя команда сертифицированных Shopify профессионалов с экспертизой в разработке, миграции и маркетинге, и идеальным рейтингом 5.0 на Shopify.
               </p>
 
               {/* Certification Cards Carousel */}
@@ -37,9 +37,9 @@ const AwardsSection = () => {
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-48 h-64 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300"
+                      className="flex-shrink-0 w-48 h-64 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300 border border-[#374151] hover:border-[#f97316]"
                     >
-                      <Icon className="w-12 h-12 text-[#3b82f6] mb-4" />
+                      <Icon className="w-12 h-12 text-[#f97316] mb-4" />
                       <span className="text-white font-medium text-sm">{cert}</span>
                     </div>
                   );
@@ -50,10 +50,10 @@ const AwardsSection = () => {
             {/* Clutch Recognition */}
             <div>
               <h3 className="text-xl font-semibold text-white mb-4">
-                Визнання Clutch
+                Признание Clutch
               </h3>
               <p className="text-gray-400 mb-8">
-                Визнані як провідний постачальник послуг на топ-B2B платформах оглядів та рейтингів, таких як Clutch та GoodFirms.
+                Признаны как ведущий поставщик услуг на топ-B2B платформах обзоров и рейтингов, таких как Clutch и GoodFirms.
               </p>
 
               {/* Award Cards Carousel */}
@@ -63,9 +63,9 @@ const AwardsSection = () => {
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-48 h-64 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300"
+                      className="flex-shrink-0 w-48 h-64 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300 border border-[#374151] hover:border-[#10b981]"
                     >
-                      <Icon className="w-12 h-12 text-[#f59e0b] mb-4" />
+                      <Icon className="w-12 h-12 text-[#10b981] mb-4" />
                       <span className="text-white font-medium text-sm">{award}</span>
                     </div>
                   );
@@ -78,9 +78,9 @@ const AwardsSection = () => {
           <div className="mt-8 text-center">
             <a
               href="#awards"
-              className="inline-flex items-center gap-2 text-[#3b82f6] hover:text-white font-medium transition-colors duration-300"
+              className="inline-flex items-center gap-2 text-[#f97316] hover:text-white font-medium transition-colors duration-300"
             >
-              & Більше
+              & Больше
             </a>
           </div>
         </div>

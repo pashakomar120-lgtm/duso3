@@ -28,10 +28,10 @@ const StatsSection = () => {
         {/* Section Title */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Наші цифри <span className="text-[#3b82f6]">говорять самі за себе</span>
+            Наши цифры <span className="text-[#f97316]">говорят сами за себя</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Від стартапів до глобальних брендів, наш вплив вимірюється результатами — реальними цифрами, реальним зростанням.
+            От стартапов до глобальных брендов, наше влияние измеряется результатами — реальными цифрами, реальным ростом.
           </p>
         </div>
 
@@ -40,12 +40,12 @@ const StatsSection = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`text-center p-8 rounded-2xl bg-[#111827] hover:bg-[#1e293b] transition-all duration-500 hover:scale-105 ${
+              className={`text-center p-8 rounded-2xl bg-[#111827] hover:bg-[#1e293b] transition-all duration-500 hover:scale-105 border border-[#1e293b] ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#3b82f6] mb-4">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#10b981] mb-4">
                 {stat.value}
               </div>
               <p className="text-gray-400 text-sm md:text-base">

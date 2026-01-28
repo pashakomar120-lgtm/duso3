@@ -15,12 +15,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
           <div className="text-2xl font-bold text-white tracking-tight">
-            <span className="text-[#3b82f6]">duso</span>_ecom
+            <span className="text-[#f97316]">duso</span>_ecom
           </div>
 
           {/* Copyright */}
           <p className="text-gray-400 text-sm">
-            © 2025 duso_ecom. Всі права захищені
+            © 2025 duso_ecom. Все права защищены
           </p>
 
           {/* Social Links */}
@@ -31,7 +31,9 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.url}
-                  className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#3b82f6] transition-all duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#f97316] transition-all duration-300"
                   aria-label={social.name}
                 >
                   <Icon className="w-5 h-5" />
@@ -44,14 +46,14 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <a
               href={`mailto:${footerData.email}`}
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+              className="flex items-center gap-2 text-gray-400 hover:text-[#10b981] transition-colors duration-300"
             >
               <Mail className="w-4 h-4" />
               <span className="text-sm">{footerData.email}</span>
             </a>
             <a
               href={`tel:${footerData.phone}`}
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+              className="flex items-center gap-2 text-gray-400 hover:text-[#10b981] transition-colors duration-300"
             >
               <Phone className="w-4 h-4" />
               <span className="text-sm">{footerData.phone}</span>
@@ -62,7 +64,7 @@ const Footer = () => {
         {/* Cookie Notice */}
         <div className="mt-8 pt-8 border-t border-white/5 text-center">
           <p className="text-gray-500 text-xs">
-            Ми використовуємо cookies для персоналізації контенту.
+            Мы используем cookies для персонализации контента.
           </p>
         </div>
       </div>
