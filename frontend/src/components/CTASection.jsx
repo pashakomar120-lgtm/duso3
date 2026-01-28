@@ -16,7 +16,7 @@ const CTASection = () => {
           {/* Content */}
           <div className="relative z-10 py-16 px-8 md:px-16 text-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Не задовольняйтесь <span className="text-[#3b82f6]">autre-best</span>
+              Не задовольняйтесь <span className="text-[#3b82f6]">second-best</span>
             </h2>
             <h3 className="text-2xl md:text-3xl text-gray-300 mb-8">
               Коли <span className="text-white font-semibold">duso_ecom</span> поруч.
