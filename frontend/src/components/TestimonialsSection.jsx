@@ -26,7 +26,7 @@ const TestimonialsSection = () => {
             <Quote className="w-12 h-12 text-[#3b82f6] mb-6" />
             
             <p className="text-2xl md:text-3xl text-white font-light leading-relaxed mb-8">
-              "{testimonials[activeIndex].quote}"
+              &ldquo;{testimonials[activeIndex].quote}&rdquo;
             </p>
 
             <div className="flex items-center gap-4">
