@@ -18,16 +18,22 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0b]">
       <Header />
-      <HeroSection />
-      <ScrollingText />
-      <ServicesSection />
-      <RatingsSection />
-      <TestimonialsSection />
-      <TrustedBySection />
-      <StatsSection />
-      <CaseStudiesSection />
-      <AwardsSection />
-      <CTASection />
+      <main>
+        <section id="solutions">
+          <HeroSection />
+        </section>
+        <ScrollingText />
+        <ServicesSection />
+        <RatingsSection />
+        <TestimonialsSection />
+        <TrustedBySection />
+        <StatsSection />
+        <CaseStudiesSection />
+        <section id="resources">
+          <AwardsSection />
+        </section>
+        <CTASection />
+      </main>
       <Footer />
     </div>
   );
