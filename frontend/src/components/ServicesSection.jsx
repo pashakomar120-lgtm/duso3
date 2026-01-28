@@ -7,12 +7,19 @@ const ServicesSection = () => {
 
   const currentService = services.find(s => s.id === activeService);
 
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="bg-[#0a0a0b] py-24">
+    <section id="services" className="bg-[#0a0a0b] py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header with Tabs */}
         <div className="flex flex-wrap items-center gap-4 mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">We</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white">Мы</h2>
           <div className="flex gap-2">
             {services.map((service) => (
               <button
@@ -20,7 +27,7 @@ const ServicesSection = () => {
                 onClick={() => setActiveService(service.id)}
                 className={`px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 ${
                   activeService === service.id
-                    ? 'bg-[#3b82f6] text-white'
+                    ? 'bg-[#f97316] text-white'
                     : 'bg-[#1e293b] text-gray-400 hover:bg-[#2d3a4f] hover:text-white'
                 }`}
               >
@@ -49,7 +56,7 @@ const ServicesSection = () => {
                 key={index}
                 className="flex items-center gap-4 p-4 rounded-lg bg-[#111827] hover:bg-[#1e293b] transition-colors duration-300 group cursor-pointer"
               >
-                <div className="w-2 h-2 rounded-full bg-[#3b82f6]" />
+                <div className="w-2 h-2 rounded-full bg-[#10b981]" />
                 <span className="text-white text-lg group-hover:translate-x-1 transition-transform duration-300">
                   {feature}
                 </span>
@@ -57,15 +64,15 @@ const ServicesSection = () => {
             ))}
 
             {/* Link Button */}
-            <a
-              href={currentService.linkHref}
-              className="inline-flex items-center gap-2 mt-6 text-[#3b82f6] hover:text-white font-medium transition-colors duration-300 group"
+            <button
+              onClick={scrollToContact}
+              className="inline-flex items-center gap-2 mt-6 text-[#f97316] hover:text-white font-medium transition-colors duration-300 group"
             >
-              <span className="border-b border-[#3b82f6] group-hover:border-white">
+              <span className="border-b border-[#f97316] group-hover:border-white">
                 {currentService.linkText}
               </span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+            </button>
           </div>
         </div>
       </div>

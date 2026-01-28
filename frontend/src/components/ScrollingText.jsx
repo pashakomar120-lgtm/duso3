@@ -2,7 +2,7 @@ import React from 'react';
 import { scrollingText } from '../data/mockData';
 
 const ScrollingText = () => {
-  const fullText = `We ${scrollingText} • `;
+  const fullText = `Мы ${scrollingText} • `;
   const repeatedText = fullText.repeat(6);
 
   return (

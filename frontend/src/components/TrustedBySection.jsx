@@ -3,12 +3,12 @@ import React from 'react';
 const TrustedBySection = () => {
   // Simple placeholder logos using CSS shapes
   const brands = [
-    { name: 'TechBrand', color: '#3b82f6' },
+    { name: 'TechBrand', color: '#f97316' },
     { name: 'ShopMax', color: '#10b981' },
-    { name: 'E-Store', color: '#f59e0b' },
-    { name: 'DigiMart', color: '#ef4444' },
-    { name: 'CloudShop', color: '#8b5cf6' },
-    { name: 'NetCommerce', color: '#ec4899' },
+    { name: 'E-Store', color: '#f97316' },
+    { name: 'DigiMart', color: '#10b981' },
+    { name: 'CloudShop', color: '#f97316' },
+    { name: 'NetCommerce', color: '#10b981' },
   ];
 
   const repeatedBrands = [...brands, ...brands, ...brands];
@@ -17,7 +17,7 @@ const TrustedBySection = () => {
     <section className="bg-[#0a0a0b] py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
-          <span className="text-[#3b82f6]">Trusted</span> by Dreamers, Doers, and Leaders
+          <span className="text-[#10b981]">Нам доверяют</span> мечтатели, деятели и лидеры
         </h2>
       </div>
 
@@ -30,7 +30,7 @@ const TrustedBySection = () => {
           {repeatedBrands.map((brand, index) => (
             <div
               key={`row1-${index}`}
-              className="flex items-center gap-3 px-8 py-4 bg-[#111827] rounded-lg hover:bg-[#1e293b] transition-colors duration-300"
+              className="flex items-center gap-3 px-8 py-4 bg-[#111827] rounded-lg hover:bg-[#1e293b] transition-colors duration-300 cursor-pointer"
             >
               <div 
                 className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-lg"
@@ -53,7 +53,7 @@ const TrustedBySection = () => {
           {[...repeatedBrands].reverse().map((brand, index) => (
             <div
               key={`row2-${index}`}
-              className="flex items-center gap-3 px-8 py-4 bg-[#111827] rounded-lg hover:bg-[#1e293b] transition-colors duration-300"
+              className="flex items-center gap-3 px-8 py-4 bg-[#111827] rounded-lg hover:bg-[#1e293b] transition-colors duration-300 cursor-pointer"
             >
               <div 
                 className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-lg"
