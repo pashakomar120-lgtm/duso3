@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { caseStudies } from '../data/mockData';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const CaseStudiesSection = () => {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const navigate = useNavigate();
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -73,7 +75,7 @@ const CaseStudiesSection = () => {
             <div
               key={study.id}
               className="flex-shrink-0 w-80 group cursor-pointer"
-              onClick={() => window.open(`https://${study.website}`, '_blank')}
+              onClick={() => navigate('/portfolio')}
             >
               <div className="relative rounded-2xl overflow-hidden bg-[#111827] border border-[#1e293b] hover:border-[#f97316] transition-colors duration-300">
                 {/* Image */}
@@ -96,6 +98,17 @@ const CaseStudiesSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View All Button */}
+        <div className="mt-8 text-center">
+          <button
+            onClick={() => navigate('/portfolio')}
+            className="inline-flex items-center gap-2 text-[#f97316] hover:text-white font-medium transition-colors duration-300"
+          >
+            Смотреть все проекты
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>

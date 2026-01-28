@@ -1,8 +1,10 @@
 import React from 'react';
 import { awards } from '../data/mockData';
 import { Award, Shield, Star, Trophy } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const AwardsSection = () => {
+  const navigate = useNavigate();
   const certificationIcons = [Shield, Award, Star, Trophy];
   const clutchIcons = [Trophy, Award, Star];
 
@@ -37,7 +39,7 @@ const AwardsSection = () => {
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-48 h-64 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300 border border-[#374151] hover:border-[#f97316]"
+                      className="flex-shrink-0 w-48 h-64 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300 border border-[#374151] hover:border-[#f97316] cursor-pointer"
                     >
                       <Icon className="w-12 h-12 text-[#f97316] mb-4" />
                       <span className="text-white font-medium text-sm">{cert}</span>
@@ -63,7 +65,7 @@ const AwardsSection = () => {
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-48 h-64 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300 border border-[#374151] hover:border-[#10b981]"
+                      className="flex-shrink-0 w-48 h-64 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-transform duration-300 border border-[#374151] hover:border-[#10b981] cursor-pointer"
                     >
                       <Icon className="w-12 h-12 text-[#10b981] mb-4" />
                       <span className="text-white font-medium text-sm">{award}</span>
@@ -76,12 +78,12 @@ const AwardsSection = () => {
 
           {/* View More Link */}
           <div className="mt-8 text-center">
-            <a
-              href="#awards"
+            <button
+              onClick={() => navigate('/about')}
               className="inline-flex items-center gap-2 text-[#f97316] hover:text-white font-medium transition-colors duration-300"
             >
-              & Больше
-            </a>
+              Узнать больше о нас
+            </button>
           </div>
         </div>
       </div>

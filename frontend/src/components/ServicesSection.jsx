@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { services } from '../data/mockData';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesSection = () => {
   const [activeService, setActiveService] = useState('make');
+  const navigate = useNavigate();
 
   const currentService = services.find(s => s.id === activeService);
-
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="services" className="bg-[#0a0a0b] py-24">
@@ -20,7 +15,7 @@ const ServicesSection = () => {
         {/* Section Header with Tabs */}
         <div className="flex flex-wrap items-center gap-4 mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white">Мы</h2>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             {services.map((service) => (
               <button
                 key={service.id}
@@ -65,7 +60,7 @@ const ServicesSection = () => {
 
             {/* Link Button */}
             <button
-              onClick={scrollToContact}
+              onClick={() => navigate('/services')}
               className="inline-flex items-center gap-2 mt-6 text-[#f97316] hover:text-white font-medium transition-colors duration-300 group"
             >
               <span className="border-b border-[#f97316] group-hover:border-white">
