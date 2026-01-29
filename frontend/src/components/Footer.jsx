@@ -1,6 +1,6 @@
 import React from 'react';
-import { footerData, navItems } from '../data/mockData';
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { footerData, navItems, services } from '../data/mockData';
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -11,20 +11,26 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0a0a0b] border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <footer className="relative z-10 border-t border-white/5">
+      {/* Glass background */}
+      <div className="absolute inset-0 glass-strong opacity-50" />
+      
+      <div className="max-w-7xl mx-auto px-6 py-16 relative">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div>
-            <Link to="/" className="text-2xl font-bold text-white tracking-tight inline-block mb-4">
-              <span className="text-[#f97316]">duso</span>_ecom
+            <Link to="/" className="inline-flex items-center gap-2 mb-4 group" data-testid="footer-logo">
+              <span className="text-2xl font-bold text-white tracking-tight">
+                <span className="text-orange-500 text-glow-orange">duso</span>_ecom
+              </span>
+              <Sparkles className="w-4 h-4 text-orange-500 group-hover:scale-125 transition-transform" />
             </Link>
-            <p className="text-gray-400 text-sm mb-6">
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
               Создаём успешные e-commerce проекты с 2015 года. Ваш надёжный партнёр в мире онлайн-торговли.
             </p>
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               {footerData.socials.map((social) => {
                 const Icon = socialIcons[social.name];
                 return (
@@ -33,7 +39,8 @@ const Footer = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#f97316] transition-all duration-300"
+                    data-testid={`social-${social.name.toLowerCase()}`}
+                    className="w-10 h-10 rounded-xl glass flex items-center justify-center text-gray-400 hover:text-white hover:border-orange-500/50 border border-transparent transition-all duration-300 hover:scale-110"
                     aria-label={social.name}
                   >
                     <Icon className="w-5 h-5" />
@@ -45,15 +52,19 @@ const Footer = () => {
 
           {/* Navigation Column */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Навигация</h4>
+            <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
+              <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+              Навигация
+            </h4>
             <nav className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="text-gray-400 hover:text-[#f97316] transition-colors duration-300 text-sm"
+                  className="text-gray-400 hover:text-orange-500 transition-colors duration-300 text-sm flex items-center gap-1 group"
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               ))}
             </nav>
@@ -61,44 +72,56 @@ const Footer = () => {
 
           {/* Services Column */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Услуги</h4>
+            <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
+              <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+              Популярные услуги
+            </h4>
             <nav className="flex flex-col gap-3">
-              <Link to="/services#development" className="text-gray-400 hover:text-[#f97316] transition-colors duration-300 text-sm">
-                Разработка магазинов
-              </Link>
-              <Link to="/services#migration" className="text-gray-400 hover:text-[#f97316] transition-colors duration-300 text-sm">
-                Миграция на Shopify
-              </Link>
-              <Link to="/services#marketing" className="text-gray-400 hover:text-[#f97316] transition-colors duration-300 text-sm">
-                Цифровой маркетинг
-              </Link>
-              <Link to="/services#support" className="text-gray-400 hover:text-[#f97316] transition-colors duration-300 text-sm">
-                Техподдержка 24/7
-              </Link>
+              {services.slice(0, 5).map((service) => (
+                <Link 
+                  key={service.id}
+                  to={`/services#${service.id}`} 
+                  className="text-gray-400 hover:text-emerald-500 transition-colors duration-300 text-sm flex items-center gap-1 group"
+                >
+                  <span>{service.title}</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              ))}
             </nav>
           </div>
 
           {/* Contact Column */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Контакты</h4>
+            <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
+              <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+              Контакты
+            </h4>
             <div className="flex flex-col gap-4">
               <a
                 href={`mailto:${footerData.email}`}
-                className="flex items-center gap-3 text-gray-400 hover:text-[#10b981] transition-colors duration-300 text-sm"
+                data-testid="footer-email"
+                className="flex items-center gap-3 text-gray-400 hover:text-emerald-500 transition-colors duration-300 text-sm group"
               >
-                <Mail className="w-4 h-4 flex-shrink-0" />
+                <div className="w-8 h-8 rounded-lg glass flex items-center justify-center group-hover:border-emerald-500/50 border border-transparent transition-all">
+                  <Mail className="w-4 h-4" />
+                </div>
                 <span>{footerData.email}</span>
               </a>
               <a
                 href={`tel:${footerData.phone}`}
-                className="flex items-center gap-3 text-gray-400 hover:text-[#10b981] transition-colors duration-300 text-sm"
+                data-testid="footer-phone"
+                className="flex items-center gap-3 text-gray-400 hover:text-emerald-500 transition-colors duration-300 text-sm group"
               >
-                <Phone className="w-4 h-4 flex-shrink-0" />
+                <div className="w-8 h-8 rounded-lg glass flex items-center justify-center group-hover:border-emerald-500/50 border border-transparent transition-all">
+                  <Phone className="w-4 h-4" />
+                </div>
                 <span>{footerData.phone}</span>
               </a>
               <div className="flex items-start gap-3 text-gray-400 text-sm">
-                <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span>{footerData.address}</span>
+                <div className="w-8 h-8 rounded-lg glass flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <span className="pt-1.5">{footerData.address}</span>
               </div>
             </div>
           </div>
@@ -108,7 +131,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-500 text-sm">
-              © 2025 duso_ecom. Все права защищены
+              © 2025 <span className="text-orange-500">duso_ecom</span>. Все права защищены
             </p>
             <div className="flex items-center gap-6">
               <Link to="/privacy" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">
