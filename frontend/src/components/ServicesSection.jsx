@@ -64,7 +64,7 @@ const ServicesSection = () => {
               className="inline-flex items-center gap-2 mt-6 text-[#f97316] hover:text-white font-medium transition-colors duration-300 group"
             >
               <span className="border-b border-[#f97316] group-hover:border-white">
-                {currentService.linkText}
+                Подробнее об услуге
               </span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
