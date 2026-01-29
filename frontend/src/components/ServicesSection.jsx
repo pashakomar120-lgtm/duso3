@@ -4,10 +4,10 @@ import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const ServicesSection = () => {
-  const [activeService, setActiveService] = useState('make');
+  const [activeService, setActiveService] = useState(services[0]?.id || 'design');
   const navigate = useNavigate();
 
-  const currentService = services.find(s => s.id === activeService);
+  const currentService = services.find(s => s.id === activeService) || services[0];
 
   return (
     <section id="services" className="bg-[#0a0a0b] py-24">
