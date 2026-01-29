@@ -50,6 +50,52 @@ html {
 
 /* Selection color */
 ::selection {
-    background: #3b82f6;
+    background: #f97316;
     color: white;
+}
+
+/* Floating card effect */
+.floating-card {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 35px 60px -15px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 0 40px rgba(249, 115, 22, 0.1);
+}
+
+/* Glass morphism effect */
+.glass {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glow effects */
+.glow-orange {
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.2);
+}
+
+.glow-emerald {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+}
+
+/* Text glow */
+.text-glow-orange {
+    text-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+}
+
+.text-glow-emerald {
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
 }
