@@ -1,11 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { footerData, services } from '../data/mockData';
-import { Mail, Phone, MapPin, Send, Calendar, Clock, MessageCircle, Gift, Sparkles, Users, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Calendar, Clock, MessageCircle, Gift, Sparkles, Users, Globe, ChevronDown } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { useToast } from '../hooks/use-toast';
 
 const ContactPage = () => {
@@ -36,7 +35,7 @@ const ContactPage = () => {
     '09:00', '10:00', '11:00', '12:00', '14:00', '15:00', '16:00', '17:00', '18:00'
   ];
 
-  const serviceOptions = services.slice(0, 8).map(s => s.title);
+  const serviceOptions = services.slice(0, 12).map(s => s.title);
 
   const budgets = [
     { label: 'До $3,000', value: 'under-3k' },
@@ -64,7 +63,6 @@ const ContactPage = () => {
       const escapeX = -dx * 2 + (Math.random() - 0.5) * 100;
       const escapeY = -dy * 2 + (Math.random() - 0.5) * 100;
       
-      // Keep within bounds
       const maxX = 200;
       const maxY = 100;
       const newX = Math.max(-maxX, Math.min(maxX, freeButtonPos.x + escapeX));
@@ -76,6 +74,14 @@ const ContactPage = () => {
 
   const handleQuoteSubmit = (e) => {
     e.preventDefault();
+    if (!quoteForm.name || !quoteForm.email || !quoteForm.phone || !quoteForm.service || !quoteForm.budget || !quoteForm.message) {
+      toast({
+        title: "Ошибка",
+        description: "Пожалуйста, заполните все обязательные поля",
+        variant: "destructive"
+      });
+      return;
+    }
     setSubmitting(true);
     
     setTimeout(() => {
@@ -90,6 +96,14 @@ const ContactPage = () => {
 
   const handleCallSubmit = (e) => {
     e.preventDefault();
+    if (!callForm.name || !callForm.phone || !callForm.date || !callForm.time) {
+      toast({
+        title: "Ошибка",
+        description: "Пожалуйста, заполните все обязательные поля",
+        variant: "destructive"
+      });
+      return;
+    }
     setSubmitting(true);
     
     setTimeout(() => {
@@ -100,6 +114,45 @@ const ContactPage = () => {
       });
       setCallForm({ name: '', phone: '', telegram: '', date: '', time: '' });
     }, 1500);
+  };
+
+  // Custom Select component
+  const CustomSelect = ({ value, onChange, options, placeholder, testId }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    
+    return (
+      <div className="relative">
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          data-testid={testId}
+          className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-left text-white text-sm focus:border-orange-500/50 focus:outline-none transition-colors flex items-center justify-between"
+        >
+          <span className={value ? 'text-white' : 'text-gray-500'}>
+            {value || placeholder}
+          </span>
+          <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        </button>
+        
+        {isOpen && (
+          <div className="absolute top-full left-0 right-0 mt-2 glass-strong rounded-xl border border-white/10 shadow-xl z-50 max-h-60 overflow-y-auto">
+            {options.map((option, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => {
+                  onChange(typeof option === 'string' ? option : option.value);
+                  setIsOpen(false);
+                }}
+                className="w-full px-4 py-3 text-left text-white text-sm hover:bg-white/10 transition-colors first:rounded-t-xl last:rounded-b-xl"
+              >
+                {typeof option === 'string' ? option : option.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -259,7 +312,6 @@ const ContactPage = () => {
                         id="name"
                         value={quoteForm.name}
                         onChange={(e) => setQuoteForm({...quoteForm, name: e.target.value})}
-                        required
                         data-testid="quote-name"
                         className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-orange-500"
                         placeholder="Ваше имя"
@@ -273,7 +325,6 @@ const ContactPage = () => {
                         type="email"
                         value={quoteForm.email}
                         onChange={(e) => setQuoteForm({...quoteForm, email: e.target.value})}
-                        required
                         data-testid="quote-email"
                         className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-orange-500"
                         placeholder="your@email.com"
@@ -286,7 +337,6 @@ const ContactPage = () => {
                         id="phone"
                         value={quoteForm.phone}
                         onChange={(e) => setQuoteForm({...quoteForm, phone: e.target.value})}
-                        required
                         data-testid="quote-phone"
                         className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-orange-500"
                         placeholder="+7 (___) ___-__-__"
@@ -307,35 +357,30 @@ const ContactPage = () => {
 
                     <div className="space-y-2">
                       <Label className="text-gray-300">Услуга *</Label>
-                      <Select onValueChange={(value) => setQuoteForm({...quoteForm, service: value})} required>
-                        <SelectTrigger className="bg-white/5 border-white/10 text-white focus:border-orange-500" data-testid="quote-service">
-                          <SelectValue placeholder="Выберите услугу" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-gray-900 border-white/10">
-                          {serviceOptions.map((service) => (
-                            <SelectItem key={service} value={service} className="text-white hover:bg-white/10">
-                              {service}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                      <CustomSelect
+                        value={quoteForm.service}
+                        onChange={(val) => setQuoteForm({...quoteForm, service: val})}
+                        options={serviceOptions}
+                        placeholder="Выберите услугу"
+                        testId="quote-service"
+                      />
                     </div>
 
                     <div className="space-y-2">
                       <Label className="text-gray-300">Бюджет *</Label>
                       <div className="flex gap-2">
-                        <Select onValueChange={(value) => setQuoteForm({...quoteForm, budget: value})} required>
-                          <SelectTrigger className="bg-white/5 border-white/10 text-white focus:border-orange-500 flex-1" data-testid="quote-budget">
-                            <SelectValue placeholder="Выберите бюджет" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-gray-900 border-white/10">
-                            {budgets.map((budget) => (
-                              <SelectItem key={budget.value} value={budget.value} className="text-white hover:bg-white/10">
-                                {budget.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        <div className="flex-1">
+                          <CustomSelect
+                            value={budgets.find(b => b.value === quoteForm.budget)?.label || ''}
+                            onChange={(val) => {
+                              const budget = budgets.find(b => b.label === val);
+                              setQuoteForm({...quoteForm, budget: budget?.value || val});
+                            }}
+                            options={budgets.map(b => b.label)}
+                            placeholder="Выберите бюджет"
+                            testId="quote-budget"
+                          />
+                        </div>
                         
                         {/* Escaping FREE button */}
                         <div 
@@ -346,7 +391,7 @@ const ContactPage = () => {
                             ref={freeButtonRef}
                             type="button"
                             data-testid="free-button"
-                            className="px-4 py-2 bg-emerald-500 text-white rounded-lg font-bold text-sm hover:bg-emerald-600 transition-all duration-200 whitespace-nowrap"
+                            className="px-4 py-3 bg-emerald-500 text-white rounded-xl font-bold text-sm hover:bg-emerald-600 transition-all duration-200 whitespace-nowrap"
                             style={{
                               transform: `translate(${freeButtonPos.x}px, ${freeButtonPos.y}px)`,
                               transition: 'transform 0.15s ease-out'
@@ -371,7 +416,6 @@ const ContactPage = () => {
                       id="message"
                       value={quoteForm.message}
                       onChange={(e) => setQuoteForm({...quoteForm, message: e.target.value})}
-                      required
                       data-testid="quote-message"
                       className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-orange-500 min-h-[150px]"
                       placeholder="Расскажите подробнее о вашем проекте, целях и ожиданиях..."
@@ -422,7 +466,6 @@ const ContactPage = () => {
                         id="call-name"
                         value={callForm.name}
                         onChange={(e) => setCallForm({...callForm, name: e.target.value})}
-                        required
                         data-testid="call-name"
                         className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-emerald-500"
                         placeholder="Ваше имя"
@@ -435,7 +478,6 @@ const ContactPage = () => {
                         id="call-phone"
                         value={callForm.phone}
                         onChange={(e) => setCallForm({...callForm, phone: e.target.value})}
-                        required
                         data-testid="call-phone"
                         className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-emerald-500"
                         placeholder="+7 (___) ___-__-__"
@@ -463,7 +505,6 @@ const ContactPage = () => {
                         type="date"
                         value={callForm.date}
                         onChange={(e) => setCallForm({...callForm, date: e.target.value})}
-                        required
                         data-testid="call-date"
                         min={new Date().toISOString().split('T')[0]}
                         className="bg-white/5 border-white/10 text-white focus:border-emerald-500"
