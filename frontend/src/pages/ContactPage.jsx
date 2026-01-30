@@ -72,7 +72,9 @@ const ContactPage = () => {
     }
   };
 
-  const handleQuoteSubmit = (e) => {
+  const API_URL = process.env.REACT_APP_BACKEND_URL;
+
+  const handleQuoteSubmit = async (e) => {
     e.preventDefault();
     if (!quoteForm.name || !quoteForm.email || !quoteForm.phone || !quoteForm.service || !quoteForm.budget || !quoteForm.message) {
       toast({
@@ -84,17 +86,37 @@ const ContactPage = () => {
     }
     setSubmitting(true);
     
-    setTimeout(() => {
-      setSubmitting(false);
-      toast({
-        title: "Заявка отправлена!",
-        description: "Мы свяжемся с вами в ближайшее время.",
+    try {
+      const response = await fetch(`${API_URL}/api/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...quoteForm,
+          source: 'contact_form'
+        })
       });
-      setQuoteForm({ name: '', email: '', company: '', phone: '', telegram: '', service: '', budget: '', message: '' });
-    }, 1500);
+      
+      if (response.ok) {
+        toast({
+          title: "Заявка отправлена!",
+          description: "Мы свяжемся с вами в ближайшее время.",
+        });
+        setQuoteForm({ name: '', email: '', company: '', phone: '', telegram: '', service: '', budget: '', message: '' });
+      } else {
+        throw new Error('Failed to submit');
+      }
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить заявку. Попробуйте позже.",
+        variant: "destructive"
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
-  const handleCallSubmit = (e) => {
+  const handleCallSubmit = async (e) => {
     e.preventDefault();
     if (!callForm.name || !callForm.phone || !callForm.date || !callForm.time) {
       toast({
@@ -106,14 +128,31 @@ const ContactPage = () => {
     }
     setSubmitting(true);
     
-    setTimeout(() => {
-      setSubmitting(false);
-      toast({
-        title: "Звонок запланирован!",
-        description: `Мы позвоним вам ${callForm.date} в ${callForm.time}.`,
+    try {
+      const response = await fetch(`${API_URL}/api/calls`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(callForm)
       });
-      setCallForm({ name: '', phone: '', telegram: '', date: '', time: '' });
-    }, 1500);
+      
+      if (response.ok) {
+        toast({
+          title: "Звонок запланирован!",
+          description: `Мы позвоним вам ${callForm.date} в ${callForm.time}.`,
+        });
+        setCallForm({ name: '', phone: '', telegram: '', date: '', time: '' });
+      } else {
+        throw new Error('Failed to submit');
+      }
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось запланировать звонок. Попробуйте позже.",
+        variant: "destructive"
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   // Custom Select component
