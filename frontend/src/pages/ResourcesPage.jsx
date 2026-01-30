@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { resources, faq } from '../data/mockData';
 import { Clock, ArrowRight, ChevronDown, ChevronUp, BookOpen, FileText, CheckSquare, Lightbulb, TrendingUp, X, ExternalLink, Share2, Bookmark } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -9,6 +9,17 @@ const ResourcesPage = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [filter, setFilter] = useState('all');
   const [selectedResource, setSelectedResource] = useState(null);
+
+  // Close modal on ESC key press
+  useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === 'Escape' && selectedResource) {
+        setSelectedResource(null);
+      }
+    };
+    document.addEventListener('keydown', handleEscKey);
+    return () => document.removeEventListener('keydown', handleEscKey);
+  }, [selectedResource]);
 
   const categories = ['all', 'Гайд', 'Сравнение', 'Чеклист', 'Стратегия', 'Тренды'];
 
