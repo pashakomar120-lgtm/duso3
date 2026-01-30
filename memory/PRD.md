@@ -8,7 +8,7 @@
 - ✅ Секретний доступ до адмін-панелі через AI
 - ✅ Реальні прапори країн на всіх сторінках (Header, Portfolio, WOW секція)
 - ✅ Виправлено overflow у WOW блоці (картки більше не виходять за межі)
-- ✅ Весь контент російською мовою
+- ✅ **ВСЕ ТЕКСТИ РОСІЙСЬКОЮ МОВОЮ** (Portfolio, AdminLogin, AdminDashboard, AIAssistant)
 
 ## Secret Access
 **Code word (AI Assistant):** `квантовий кіт шрёдінгера 2047`
