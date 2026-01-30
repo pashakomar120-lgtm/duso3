@@ -1,10 +1,32 @@
 import React, { useEffect, useRef } from 'react';
 import { storeLogos } from '../data/testimonialsData';
 
+// Flag images from flagcdn.com
+const flagImages = {
+  '🇷🇺': 'https://flagcdn.com/w80/ru.png',
+  '🇺🇦': 'https://flagcdn.com/w80/ua.png',
+  '🇰🇿': 'https://flagcdn.com/w80/kz.png',
+  '🇧🇾': 'https://flagcdn.com/w80/by.png',
+  '🇺🇿': 'https://flagcdn.com/w80/uz.png',
+  '🇦🇿': 'https://flagcdn.com/w80/az.png',
+  '🇬🇪': 'https://flagcdn.com/w80/ge.png',
+  '🇦🇲': 'https://flagcdn.com/w80/am.png',
+};
+
+const FlagImage = ({ country, size = 'w-8 h-6' }) => {
+  const flagUrl = flagImages[country] || flagImages['🇷🇺'];
+  return (
+    <img 
+      src={flagUrl} 
+      alt={country}
+      className={`${size} object-cover rounded shadow-sm`}
+    />
+  );
+};
+
 const StoreLogosWow = () => {
   const scrollRef = useRef(null);
 
-  // Auto-scroll animation
   useEffect(() => {
     const scroll = scrollRef.current;
     if (!scroll) return;
@@ -27,8 +49,18 @@ const StoreLogosWow = () => {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
-  // Duplicate logos for seamless loop
   const allLogos = [...storeLogos, ...storeLogos];
+
+  const countries = [
+    { flag: '🇷🇺', name: 'Россия', count: '3200+', color: 'from-red-500/20 to-blue-500/20', border: 'hover:border-red-500/50' },
+    { flag: '🇺🇦', name: 'Украина', count: '1500+', color: 'from-blue-500/20 to-yellow-500/20', border: 'hover:border-blue-500/50' },
+    { flag: '🇰🇿', name: 'Казахстан', count: '800+', color: 'from-cyan-500/20 to-yellow-500/20', border: 'hover:border-cyan-500/50' },
+    { flag: '🇧🇾', name: 'Беларусь', count: '450+', color: 'from-red-500/20 to-green-500/20', border: 'hover:border-green-500/50' },
+    { flag: '🇺🇿', name: 'Узбекистан', count: '250+', color: 'from-blue-500/20 to-green-500/20', border: 'hover:border-blue-500/50' },
+    { flag: '🇦🇿', name: 'Азербайджан', count: '180+', color: 'from-blue-500/20 to-red-500/20', border: 'hover:border-red-500/50' },
+    { flag: '🇬🇪', name: 'Грузия', count: '80+', color: 'from-red-500/20 to-white/10', border: 'hover:border-red-500/50' },
+    { flag: '🇦🇲', name: 'Армения', count: '40+', color: 'from-red-500/20 to-orange-500/20', border: 'hover:border-orange-500/50' },
+  ];
 
   return (
     <section className="py-20 relative overflow-hidden">
@@ -55,7 +87,6 @@ const StoreLogosWow = () => {
 
         {/* Scrolling logos container */}
         <div className="relative">
-          {/* Gradient masks */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0a0a0b] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0a0a0b] to-transparent z-10 pointer-events-none" />
 
@@ -66,48 +97,40 @@ const StoreLogosWow = () => {
             style={{ scrollBehavior: 'auto' }}
           >
             {allLogos.slice(0, 40).map((store, index) => (
-              <div
-                key={`row1-${index}`}
-                className="flex-shrink-0 group"
-              >
-                <div className="w-48 h-24 rounded-xl glass border border-white/5 flex items-center justify-center gap-3 px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
-                  {/* Logo circle */}
+              <div key={`row1-${index}`} className="flex-shrink-0 group">
+                <div className="w-52 h-24 rounded-xl glass border border-white/5 flex items-center gap-3 px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10 group-hover:border-purple-500/30 transition-colors">
                     <span className="text-white font-bold text-sm">{store.logo}</span>
                   </div>
-                  {/* Store info */}
                   <div className="flex-1 min-w-0">
                     <p className="text-white font-medium text-sm truncate">{store.name}</p>
                     <p className="text-gray-500 text-xs truncate">{store.domain}</p>
-                    <p className="text-xs mt-0.5">{store.country}</p>
+                    <div className="mt-1">
+                      <FlagImage country={store.country} size="w-5 h-4" />
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Scrolling row 2 (reverse direction) */}
+          {/* Scrolling row 2 */}
           <div 
             className="flex gap-6 overflow-hidden py-4"
-            style={{ 
-              animation: 'scroll-reverse 60s linear infinite',
-            }}
+            style={{ animation: 'scroll-reverse 60s linear infinite' }}
           >
             {allLogos.slice(20).map((store, index) => (
-              <div
-                key={`row2-${index}`}
-                className="flex-shrink-0 group"
-              >
-                <div className="w-48 h-24 rounded-xl glass border border-white/5 flex items-center justify-center gap-3 px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
-                  {/* Logo circle */}
+              <div key={`row2-${index}`} className="flex-shrink-0 group">
+                <div className="w-52 h-24 rounded-xl glass border border-white/5 flex items-center gap-3 px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center border border-white/10 group-hover:border-orange-500/30 transition-colors">
                     <span className="text-white font-bold text-sm">{store.logo}</span>
                   </div>
-                  {/* Store info */}
                   <div className="flex-1 min-w-0">
                     <p className="text-white font-medium text-sm truncate">{store.name}</p>
                     <p className="text-gray-500 text-xs truncate">{store.domain}</p>
-                    <p className="text-xs mt-0.5">{store.country}</p>
+                    <div className="mt-1">
+                      <FlagImage country={store.country} size="w-5 h-4" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -115,30 +138,23 @@ const StoreLogosWow = () => {
           </div>
         </div>
 
-        {/* Country flags summary - WOW DESIGN */}
+        {/* Country flags summary - WOW DESIGN with REAL FLAG IMAGES */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mt-12">
-          {[
-            { flag: '🇷🇺', name: 'Россия', count: '3200+', color: 'from-red-500/20 to-blue-500/20', border: 'hover:border-red-500/50' },
-            { flag: '🇺🇦', name: 'Украина', count: '1500+', color: 'from-blue-500/20 to-yellow-500/20', border: 'hover:border-blue-500/50' },
-            { flag: '🇰🇿', name: 'Казахстан', count: '800+', color: 'from-cyan-500/20 to-yellow-500/20', border: 'hover:border-cyan-500/50' },
-            { flag: '🇧🇾', name: 'Беларусь', count: '450+', color: 'from-red-500/20 to-green-500/20', border: 'hover:border-green-500/50' },
-            { flag: '🇺🇿', name: 'Узбекистан', count: '250+', color: 'from-blue-500/20 to-green-500/20', border: 'hover:border-blue-500/50' },
-            { flag: '🇦🇿', name: 'Азербайджан', count: '180+', color: 'from-blue-500/20 to-red-500/20', border: 'hover:border-red-500/50' },
-            { flag: '🇬🇪', name: 'Грузия', count: '80+', color: 'from-red-500/20 to-white/10', border: 'hover:border-red-500/50' },
-            { flag: '🇦🇲', name: 'Армения', count: '40+', color: 'from-red-500/20 to-orange-500/20', border: 'hover:border-orange-500/50' },
-          ].map((country) => (
+          {countries.map((country) => (
             <div
               key={country.name}
               className={`glass rounded-2xl p-4 border border-white/10 ${country.border} transition-all duration-300 cursor-pointer group hover:scale-105 hover:shadow-xl`}
             >
               <div className="flex flex-col items-center text-center">
-                {/* Large Flag */}
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${country.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
-                  <span className="text-4xl">{country.flag}</span>
+                {/* Large Flag Image */}
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${country.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform overflow-hidden`}>
+                  <img 
+                    src={flagImages[country.flag]} 
+                    alt={country.name}
+                    className="w-12 h-9 object-cover rounded shadow-lg"
+                  />
                 </div>
-                {/* Country name */}
                 <p className="text-white text-sm font-medium mb-1">{country.name}</p>
-                {/* Count with glow */}
                 <p className="text-emerald-400 text-lg font-bold">{country.count}</p>
                 <p className="text-gray-500 text-xs">магазинов</p>
               </div>
@@ -147,7 +163,6 @@ const StoreLogosWow = () => {
         </div>
       </div>
 
-      {/* CSS for reverse animation */}
       <style>{`
         @keyframes scroll-reverse {
           0% { transform: translateX(0); }
