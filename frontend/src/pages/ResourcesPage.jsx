@@ -364,19 +364,27 @@ const ResourcesPage = () => {
               <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
                 <button 
                   className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                  onClick={() => {
-                    navigator.share?.({ 
-                      title: selectedResource.title, 
-                      url: window.location.href 
-                    });
-                  }}
+                  onClick={() => shareArticle(selectedResource)}
                 >
                   <Share2 className="w-4 h-4" />
                   <span className="text-sm">Поделиться</span>
                 </button>
-                <button className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                  <Bookmark className="w-4 h-4" />
-                  <span className="text-sm">Сохранить</span>
+                <button 
+                  className={`flex items-center gap-2 transition-colors ${isArticleSaved(selectedResource.id) ? 'text-emerald-400' : 'text-gray-400 hover:text-white'}`}
+                  onClick={() => toggleSaveArticle(selectedResource)}
+                >
+                  {isArticleSaved(selectedResource.id) ? (
+                    <>
+                      <BookmarkCheck className="w-4 h-4" />
+                      <span className="text-sm">Сохранено</span>
+                      <Check className="w-3 h-3" />
+                    </>
+                  ) : (
+                    <>
+                      <Bookmark className="w-4 h-4" />
+                      <span className="text-sm">Сохранить</span>
+                    </>
+                  )}
                 </button>
               </div>
 
