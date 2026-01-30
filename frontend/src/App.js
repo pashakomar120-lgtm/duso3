@@ -9,8 +9,11 @@ import ServicesPage from "./pages/ServicesPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import ContactPage from "./pages/ContactPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
 import AnimatedBackground from "./components/AnimatedBackground";
 import LiveChat from "./components/LiveChat";
+import AIAssistant from "./components/AIAssistant";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
@@ -28,11 +31,14 @@ function App() {
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/resources" element={<ResourcesPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
             </Routes>
           </main>
           <Footer />
         </div>
         <LiveChat />
+        <AIAssistant />
         <Toaster />
       </BrowserRouter>
     </div>
