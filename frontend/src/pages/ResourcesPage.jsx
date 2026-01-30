@@ -3,11 +3,10 @@ import { resources, faq } from '../data/mockData';
 import { Clock, ArrowRight, ChevronDown, ChevronUp, BookOpen, FileText, CheckSquare, Lightbulb, TrendingUp, X, Share2, Bookmark, BookmarkCheck, Check } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { useToast } from '../components/ui/use-toast';
+import { toast } from 'sonner';
 
 const ResourcesPage = () => {
   const navigate = useNavigate();
-  const { toast } = useToast();
   const [openFaq, setOpenFaq] = useState(null);
   const [filter, setFilter] = useState('all');
   const [selectedResource, setSelectedResource] = useState(null);
@@ -35,16 +34,10 @@ const ResourcesPage = () => {
     let newSaved;
     if (isArticleSaved(article.id)) {
       newSaved = savedArticles.filter(id => id !== article.id);
-      toast({
-        title: "Удалено из сохранённых",
-        description: article.title,
-      });
+      toast.info("Удалено из сохранённых");
     } else {
       newSaved = [...savedArticles, article.id];
-      toast({
-        title: "✓ Сохранено!",
-        description: `"${article.title}" добавлено в закладки`,
-      });
+      toast.success(`✓ "${article.title}" сохранено!`);
     }
     setSavedArticles(newSaved);
     localStorage.setItem('savedArticles', JSON.stringify(newSaved));
@@ -63,10 +56,7 @@ const ResourcesPage = () => {
         await navigator.share(shareData);
       } else {
         await navigator.clipboard.writeText(window.location.href);
-        toast({
-          title: "✓ Ссылка скопирована!",
-          description: "Теперь вы можете поделиться статьёй",
-        });
+        toast.success("✓ Ссылка скопирована!");
       }
     } catch (err) {
       console.log('Share error:', err);
