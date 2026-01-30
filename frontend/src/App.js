@@ -14,12 +14,14 @@ import TermsPage from "./pages/TermsPage";
 import AnimatedBackground from "./components/AnimatedBackground";
 import LiveChat from "./components/LiveChat";
 import AIAssistant from "./components/AIAssistant";
+import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
     <div className="App relative">
       <BrowserRouter>
+        <ScrollToTop />
         <AnimatedBackground />
         <div className="relative z-10">
           <Header />
