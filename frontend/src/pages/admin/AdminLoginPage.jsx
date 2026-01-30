@@ -27,7 +27,7 @@ const AdminLoginPage = () => {
       await login(formData.username, formData.password);
       navigate('/admin/dashboard');
     } catch (err) {
-      setError('Невірний логін або пароль');
+      setError('Неверный логин или пароль');
     } finally {
       setLoading(false);
     }
@@ -59,10 +59,10 @@ const AdminLoginPage = () => {
               <Shield className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">
-              Панель управління
+              Панель управления
             </h1>
             <p className="text-gray-400 text-sm">
-              Авторизований доступ
+              Авторизованный доступ
             </p>
           </div>
 
@@ -76,7 +76,7 @@ const AdminLoginPage = () => {
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
-              <Label htmlFor="username" className="text-gray-300">Логін</Label>
+              <Label htmlFor="username" className="text-gray-300">Логин</Label>
               <div className="relative">
                 <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                 <Input
@@ -84,7 +84,7 @@ const AdminLoginPage = () => {
                   value={formData.username}
                   onChange={(e) => setFormData({...formData, username: e.target.value})}
                   className="pl-12 bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500"
-                  placeholder="Введіть логін"
+                  placeholder="Введите логин"
                   required
                   autoComplete="off"
                   data-testid="admin-username"
@@ -102,7 +102,7 @@ const AdminLoginPage = () => {
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   className="pl-12 pr-12 bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500"
-                  placeholder="Введіть пароль"
+                  placeholder="Введите пароль"
                   required
                   autoComplete="off"
                   data-testid="admin-password"
@@ -126,10 +126,10 @@ const AdminLoginPage = () => {
               {loading ? (
                 <span className="flex items-center gap-2">
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Входимо...
+                  Входим...
                 </span>
               ) : (
-                'Увійти'
+                'Войти'
               )}
             </Button>
           </form>

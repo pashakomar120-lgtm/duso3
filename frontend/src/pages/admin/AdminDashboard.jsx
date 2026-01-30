@@ -23,7 +23,7 @@ const AdminDashboard = () => {
   const menuItems = [
     { icon: LayoutDashboard, label: 'Дашборд', path: '/admin/dashboard' },
     { icon: Users, label: 'Заявки', path: '/admin/leads' },
-    { icon: Phone, label: 'Дзвінки', path: '/admin/calls' },
+    { icon: Phone, label: 'Звонки', path: '/admin/calls' },
     { icon: MessageSquare, label: 'Live Chat', path: '/admin/livechats' },
     { icon: Brain, label: 'AI Переписки', path: '/admin/ai-conversations' },
   ];
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
               </div>
               <div>
                 <p className="text-white font-medium">{admin?.username}</p>
-                <p className="text-gray-500 text-xs">Адміністратор</p>
+                <p className="text-gray-500 text-xs">Администратор</p>
               </div>
             </div>
             <Button
@@ -135,7 +135,7 @@ const AdminDashboard = () => {
               className="w-full border-white/10 text-gray-400 hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/30"
             >
               <LogOut className="w-4 h-4 mr-2" />
-              Вийти
+              Выйти
             </Button>
           </div>
         </div>
@@ -155,7 +155,7 @@ const AdminDashboard = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-bold text-white">Дашборд</h1>
-            <p className="text-gray-400">Огляд всіх показників</p>
+            <p className="text-gray-400">Обзор всех показателей</p>
           </div>
           <Button
             onClick={handleRefresh}
@@ -163,7 +163,7 @@ const AdminDashboard = () => {
             className="bg-white/5 border border-white/10 text-white hover:bg-white/10"
           >
             <RefreshCw className={`w-4 h-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
-            Оновити
+            Обновить
           </Button>
         </div>
 
@@ -177,25 +177,25 @@ const AdminDashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <StatCard
                 icon={Users}
-                label="Всього заявок"
+                label="Всего заявок"
                 value={stats?.total_leads || 0}
                 color="bg-gradient-to-br from-purple-500 to-purple-600"
               />
               <StatCard
                 icon={AlertCircle}
-                label="Нові заявки"
+                label="Новые заявки"
                 value={stats?.new_leads || 0}
                 color="bg-gradient-to-br from-orange-500 to-orange-600"
               />
               <StatCard
                 icon={Clock}
-                label="В роботі"
+                label="В работе"
                 value={stats?.in_progress_leads || 0}
                 color="bg-gradient-to-br from-blue-500 to-blue-600"
               />
               <StatCard
                 icon={CheckCircle}
-                label="Закрито"
+                label="Закрыто"
                 value={stats?.closed_leads || 0}
                 color="bg-gradient-to-br from-emerald-500 to-emerald-600"
               />
@@ -205,13 +205,13 @@ const AdminDashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <StatCard
                 icon={Phone}
-                label="Заплановані дзвінки"
+                label="Запланированные звонки"
                 value={stats?.total_calls || 0}
                 color="bg-gradient-to-br from-cyan-500 to-cyan-600"
               />
               <StatCard
                 icon={MessageSquare}
-                label="Live Chat повідомлення"
+                label="Live Chat сообщения"
                 value={stats?.total_chats || 0}
                 color="bg-gradient-to-br from-pink-500 to-pink-600"
               />
@@ -229,7 +229,7 @@ const AdminDashboard = () => {
               <div className="glass-strong rounded-xl p-6 border border-white/10">
                 <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
                   <PieChart className="w-5 h-5 text-purple-400" />
-                  Заявки по послугах
+                  Заявки по услугам
                 </h3>
                 {stats?.leads_by_service && Object.keys(stats.leads_by_service).length > 0 ? (
                   <div className="space-y-3">
@@ -249,7 +249,7 @@ const AdminDashboard = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-gray-500 text-center py-8">Поки немає даних</p>
+                  <p className="text-gray-500 text-center py-8">Пока нет данных</p>
                 )}
               </div>
 
@@ -277,7 +277,7 @@ const AdminDashboard = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-gray-500 text-center py-8">Поки немає даних</p>
+                  <p className="text-gray-500 text-center py-8">Пока нет данных</p>
                 )}
               </div>
             </div>
@@ -287,7 +287,7 @@ const AdminDashboard = () => {
               <div className="glass-strong rounded-xl p-6 border border-white/10 mt-6">
                 <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
                   <BarChart3 className="w-5 h-5 text-orange-400" />
-                  Заявки за останні 30 днів
+                  Заявки за последние 30 дней
                 </h3>
                 <div className="flex items-end gap-1 h-40">
                   {stats.leads_by_day.map((day, index) => {
@@ -318,7 +318,7 @@ const AdminDashboard = () => {
               >
                 <div className="flex items-center gap-3">
                   <Users className="w-5 h-5 text-purple-400" />
-                  <span className="text-white group-hover:text-purple-400 transition-colors">Переглянути заявки</span>
+                  <span className="text-white group-hover:text-purple-400 transition-colors">Просмотреть заявки</span>
                 </div>
               </Link>
               <Link
@@ -327,7 +327,7 @@ const AdminDashboard = () => {
               >
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-cyan-400" />
-                  <span className="text-white group-hover:text-cyan-400 transition-colors">Заплановані дзвінки</span>
+                  <span className="text-white group-hover:text-cyan-400 transition-colors">Запланированные звонки</span>
                 </div>
               </Link>
               <Link
