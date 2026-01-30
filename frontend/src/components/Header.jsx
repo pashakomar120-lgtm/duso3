@@ -5,6 +5,18 @@ import { navItems, services } from '../data/mockData';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import * as LucideIcons from 'lucide-react';
 
+// CIS country flags from flagcdn.com
+const cisFlags = [
+  { code: 'ru', name: 'Россия' },
+  { code: 'ua', name: 'Украина' },
+  { code: 'kz', name: 'Казахстан' },
+  { code: 'by', name: 'Беларусь' },
+  { code: 'uz', name: 'Узбекистан' },
+  { code: 'az', name: 'Азербайджан' },
+  { code: 'ge', name: 'Грузия' },
+  { code: 'am', name: 'Армения' },
+];
+
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,7 +39,7 @@ const Header = () => {
 
   const stats = [
     { icon: Zap, label: '6500+ магазинов', color: 'text-orange-500' },
-    { icon: Globe, label: '15+ стран СНГ', color: 'text-emerald-500' },
+    { icon: Globe, label: '8 стран СНГ', color: 'text-emerald-500' },
     { icon: Award, label: '#1 Shopify Partner', color: 'text-orange-500' },
     { icon: TrendingUp, label: '$3B+ оборот', color: 'text-emerald-500' },
   ];
@@ -53,10 +65,16 @@ const Header = () => {
             ))}
           </div>
           <div className="hidden md:flex items-center gap-2">
-            <span className="text-gray-500 text-xs">Работаем:</span>
+            <span className="text-gray-500 text-xs">Весь СНГ:</span>
             <div className="flex items-center gap-1">
-              {['🇷🇺', '🇺🇦', '🇰🇿', '🇧🇾', '🇺🇿', '🇦🇿', '🇬🇪', '🇦🇲'].map((flag, i) => (
-                <span key={i} className="text-sm">{flag}</span>
+              {cisFlags.map((flag) => (
+                <img 
+                  key={flag.code}
+                  src={`https://flagcdn.com/w20/${flag.code}.png`}
+                  alt={flag.name}
+                  title={flag.name}
+                  className="w-5 h-3 object-cover rounded-sm shadow-sm hover:scale-125 transition-transform cursor-pointer"
+                />
               ))}
             </div>
           </div>
