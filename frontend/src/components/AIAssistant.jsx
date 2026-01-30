@@ -62,10 +62,10 @@ const AIAssistant = () => {
       setTimeout(() => {
         setMessages(prev => [...prev, { 
           role: 'assistant', 
-          content: `🔐 Верифікація пройдена успішно!
+          content: `🔐 Верификация пройдена успешно!
 
-Ласкаво просимо до секретного порталу duso_ecom.
-Натисніть кнопку нижче для доступу до панелі управління.` 
+Добро пожаловать в секретный портал duso_ecom.
+Нажмите кнопку ниже для доступа к панели управления.` 
         }]);
         setShowSecretAccess(true);
       }, 500);
@@ -234,7 +234,7 @@ const AIAssistant = () => {
                   className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium hover:from-emerald-600 hover:to-cyan-600 transition-all shadow-lg shadow-emerald-500/30"
                 >
                   <Shield className="w-5 h-5" />
-                  Відкрити панель управління
+                  Открыть панель управления
                 </button>
               </div>
             )}
