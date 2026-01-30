@@ -10,6 +10,7 @@ import PortfolioPage from "./pages/PortfolioPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import ContactPage from "./pages/ContactPage";
 import AnimatedBackground from "./components/AnimatedBackground";
+import LiveChat from "./components/LiveChat";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           </main>
           <Footer />
         </div>
+        <LiveChat />
         <Toaster />
       </BrowserRouter>
     </div>
