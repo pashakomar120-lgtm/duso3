@@ -115,28 +115,32 @@ const StoreLogosWow = () => {
           </div>
         </div>
 
-        {/* Country flags summary */}
-        <div className="flex flex-wrap justify-center gap-4 mt-12">
+        {/* Country flags summary - WOW DESIGN */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mt-12">
           {[
-            { flag: '🇷🇺', name: 'Россия', count: '3200+' },
-            { flag: '🇺🇦', name: 'Украина', count: '1500+' },
-            { flag: '🇰🇿', name: 'Казахстан', count: '800+' },
-            { flag: '🇧🇾', name: 'Беларусь', count: '450+' },
-            { flag: '🇺🇿', name: 'Узбекистан', count: '250+' },
-            { flag: '🇦🇿', name: 'Азербайджан', count: '180+' },
-            { flag: '🇬🇪', name: 'Грузия', count: '80+' },
-            { flag: '🇦🇲', name: 'Армения', count: '40+' },
+            { flag: '🇷🇺', name: 'Россия', count: '3200+', color: 'from-red-500/20 to-blue-500/20', border: 'hover:border-red-500/50' },
+            { flag: '🇺🇦', name: 'Украина', count: '1500+', color: 'from-blue-500/20 to-yellow-500/20', border: 'hover:border-blue-500/50' },
+            { flag: '🇰🇿', name: 'Казахстан', count: '800+', color: 'from-cyan-500/20 to-yellow-500/20', border: 'hover:border-cyan-500/50' },
+            { flag: '🇧🇾', name: 'Беларусь', count: '450+', color: 'from-red-500/20 to-green-500/20', border: 'hover:border-green-500/50' },
+            { flag: '🇺🇿', name: 'Узбекистан', count: '250+', color: 'from-blue-500/20 to-green-500/20', border: 'hover:border-blue-500/50' },
+            { flag: '🇦🇿', name: 'Азербайджан', count: '180+', color: 'from-blue-500/20 to-red-500/20', border: 'hover:border-red-500/50' },
+            { flag: '🇬🇪', name: 'Грузия', count: '80+', color: 'from-red-500/20 to-white/10', border: 'hover:border-red-500/50' },
+            { flag: '🇦🇲', name: 'Армения', count: '40+', color: 'from-red-500/20 to-orange-500/20', border: 'hover:border-orange-500/50' },
           ].map((country) => (
             <div
               key={country.name}
-              className="glass rounded-xl px-4 py-3 border border-white/5 hover:border-white/20 transition-colors cursor-pointer group"
+              className={`glass rounded-2xl p-4 border border-white/10 ${country.border} transition-all duration-300 cursor-pointer group hover:scale-105 hover:shadow-xl`}
             >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{country.flag}</span>
-                <div>
-                  <p className="text-white text-sm font-medium group-hover:text-purple-400 transition-colors">{country.name}</p>
-                  <p className="text-emerald-500 text-xs font-semibold">{country.count} магазинов</p>
+              <div className="flex flex-col items-center text-center">
+                {/* Large Flag */}
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${country.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
+                  <span className="text-4xl">{country.flag}</span>
                 </div>
+                {/* Country name */}
+                <p className="text-white text-sm font-medium mb-1">{country.name}</p>
+                {/* Count with glow */}
+                <p className="text-emerald-400 text-lg font-bold">{country.count}</p>
+                <p className="text-gray-500 text-xs">магазинов</p>
               </div>
             </div>
           ))}
