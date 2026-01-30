@@ -71,19 +71,19 @@ const PortfolioPage = () => {
             <div>
               <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 border border-orange-500/20">
                 <Sparkles className="w-4 h-4 text-orange-500" />
-                <span className="text-orange-500 text-sm font-medium">51+ проект по всьому СНГ</span>
+                <span className="text-orange-500 text-sm font-medium">51+ проект по всему СНГ</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4 mb-6">
-                Наші <span className="text-emerald-500 text-glow-emerald">проекти</span>
+                Наши <span className="text-emerald-500 text-glow-emerald">проекты</span>
               </h1>
               <p className="text-gray-400 text-xl leading-relaxed">
-                Більше <span className="text-orange-500 font-bold">6500+</span> успішних проектів у <span className="text-emerald-500 font-bold">всіх 8 країнах СНГ</span>. 
-                Від стартапів до enterprise — ми створюємо магазини, які продають.
+                Более <span className="text-orange-500 font-bold">6500+</span> успешных проектов во <span className="text-emerald-500 font-bold">всех 8 странах СНГ</span>. 
+                От стартапов до enterprise — мы создаём магазины, которые продают.
               </p>
               
               {/* All CIS countries highlight */}
               <div className="mt-6 p-4 glass rounded-xl border border-emerald-500/20">
-                <p className="text-emerald-400 text-sm font-medium mb-3">🌍 Працюємо з усіма країнами СНГ:</p>
+                <p className="text-emerald-400 text-sm font-medium mb-3">🌍 Работаем со всеми странами СНГ:</p>
                 <div className="flex flex-wrap gap-2">
                   {allCisFlags.map((flag) => (
                     <div key={flag.code} className="flex items-center gap-2 px-3 py-1.5 glass rounded-lg border border-white/5">
