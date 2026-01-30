@@ -6,6 +6,9 @@
 - ✅ WOW блок з логотипами магазинів на головній
 - ✅ Домени магазинів з 8 країн СНГ
 - ✅ Секретний доступ до адмін-панелі через AI
+- ✅ Реальні прапори країн на всіх сторінках (Header, Portfolio, WOW секція)
+- ✅ Виправлено overflow у WOW блоці (картки більше не виходять за межі)
+- ✅ Весь контент російською мовою
 
 ## Secret Access
 **Code word (AI Assistant):** `квантовий кіт шрёдінгера 2047`
@@ -17,6 +20,7 @@
 - **Portfolio:** 51 projects with real domains
 - **Store Logos:** 40+ stores displayed in WOW section
 - **Countries:** Russia, Ukraine, Kazakhstan, Belarus, Uzbekistan, Azerbaijan, Georgia, Armenia
+- **Real Flag Images:** flagcdn.com for all country flags
 
 ## File Structure
 ```
@@ -26,7 +30,8 @@
 └── frontend/src/
     ├── components/
     │   ├── AIAssistant.jsx (secret access)
-    │   ├── StoreLogosWow.jsx (WOW section)
+    │   ├── StoreLogosWow.jsx (WOW section - fixed overflow)
+    │   ├── Header.jsx (with flag images)
     │   └── ...
     ├── data/
     │   ├── testimonialsData.js (40+ reviews)
@@ -34,9 +39,10 @@
     │   └── mockData.js
     ├── pages/
     │   ├── admin/ (admin panel)
+    │   ├── PortfolioPage.jsx (with flag filters)
     │   └── ... (public pages)
     └── App.js
 ```
 
 ## How to Download Code
-Use "Download code" button in Emergent chat menu
+Use "Download code" or "Save to Github" button in Emergent chat menu
