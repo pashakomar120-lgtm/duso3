@@ -401,7 +401,7 @@ async def create_lead(lead: LeadCreate):
         "updated_at": now
     }
     await db.leads.insert_one(lead_doc)
-    del lead_doc["_id"] if "_id" in lead_doc else None
+    lead_doc.pop("_id", None)
     return LeadResponse(**lead_doc)
 
 @api_router.post("/calls", response_model=CallScheduleResponse)
@@ -414,7 +414,7 @@ async def create_call_schedule(call: CallScheduleCreate):
         "created_at": now
     }
     await db.calls.insert_one(call_doc)
-    del call_doc["_id"] if "_id" in call_doc else None
+    call_doc.pop("_id", None)
     return CallScheduleResponse(**call_doc)
 
 @api_router.post("/livechat", response_model=LiveChatResponse)
@@ -427,7 +427,7 @@ async def create_livechat(chat: LiveChatCreate):
         "created_at": now
     }
     await db.livechats.insert_one(chat_doc)
-    del chat_doc["_id"] if "_id" in chat_doc else None
+    chat_doc.pop("_id", None)
     return LiveChatResponse(**chat_doc)
 
 
