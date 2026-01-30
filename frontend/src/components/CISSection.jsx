@@ -3,25 +3,37 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Users, TrendingUp, Globe } from 'lucide-react';
 import { Button } from './ui/button';
 
+// Flag images from flagcdn.com
+const flagImages = {
+  ru: 'https://flagcdn.com/w80/ru.png',
+  ua: 'https://flagcdn.com/w80/ua.png',
+  kz: 'https://flagcdn.com/w80/kz.png',
+  by: 'https://flagcdn.com/w80/by.png',
+  uz: 'https://flagcdn.com/w80/uz.png',
+  az: 'https://flagcdn.com/w80/az.png',
+  ge: 'https://flagcdn.com/w80/ge.png',
+  am: 'https://flagcdn.com/w80/am.png',
+};
+
 const cisCountries = [
   { 
-    flag: '🇷🇺', 
+    code: 'ru',
     name: 'Россия', 
     projects: 3200, 
-    cities: ['Москва', 'Санкт-Петербург', 'Казань', 'Новосибирск', 'Екатеринбург', 'Самара', 'Ростов'],
+    cities: ['Москва', 'Санкт-Петербург', 'Казань', 'Новосибирск', 'Екатеринбург'],
     color: 'from-red-500/20 to-blue-500/20',
     border: 'border-red-500/30 hover:border-red-500/50'
   },
   { 
-    flag: '🇺🇦', 
+    code: 'ua',
     name: 'Украина', 
     projects: 1500, 
-    cities: ['Киев', 'Харьков', 'Одесса', 'Львов', 'Днепр', 'Запорожье'],
+    cities: ['Киев', 'Харьков', 'Одесса', 'Львов', 'Днепр'],
     color: 'from-blue-500/20 to-yellow-500/20',
     border: 'border-blue-500/30 hover:border-yellow-500/50'
   },
   { 
-    flag: '🇰🇿', 
+    code: 'kz',
     name: 'Казахстан', 
     projects: 800, 
     cities: ['Алматы', 'Нур-Султан', 'Шымкент', 'Караганда'],
@@ -29,7 +41,7 @@ const cisCountries = [
     border: 'border-cyan-500/30 hover:border-cyan-500/50'
   },
   { 
-    flag: '🇧🇾', 
+    code: 'by',
     name: 'Беларусь', 
     projects: 450, 
     cities: ['Минск', 'Гомель', 'Брест', 'Гродно'],
@@ -37,7 +49,7 @@ const cisCountries = [
     border: 'border-green-500/30 hover:border-green-500/50'
   },
   { 
-    flag: '🇺🇿', 
+    code: 'uz',
     name: 'Узбекистан', 
     projects: 250, 
     cities: ['Ташкент', 'Самарканд', 'Бухара'],
@@ -45,7 +57,7 @@ const cisCountries = [
     border: 'border-blue-500/30 hover:border-blue-500/50'
   },
   { 
-    flag: '🇦🇿', 
+    code: 'az',
     name: 'Азербайджан', 
     projects: 180, 
     cities: ['Баку', 'Гянджа'],
@@ -53,7 +65,7 @@ const cisCountries = [
     border: 'border-red-500/30 hover:border-red-500/50'
   },
   { 
-    flag: '🇬🇪', 
+    code: 'ge',
     name: 'Грузия', 
     projects: 80, 
     cities: ['Тбилиси', 'Батуми'],
@@ -61,7 +73,7 @@ const cisCountries = [
     border: 'border-red-500/30 hover:border-red-500/50'
   },
   { 
-    flag: '🇦🇲', 
+    code: 'am',
     name: 'Армения', 
     projects: 40, 
     cities: ['Ереван'],
@@ -73,7 +85,6 @@ const cisCountries = [
 const CISSection = () => {
   const navigate = useNavigate();
 
-  const totalProjects = cisCountries.reduce((sum, c) => sum + c.projects, 0);
   const totalCities = cisCountries.reduce((sum, c) => sum + c.cities.length, 0);
 
   return (
@@ -118,7 +129,7 @@ const CISSection = () => {
           </div>
         </div>
 
-        {/* Countries Grid - WOW Design with Flags */}
+        {/* Countries Grid with REAL FLAG IMAGES */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {cisCountries.map((country) => (
             <div
@@ -129,8 +140,12 @@ const CISSection = () => {
             >
               {/* Flag Header */}
               <div className="flex items-center gap-4 mb-4">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${country.color} flex items-center justify-center`}>
-                  <span className="text-4xl">{country.flag}</span>
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${country.color} flex items-center justify-center overflow-hidden`}>
+                  <img 
+                    src={flagImages[country.code]} 
+                    alt={country.name}
+                    className="w-12 h-9 object-cover rounded shadow-lg"
+                  />
                 </div>
                 <div>
                   <div className="text-white font-bold text-lg">{country.name}</div>
