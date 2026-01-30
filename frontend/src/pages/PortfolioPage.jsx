@@ -134,7 +134,7 @@ const PortfolioPage = () => {
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <Filter className="w-4 h-4 text-orange-500" />
-              <span className="text-gray-400 text-sm">Категорія:</span>
+              <span className="text-gray-400 text-sm">Категория:</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {categories.slice(0, 12).map((cat) => (
@@ -148,7 +148,7 @@ const PortfolioPage = () => {
                       : 'glass text-gray-400 hover:text-white border border-white/5'
                   }`}
                 >
-                  {cat === 'all' ? 'Всі категорії' : cat}
+                  {cat === 'all' ? 'Все категории' : cat}
                 </button>
               ))}
             </div>
@@ -158,7 +158,7 @@ const PortfolioPage = () => {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Globe className="w-4 h-4 text-emerald-500" />
-              <span className="text-gray-400 text-sm">Країна:</span>
+              <span className="text-gray-400 text-sm">Страна:</span>
             </div>
             <div className="flex flex-wrap gap-2">
               <button
@@ -169,7 +169,7 @@ const PortfolioPage = () => {
                     : 'glass text-gray-400 hover:text-white border border-white/5'
                 }`}
               >
-                🌍 Всі країни СНГ
+                🌍 Все страны СНГ
               </button>
               {allCisFlags.map((flag) => (
                 <button
@@ -199,14 +199,14 @@ const PortfolioPage = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between mb-8">
             <p className="text-gray-400">
-              Показано: <span className="text-white font-bold">{filteredProjects.length}</span> проектів
+              Показано: <span className="text-white font-bold">{filteredProjects.length}</span> проектов
             </p>
             {(categoryFilter !== 'all' || countryFilter !== 'all') && (
               <button
                 onClick={() => { setCategoryFilter('all'); setCountryFilter('all'); }}
                 className="text-orange-500 hover:text-orange-400 text-sm flex items-center gap-1"
               >
-                Скинути фільтри <X className="w-4 h-4" />
+                Сбросить фильтры <X className="w-4 h-4" />
               </button>
             )}
           </div>
@@ -283,10 +283,10 @@ const PortfolioPage = () => {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="floating-card rounded-3xl p-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Готові до зростання?
+              Готовы к росту?
             </h2>
             <p className="text-gray-400 text-lg mb-8">
-              Ваш бізнес в будь-якій країні СНГ? Ми знаємо локальний ринок та допоможемо масштабуватись!
+              Ваш бизнес в любой стране СНГ? Мы знаем местный рынок и поможем масштабироваться!
             </p>
             <div className="flex flex-wrap gap-2 justify-center mb-8">
               {allCisFlags.map((flag) => (
@@ -302,7 +302,7 @@ const PortfolioPage = () => {
               onClick={() => navigate('/contact')}
               className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 px-8 py-6 text-lg font-medium shadow-lg shadow-orange-500/25"
             >
-              Обговорити проект
+              Обсудить проект
             </Button>
           </div>
         </div>
@@ -357,7 +357,7 @@ const PortfolioPage = () => {
               <p className="text-gray-300 mb-6">{selectedProject.description}</p>
 
               <div className="mb-6">
-                <h4 className="text-white font-semibold mb-3">Результати:</h4>
+                <h4 className="text-white font-semibold mb-3">Результаты:</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.results.map((result, idx) => (
                     <span key={idx} className="px-3 py-1.5 glass rounded-lg text-emerald-400 text-sm border border-emerald-500/20">
@@ -369,7 +369,7 @@ const PortfolioPage = () => {
               </div>
 
               <div className="mb-6">
-                <h4 className="text-white font-semibold mb-3">Послуги:</h4>
+                <h4 className="text-white font-semibold mb-3">Услуги:</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.services.map((service, idx) => (
                     <span key={idx} className="px-3 py-1.5 glass rounded-lg text-orange-400 text-sm border border-orange-500/20">
@@ -381,7 +381,7 @@ const PortfolioPage = () => {
 
               {selectedProject.revenue && (
                 <div className="p-4 glass rounded-xl border border-emerald-500/20 text-center">
-                  <span className="text-gray-400 text-sm">Річний оборот</span>
+                  <span className="text-gray-400 text-sm">Годовой оборот</span>
                   <p className="text-emerald-400 text-2xl font-bold">{selectedProject.revenue}</p>
                 </div>
               )}
@@ -393,7 +393,7 @@ const PortfolioPage = () => {
                 }}
                 className="w-full mt-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700"
               >
-                Хочу такий же результат
+                Хочу такой же результат
               </Button>
             </div>
           </div>
