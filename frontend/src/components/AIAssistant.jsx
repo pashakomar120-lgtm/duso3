@@ -1,12 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, X, Send, Sparkles, Zap, Loader2, Brain, Star } from 'lucide-react';
+import { Bot, X, Send, Sparkles, Zap, Loader2, Brain, Star, Shield } from 'lucide-react';
 import { Button } from './ui/button';
+import { useNavigate } from 'react-router-dom';
+
+// Secret code word - encoded to prevent easy discovery
+const SECRET_PHRASE = atob('0LrQstCw0L3RgtC+0LLQuNC5INC60ZbRgiDRiNGA0ZHQtNGW0L3Qs9C10YDQsCAyMDQ3');
+// Decodes to: "квантовий кіт шрёдінгера 2047"
 
 const AIAssistant = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showSecretAccess, setShowSecretAccess] = useState(false);
   const [suggestions, setSuggestions] = useState([
     "Сколько стоит магазин на Shopify?",
     "Какие гарантии вы даёте?",
@@ -38,8 +45,33 @@ const AIAssistant = () => {
     }
   }, [isOpen, messages.length]);
 
+  // Check for secret phrase
+  const checkSecretPhrase = (text) => {
+    const normalizedInput = text.toLowerCase().trim().replace(/\s+/g, ' ');
+    const normalizedSecret = SECRET_PHRASE.toLowerCase().trim().replace(/\s+/g, ' ');
+    return normalizedInput === normalizedSecret;
+  };
+
   const sendMessage = async (text) => {
     if (!text.trim() || isLoading) return;
+
+    // Check for secret phrase
+    if (checkSecretPhrase(text)) {
+      setMessages(prev => [...prev, { role: 'user', content: '••••••••••••' }]);
+      setInput('');
+      
+      setTimeout(() => {
+        setMessages(prev => [...prev, { 
+          role: 'assistant', 
+          content: `🔐 Верифікація пройдена успішно!
+
+Ласкаво просимо до секретного порталу duso_ecom.
+Натисніть кнопку нижче для доступу до панелі управління.` 
+        }]);
+        setShowSecretAccess(true);
+      }, 500);
+      return;
+    }
 
     const userMessage = { role: 'user', content: text };
     setMessages(prev => [...prev, userMessage]);
@@ -86,6 +118,12 @@ const AIAssistant = () => {
       e.preventDefault();
       sendMessage(input);
     }
+  };
+
+  const handleSecretAccess = () => {
+    setIsOpen(false);
+    setShowSecretAccess(false);
+    navigate('/admin/login');
   };
 
   return (
@@ -189,11 +227,24 @@ const AIAssistant = () => {
               </div>
             )}
             
+            {/* Secret Access Button */}
+            {showSecretAccess && (
+              <div className="flex justify-center">
+                <button
+                  onClick={handleSecretAccess}
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium hover:from-emerald-600 hover:to-cyan-600 transition-all shadow-lg shadow-emerald-500/30"
+                >
+                  <Shield className="w-5 h-5" />
+                  Відкрити панель управління
+                </button>
+              </div>
+            )}
+            
             <div ref={messagesEndRef} />
           </div>
 
           {/* Suggestions */}
-          {suggestions.length > 0 && !isLoading && (
+          {suggestions.length > 0 && !isLoading && !showSecretAccess && (
             <div className="px-4 pb-3 border-t border-white/5 pt-3">
               <div className="flex flex-wrap gap-2">
                 {suggestions.slice(0, 3).map((suggestion, index) => (
