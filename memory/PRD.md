@@ -1,131 +1,117 @@
-# duso_ecom - E-commerce Agency Website
+# duso_ecom - #1 E-commerce Agency in CIS
 
 ## Original Problem Statement
-Create a WOW-effect website for "duso_ecom" - an e-commerce agency specializing in Shopify store development across CIS region (Russia, Ukraine, Kazakhstan, Belarus, Uzbekistan, Azerbaijan).
+Create a TOP-1 WOW-effect website for "duso_ecom" - the leading e-commerce agency across all CIS countries (Russia, Ukraine, Kazakhstan, Belarus, Uzbekistan, Azerbaijan, Georgia, Armenia).
 
-## User Personas
-- **Startups** - launching first online store
-- **Existing businesses** - migrating to or improving online presence
-- **International companies** - expanding to CIS markets
-- **D2C brands** - building direct-to-consumer channels
-- **Fast-growing companies** - scaling infrastructure
-- **Marketplaces** - creating multi-vendor platforms
+## Target Markets
+- 🇷🇺 Russia (Moscow, St. Petersburg, Kazan, Novosibirsk, Ekaterinburg)
+- 🇺🇦 Ukraine (Kyiv, Kharkiv, Odessa, Lviv, Dnipro)
+- 🇰🇿 Kazakhstan (Almaty, Nur-Sultan, Shymkent, Karaganda)
+- 🇧🇾 Belarus (Minsk, Gomel, Brest, Grodno)
+- 🇺🇿 Uzbekistan (Tashkent, Samarkand, Bukhara)
+- 🇦🇿 Azerbaijan (Baku)
+- 🇬🇪 Georgia (Tbilisi, Batumi)
+- 🇦🇲 Armenia (Yerevan)
 
-## Core Requirements ✅
+## Core Features ✅
 
-### Visual Design
-- [x] Animated Canvas background with particles, hexagons, energy lines
-- [x] Glass-morphism and floating card effects
-- [x] Color scheme: Orange (#f97316), Emerald (#10b981), Black (#0a0a0b)
-- [x] Russian language content
-- [x] WOW-factor tech aesthetic
-- [x] Mobile responsive
+### Header
+- [x] Statistics bar: "6500+ магазинов", "15+ стран СНГ", "#1 Shopify Partner", "$3B+ оборот"
+- [x] 8 CIS country flags
+- [x] Logo with "#1 СНГ" indicator
+- [x] Dropdown menu for Services (8 services + "Все 13 услуг")
+- [x] CTA buttons: "Наши работы" → /portfolio, "Бесплатная консультация" → /contact
 
-### Header Features ✅
-- [x] Top bar with contacts (email, phone, telegram)
-- [x] CIS countries indicator (Russia, Ukraine, Kazakhstan, Belarus)
-- [x] **Dropdown menu** on "Услуги" hover showing 8 services
-- [x] Live indicator (ONLINE)
-- [x] Gradient CTA button
+### Portfolio (52 Projects)
+- [x] 52 real-looking projects across 8 CIS countries
+- [x] Filter by country (8 countries)
+- [x] Filter by category (12+ categories)
+- [x] Project cards with: category badge, country flag, city, results, services
+- [x] Modal with full project details
+- [x] "Заказать похожий проект" CTA → /contact
 
-### Hero Section ✅
-- [x] Images in 2x2 grid (no overlap)
-- [x] Floating badges (+340% growth, 24/7 support)
-- [x] Stats mini-row (6500+, $3B+, 15+ countries)
-- [x] Trust badges (Shopify Plus Partner, 98% satisfied)
+### CIS Section on Homepage
+- [x] "#1 E-commerce агентство по СНГ" headline
+- [x] Stats: 8 Countries, 25+ Cities, 6500+ Projects, $3B+ Revenue
+- [x] Grid of 8 countries with project counts and cities
+- [x] CTAs: "Смотреть все проекты" → /portfolio, "Получить консультацию" → /contact
 
-### Live Chat ✅
-- [x] Bubble notification appears after 3 seconds
-- [x] Form collects: name, phone, email, telegram, message
-- [x] Welcome messages flow
-- [x] Success state after submission
+### Services (13 total)
+- [x] Shopify магазин (от $2,500) - 🎁 10 топовых товаров БЕСПЛАТНО
+- [x] + 12 more services with gifts
+
+### Live Chat
+- [x] Bubble notification after 3 seconds
+- [x] Form: name, phone, email, telegram, message
 - [x] Direct links to Telegram, Email, Phone
 
-### Contact Page ✅
-- [x] Form with: name, email, phone, telegram
-- [x] Service selector dropdown
-- [x] **Budget selector** with options ($3k-$50k+)
-- [x] **"БЕСПЛАТНО" button that escapes** from cursor on hover
-- [x] Call scheduling form with date/time
+### Contact Page
+- [x] Quote form: name, email, phone, telegram, service, budget
+- [x] Budget selector with escaping "БЕСПЛАТНО" button
+- [x] Call scheduling form
 - [x] CIS countries list
-- [x] Bonus notice for today's submissions
+- [x] Working hours
 
-### New Sections ✅
-- [x] **"Кому мы подходим"** - 6 audience categories with benefits
-- [x] **"Процесс от идеи до запуска"** - 6 steps timeline
-- [x] Updated Awards section with 4 official partners
+### Other Sections
+- [x] "Кому мы подходим" - 6 audience categories
+- [x] "Процесс работы" - 6 steps timeline
+- [x] Awards & Partners - Shopify Plus, Google, Meta, Klaviyo
+- [x] Testimonials carousel
+- [x] Stats with animated counters
 
-### Pages (6 total) ✅
-- [x] Home (`/`)
-- [x] About (`/about`)
-- [x] Services (`/services`) - 13 services with gifts
-- [x] Portfolio (`/portfolio`)
-- [x] Resources (`/resources`)
-- [x] Contact (`/contact`)
-
-## Services with Gifts
-1. **Shopify магазин** (от $2,500) - 🎁 10 топовых товаров для продажи БЕСПЛАТНО
-2. Структура и дизайн - 10 шаблонов продающих страниц
-3. Платёжные системы - Настройка 3 платёжных систем
-4. + 10 more services
+## Pages (6)
+1. **Home** (/) - All sections
+2. **About** (/about) - Team, values, history
+3. **Services** (/services) - 13 services with gifts
+4. **Portfolio** (/portfolio) - 52 projects, filters
+5. **Resources** (/resources) - Blog, guides
+6. **Contact** (/contact) - Forms, info
 
 ## Tech Stack
-- **Frontend**: React, React Router, TailwindCSS, Shadcn/UI
-- **Animation**: Canvas API
-- **Icons**: Lucide React
+- **Frontend**: React 18, React Router, TailwindCSS
+- **UI**: Shadcn/UI, Lucide React icons
+- **Animation**: Canvas API (background), CSS animations
 - **State**: React hooks
-- **Backend**: Not integrated (template only)
 
 ## File Structure
 ```
 /app/frontend/src/
 ├── components/
-│   ├── ui/                    # Shadcn/UI
-│   ├── AnimatedBackground.jsx # Canvas animation
-│   ├── Header.jsx             # Dropdown menu, top bar
-│   ├── HeroSection.jsx        # Grid images, badges
-│   ├── LiveChat.jsx           # Chat widget
-│   ├── WhoWeWorkWith.jsx      # Audience section
-│   ├── ProcessSection.jsx     # Process timeline
-│   ├── AwardsSection.jsx      # Partners & awards
+│   ├── Header.jsx        # Stats bar, dropdown menu
+│   ├── HeroSection.jsx   # Grid images, stats
+│   ├── CISSection.jsx    # 8 countries, geography
+│   ├── LiveChat.jsx      # Chat widget
 │   └── ...
 ├── pages/
-│   ├── ContactPage.jsx        # Budget selector, escaping button
+│   ├── PortfolioPage.jsx # 52 projects, filters
+│   ├── ContactPage.jsx   # Budget, escaping button
 │   └── ...
 ├── data/
-│   └── mockData.js
+│   └── mockData.js       # 52 caseStudies, services
 └── App.js
 ```
 
-## What's Been Implemented
-
-### Session 1 (December 2025)
-- Initial website clone
-- Multi-page architecture
-- Russian translation
-- Color scheme
-- Animated background
-- Glass-morphism effects
-
-### Session 2 (Current)
-- [x] Header with dropdown menu for services
-- [x] Top bar with CIS countries
-- [x] Hero images in grid (no overlap)
-- [x] Live Chat with form
-- [x] Contact page with budget + escaping "FREE" button
-- [x] "Кому мы подходим" section
-- [x] "Процесс работы" section
-- [x] Updated Awards with partners
-
 ## Testing Status
-- **Iteration 1**: 100% pass (basic features)
-- **Iteration 2**: 100% pass (new features)
-- All features tested and working
+- **Iteration 1**: 100% (basic features)
+- **Iteration 2**: 100% (chat, budget)
+- **Iteration 3**: 98% → 100% (CIS update, Armenia fix)
 
 ## ⚠️ MOCKED DATA
 - All content from `/app/frontend/src/data/mockData.js`
 - Form submissions show toast notifications only
-- No backend integration
+- No actual backend integration
+
+## All Buttons Working ✅
+- Logo → Home
+- Navigation links → respective pages
+- "Бесплатная консультация" → /contact
+- "Наши работы" → /portfolio
+- "Смотреть все проекты" → /portfolio
+- "Получить консультацию" → /contact
+- "Заказать похожий проект" → /contact
+- Services dropdown items → /services#service-id
+- Country cards → /portfolio
+- All form submissions → toast notifications
 
 ## Prioritized Backlog
 
@@ -133,19 +119,12 @@ Create a WOW-effect website for "duso_ecom" - an e-commerce agency specializing 
 All requested features implemented.
 
 ### P1 - Important
-- [ ] Backend integration for forms (store to MongoDB)
-- [ ] Email notifications on form submission
+- [ ] Backend integration for forms
+- [ ] Email notifications
 - [ ] SEO meta tags
 
 ### P2 - Nice to Have
-- [ ] Admin panel for content
-- [ ] Blog article detail pages
+- [ ] Admin panel
 - [ ] Multi-language (Ukrainian, English)
-- [ ] Real live chat integration (Tawk.to)
-- [ ] Analytics (Google Analytics, Facebook Pixel)
-
-## Notes for Next Developer
-1. Dropdown menu opens on hover - uses `onMouseEnter/Leave`
-2. "БЕСПЛАТНО" button uses `onMouseMove` to calculate escape position
-3. Live Chat button may be blocked by Emergent badge in dev - normal
-4. All interactive elements have `data-testid` attributes
+- [ ] Real chat integration (Tawk.to)
+- [ ] Analytics (GA, FB Pixel)
