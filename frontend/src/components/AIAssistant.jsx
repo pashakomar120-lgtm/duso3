@@ -221,8 +221,9 @@ const AIAssistant = () => {
                 placeholder="Напишите вопрос..."
                 disabled={isLoading}
                 data-testid="ai-input"
-                className="flex-1 bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white text-sm placeholder:text-gray-500 focus:border-purple-500/50 focus:outline-none focus:ring-1 focus:ring-purple-500/30 transition-all disabled:opacity-50"
+                className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white text-sm placeholder:text-gray-500 focus:border-purple-500/50 focus:outline-none focus:ring-1 focus:ring-purple-500/30 transition-all disabled:opacity-50"
                 autoComplete="off"
+                style={{ caretColor: '#a855f7' }}
               />
               <Button
                 type="submit"
