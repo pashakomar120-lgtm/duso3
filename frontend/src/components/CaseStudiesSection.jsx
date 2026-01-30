@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { caseStudies } from '../data/mockData';
+import { caseStudies } from '../data/portfolioData';
 import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
