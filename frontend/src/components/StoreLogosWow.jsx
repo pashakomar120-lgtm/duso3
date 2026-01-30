@@ -86,27 +86,27 @@ const StoreLogosWow = () => {
         </div>
 
         {/* Scrolling logos container */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0a0a0b] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0a0a0b] to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling row 1 */}
           <div 
             ref={scrollRef}
-            className="flex gap-6 overflow-hidden py-4 mb-6"
+            className="flex gap-4 overflow-hidden py-4 mb-4"
             style={{ scrollBehavior: 'auto' }}
           >
             {allLogos.slice(0, 40).map((store, index) => (
               <div key={`row1-${index}`} className="flex-shrink-0 group">
-                <div className="w-52 h-24 rounded-xl glass border border-white/5 flex items-center gap-3 px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10 group-hover:border-purple-500/30 transition-colors">
-                    <span className="text-white font-bold text-sm">{store.logo}</span>
+                <div className="w-48 h-20 rounded-xl glass border border-white/5 flex items-center gap-3 px-3 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10 group-hover:border-purple-500/30 transition-colors flex-shrink-0">
+                    <span className="text-white font-bold text-xs">{store.logo}</span>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-white font-medium text-sm truncate">{store.name}</p>
+                  <div className="flex-1 min-w-0 overflow-hidden">
+                    <p className="text-white font-medium text-xs truncate">{store.name}</p>
                     <p className="text-gray-500 text-xs truncate">{store.domain}</p>
                     <div className="mt-1">
-                      <FlagImage country={store.country} size="w-5 h-4" />
+                      <FlagImage country={store.country} size="w-4 h-3" />
                     </div>
                   </div>
                 </div>
@@ -116,20 +116,20 @@ const StoreLogosWow = () => {
 
           {/* Scrolling row 2 */}
           <div 
-            className="flex gap-6 overflow-hidden py-4"
+            className="flex gap-4 overflow-hidden py-4"
             style={{ animation: 'scroll-reverse 60s linear infinite' }}
           >
             {allLogos.slice(20).map((store, index) => (
               <div key={`row2-${index}`} className="flex-shrink-0 group">
-                <div className="w-52 h-24 rounded-xl glass border border-white/5 flex items-center gap-3 px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center border border-white/10 group-hover:border-orange-500/30 transition-colors">
-                    <span className="text-white font-bold text-sm">{store.logo}</span>
+                <div className="w-48 h-20 rounded-xl glass border border-white/5 flex items-center gap-3 px-3 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center border border-white/10 group-hover:border-orange-500/30 transition-colors flex-shrink-0">
+                    <span className="text-white font-bold text-xs">{store.logo}</span>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-white font-medium text-sm truncate">{store.name}</p>
+                  <div className="flex-1 min-w-0 overflow-hidden">
+                    <p className="text-white font-medium text-xs truncate">{store.name}</p>
                     <p className="text-gray-500 text-xs truncate">{store.domain}</p>
                     <div className="mt-1">
-                      <FlagImage country={store.country} size="w-5 h-4" />
+                      <FlagImage country={store.country} size="w-4 h-3" />
                     </div>
                   </div>
                 </div>
