@@ -1278,7 +1278,7 @@ export const resources = [
     id: 3,
     title: 'SEO для интернет-магазинов: Полный чеклист',
     category: 'Чеклист',
-    image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=400&h=250&fit=crop',
+    image: 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=400&h=250&fit=crop',
     date: '5 января 2025',
     readTime: '15 мин',
     excerpt: 'Пошаговый чеклист по SEO-оптимизации интернет-магазина для роста органического трафика.'
