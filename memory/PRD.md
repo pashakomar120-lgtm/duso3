@@ -1,117 +1,80 @@
 # duso_ecom - #1 E-commerce Agency in CIS
 
 ## Original Problem Statement
-Create a TOP-1 WOW-effect website for "duso_ecom" - the leading e-commerce agency across all CIS countries (Russia, Ukraine, Kazakhstan, Belarus, Uzbekistan, Azerbaijan, Georgia, Armenia).
+Create a TOP-1 WOW-effect website for "duso_ecom" - the leading e-commerce agency across all CIS countries with AI assistant.
 
-## Target Markets
-- 🇷🇺 Russia (Moscow, St. Petersburg, Kazan, Novosibirsk, Ekaterinburg)
-- 🇺🇦 Ukraine (Kyiv, Kharkiv, Odessa, Lviv, Dnipro)
-- 🇰🇿 Kazakhstan (Almaty, Nur-Sultan, Shymkent, Karaganda)
-- 🇧🇾 Belarus (Minsk, Gomel, Brest, Grodno)
-- 🇺🇿 Uzbekistan (Tashkent, Samarkand, Bukhara)
-- 🇦🇿 Azerbaijan (Baku)
-- 🇬🇪 Georgia (Tbilisi, Batumi)
-- 🇦🇲 Armenia (Yerevan)
+## Latest Updates (January 2025)
+- ✅ Privacy Policy page (/privacy)
+- ✅ Terms of Service page (/terms)
+- ✅ AI Assistant with GPT-4o integration (WOW effect!)
+- ✅ All buttons working correctly
+- ✅ 52 portfolio projects across 8 CIS countries
 
-## Core Features ✅
-
-### Header
-- [x] Statistics bar: "6500+ магазинов", "15+ стран СНГ", "#1 Shopify Partner", "$3B+ оборот"
-- [x] 8 CIS country flags
-- [x] Logo with "#1 СНГ" indicator
-- [x] Dropdown menu for Services (8 services + "Все 13 услуг")
-- [x] CTA buttons: "Наши работы" → /portfolio, "Бесплатная консультация" → /contact
-
-### Portfolio (52 Projects)
-- [x] 52 real-looking projects across 8 CIS countries
-- [x] Filter by country (8 countries)
-- [x] Filter by category (12+ categories)
-- [x] Project cards with: category badge, country flag, city, results, services
-- [x] Modal with full project details
-- [x] "Заказать похожий проект" CTA → /contact
-
-### CIS Section on Homepage
-- [x] "#1 E-commerce агентство по СНГ" headline
-- [x] Stats: 8 Countries, 25+ Cities, 6500+ Projects, $3B+ Revenue
-- [x] Grid of 8 countries with project counts and cities
-- [x] CTAs: "Смотреть все проекты" → /portfolio, "Получить консультацию" → /contact
-
-### Services (13 total)
-- [x] Shopify магазин (от $2,500) - 🎁 10 топовых товаров БЕСПЛАТНО
-- [x] + 12 more services with gifts
-
-### Live Chat
-- [x] Bubble notification after 3 seconds
-- [x] Form: name, phone, email, telegram, message
-- [x] Direct links to Telegram, Email, Phone
-
-### Contact Page
-- [x] Quote form: name, email, phone, telegram, service, budget
-- [x] Budget selector with escaping "БЕСПЛАТНО" button
-- [x] Call scheduling form
-- [x] CIS countries list
-- [x] Working hours
-
-### Other Sections
-- [x] "Кому мы подходим" - 6 audience categories
-- [x] "Процесс работы" - 6 steps timeline
-- [x] Awards & Partners - Shopify Plus, Google, Meta, Klaviyo
-- [x] Testimonials carousel
-- [x] Stats with animated counters
-
-## Pages (6)
+## Pages (8 total)
 1. **Home** (/) - All sections
 2. **About** (/about) - Team, values, history
 3. **Services** (/services) - 13 services with gifts
 4. **Portfolio** (/portfolio) - 52 projects, filters
 5. **Resources** (/resources) - Blog, guides
-6. **Contact** (/contact) - Forms, info
+6. **Contact** (/contact) - Forms with budget, escaping button
+7. **Privacy** (/privacy) - Privacy Policy (NEW!)
+8. **Terms** (/terms) - Terms of Service (NEW!)
+
+## AI Assistant (WOW Feature!)
+- GPT-4o powered chatbot
+- Answers questions about services, pricing, timelines
+- Suggests relevant services based on conversation
+- Beautiful gradient UI with glow effects
+- Session-based conversation history
+- Backend: `/api/ai/chat` endpoint
+
+## Core Features ✅
+
+### Header
+- Statistics: "6500+ магазинов", "15+ стран СНГ", "#1 Shopify Partner", "$3B+ оборот"
+- 8 CIS country flags
+- Dropdown menu for Services
+- All buttons navigate correctly
+
+### Portfolio (52 Projects)
+- Filter by 8 countries
+- Filter by 12+ categories
+- Project modal with full details
+
+### Live Chat
+- Bubble notification
+- Form: name, phone, email, telegram
+
+### Contact Page
+- Quote form with budget selector
+- Escaping "БЕСПЛАТНО" button
+- Call scheduling
+
+### Policy Pages
+- Privacy Policy - comprehensive data protection info
+- Terms of Service - conditions, payments, guarantees
 
 ## Tech Stack
-- **Frontend**: React 18, React Router, TailwindCSS
-- **UI**: Shadcn/UI, Lucide React icons
-- **Animation**: Canvas API (background), CSS animations
-- **State**: React hooks
+- **Frontend**: React 18, React Router, TailwindCSS, Shadcn/UI
+- **Backend**: FastAPI, MongoDB
+- **AI**: OpenAI GPT-4o via Emergent Integration
+- **Animation**: Canvas API, CSS animations
 
-## File Structure
-```
-/app/frontend/src/
-├── components/
-│   ├── Header.jsx        # Stats bar, dropdown menu
-│   ├── HeroSection.jsx   # Grid images, stats
-│   ├── CISSection.jsx    # 8 countries, geography
-│   ├── LiveChat.jsx      # Chat widget
-│   └── ...
-├── pages/
-│   ├── PortfolioPage.jsx # 52 projects, filters
-│   ├── ContactPage.jsx   # Budget, escaping button
-│   └── ...
-├── data/
-│   └── mockData.js       # 52 caseStudies, services
-└── App.js
-```
+## API Endpoints
+- `GET /api/` - Health check
+- `POST /api/status` - Status check
+- `GET /api/status` - Get status checks
+- `POST /api/ai/chat` - AI Assistant chat (NEW!)
 
 ## Testing Status
-- **Iteration 1**: 100% (basic features)
-- **Iteration 2**: 100% (chat, budget)
-- **Iteration 3**: 98% → 100% (CIS update, Armenia fix)
+- All pages functional
+- AI Assistant working with GPT-4o
+- Navigation tested
+- Forms working (toast notifications)
 
-## ⚠️ MOCKED DATA
-- All content from `/app/frontend/src/data/mockData.js`
-- Form submissions show toast notifications only
-- No actual backend integration
-
-## All Buttons Working ✅
-- Logo → Home
-- Navigation links → respective pages
-- "Бесплатная консультация" → /contact
-- "Наши работы" → /portfolio
-- "Смотреть все проекты" → /portfolio
-- "Получить консультацию" → /contact
-- "Заказать похожий проект" → /contact
-- Services dropdown items → /services#service-id
-- Country cards → /portfolio
-- All form submissions → toast notifications
+## ⚠️ Notes
+- Forms show toast notifications (no email sending)
+- AI uses Emergent LLM Key for GPT-4o
 
 ## Prioritized Backlog
 
@@ -119,12 +82,10 @@ Create a TOP-1 WOW-effect website for "duso_ecom" - the leading e-commerce agenc
 All requested features implemented.
 
 ### P1 - Important
-- [ ] Backend integration for forms
-- [ ] Email notifications
+- [ ] Email notifications for form submissions
 - [ ] SEO meta tags
 
 ### P2 - Nice to Have
 - [ ] Admin panel
-- [ ] Multi-language (Ukrainian, English)
-- [ ] Real chat integration (Tawk.to)
-- [ ] Analytics (GA, FB Pixel)
+- [ ] Multi-language
+- [ ] Analytics
