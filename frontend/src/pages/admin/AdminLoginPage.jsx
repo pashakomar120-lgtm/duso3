@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Lock, User, Mail, Eye, EyeOff, Shield, ArrowLeft } from 'lucide-react';
+import { Lock, User, Eye, EyeOff, Shield, ArrowLeft } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { Label } from '../../components/ui/label';
 
 const AdminLoginPage = () => {
   const navigate = useNavigate();
-  const { login, register } = useAuth();
-  const [isLogin, setIsLogin] = useState(true);
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   
   const [formData, setFormData] = useState({
     username: '',
-    password: '',
-    email: ''
+    password: ''
   });
 
   const handleSubmit = async (e) => {
@@ -26,14 +24,10 @@ const AdminLoginPage = () => {
     setLoading(true);
 
     try {
-      if (isLogin) {
-        await login(formData.username, formData.password);
-      } else {
-        await register(formData.username, formData.password, formData.email);
-      }
+      await login(formData.username, formData.password);
       navigate('/admin/dashboard');
     } catch (err) {
-      setError(err.message);
+      setError('Невірний логін або пароль');
     } finally {
       setLoading(false);
     }
@@ -65,10 +59,10 @@ const AdminLoginPage = () => {
               <Shield className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">
-              {isLogin ? 'Вхід в адмін-панель' : 'Реєстрація адміна'}
+              Панель управління
             </h1>
             <p className="text-gray-400 text-sm">
-              {isLogin ? 'Увійдіть для управління сайтом' : 'Створіть обліковий запис адміністратора'}
+              Авторизований доступ
             </p>
           </div>
 
@@ -90,30 +84,13 @@ const AdminLoginPage = () => {
                   value={formData.username}
                   onChange={(e) => setFormData({...formData, username: e.target.value})}
                   className="pl-12 bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500"
-                  placeholder="admin"
+                  placeholder="Введіть логін"
                   required
+                  autoComplete="off"
                   data-testid="admin-username"
                 />
               </div>
             </div>
-
-            {!isLogin && (
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-gray-300">Email</Label>
-                <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="pl-12 bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500"
-                    placeholder="admin@duso-ecom.com"
-                    data-testid="admin-email"
-                  />
-                </div>
-              </div>
-            )}
 
             <div className="space-y-2">
               <Label htmlFor="password" className="text-gray-300">Пароль</Label>
@@ -125,8 +102,9 @@ const AdminLoginPage = () => {
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   className="pl-12 pr-12 bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500"
-                  placeholder="••••••••"
+                  placeholder="Введіть пароль"
                   required
+                  autoComplete="off"
                   data-testid="admin-password"
                 />
                 <button
@@ -148,35 +126,18 @@ const AdminLoginPage = () => {
               {loading ? (
                 <span className="flex items-center gap-2">
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  {isLogin ? 'Входимо...' : 'Реєструємо...'}
+                  Входимо...
                 </span>
               ) : (
-                isLogin ? 'Увійти' : 'Зареєструватись'
+                'Увійти'
               )}
             </Button>
           </form>
-
-          {/* Toggle Login/Register */}
-          <div className="mt-6 text-center">
-            <button
-              onClick={() => {
-                setIsLogin(!isLogin);
-                setError('');
-              }}
-              className="text-gray-400 hover:text-white text-sm transition-colors"
-            >
-              {isLogin ? (
-                <>Немає акаунту? <span className="text-purple-400">Зареєструватись</span></>
-              ) : (
-                <>Вже є акаунт? <span className="text-purple-400">Увійти</span></>
-              )}
-            </button>
-          </div>
         </div>
 
         {/* Footer */}
         <p className="text-center text-gray-500 text-sm mt-6">
-          duso_ecom Admin Panel © 2025
+          duso_ecom © 2025
         </p>
       </div>
     </div>
