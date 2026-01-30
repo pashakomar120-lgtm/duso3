@@ -1,130 +1,151 @@
 # duso_ecom - E-commerce Agency Website
 
 ## Original Problem Statement
-Create a website similar to `https://www.itgeeks.com/` for the brand "duso_ecom" - an e-commerce agency specializing in Shopify store development.
+Create a WOW-effect website for "duso_ecom" - an e-commerce agency specializing in Shopify store development across CIS region (Russia, Ukraine, Kazakhstan, Belarus, Uzbekistan, Azerbaijan).
 
 ## User Personas
-- **E-commerce entrepreneurs** looking for professional Shopify development
-- **Business owners** wanting to migrate to or optimize their online stores
-- **Marketing managers** seeking digital marketing services
+- **Startups** - launching first online store
+- **Existing businesses** - migrating to or improving online presence
+- **International companies** - expanding to CIS markets
+- **D2C brands** - building direct-to-consumer channels
+- **Fast-growing companies** - scaling infrastructure
+- **Marketplaces** - creating multi-vendor platforms
 
-## Core Requirements
+## Core Requirements ✅
 
-### Visual Design ✅
-- [x] Animated dark background with particles, hexagons, and glow effects
+### Visual Design
+- [x] Animated Canvas background with particles, hexagons, energy lines
 - [x] Glass-morphism and floating card effects
-- [x] Color scheme: Orange (#f97316), Emerald (#10b981), Black (#0a0a0b), White
+- [x] Color scheme: Orange (#f97316), Emerald (#10b981), Black (#0a0a0b)
 - [x] Russian language content
 - [x] WOW-factor tech aesthetic
+- [x] Mobile responsive
 
-### Pages & Navigation ✅
-- [x] Home page (`/`) - Hero, Services, Testimonials, Portfolio, Stats, CTA
-- [x] About page (`/about`) - Team, Values, History
-- [x] Services page (`/services`) - 13 services with pricing and gifts
-- [x] Portfolio page (`/portfolio`) - Case studies grid with filters
-- [x] Resources page (`/resources`) - Blog articles and guides
-- [x] Contact page (`/contact`) - Contact form and information
+### Header Features ✅
+- [x] Top bar with contacts (email, phone, telegram)
+- [x] CIS countries indicator (Russia, Ukraine, Kazakhstan, Belarus)
+- [x] **Dropdown menu** on "Услуги" hover showing 8 services
+- [x] Live indicator (ONLINE)
+- [x] Gradient CTA button
 
-### Services with Gifts ✅
+### Hero Section ✅
+- [x] Images in 2x2 grid (no overlap)
+- [x] Floating badges (+340% growth, 24/7 support)
+- [x] Stats mini-row (6500+, $3B+, 15+ countries)
+- [x] Trust badges (Shopify Plus Partner, 98% satisfied)
+
+### Live Chat ✅
+- [x] Bubble notification appears after 3 seconds
+- [x] Form collects: name, phone, email, telegram, message
+- [x] Welcome messages flow
+- [x] Success state after submission
+- [x] Direct links to Telegram, Email, Phone
+
+### Contact Page ✅
+- [x] Form with: name, email, phone, telegram
+- [x] Service selector dropdown
+- [x] **Budget selector** with options ($3k-$50k+)
+- [x] **"БЕСПЛАТНО" button that escapes** from cursor on hover
+- [x] Call scheduling form with date/time
+- [x] CIS countries list
+- [x] Bonus notice for today's submissions
+
+### New Sections ✅
+- [x] **"Кому мы подходим"** - 6 audience categories with benefits
+- [x] **"Процесс от идеи до запуска"** - 6 steps timeline
+- [x] Updated Awards section with 4 official partners
+
+### Pages (6 total) ✅
+- [x] Home (`/`)
+- [x] About (`/about`)
+- [x] Services (`/services`) - 13 services with gifts
+- [x] Portfolio (`/portfolio`)
+- [x] Resources (`/resources`)
+- [x] Contact (`/contact`)
+
+## Services with Gifts
 1. **Shopify магазин** (от $2,500) - 🎁 10 топовых товаров для продажи БЕСПЛАТНО
-2. Структура и дизайн (от $3,000) - 10 шаблонов продающих страниц
-3. Платёжные системы (от $500) - Настройка 3 платёжных систем
-4. Оптимизация сайта (от $800) - Аудит + 1 год CDN
-5. Таргетированная реклама (от $1,500/мес) - 20 рекламных креативов
-6. Доставка и отправка (от $700) - Интеграция 5 служб доставки
-7. Аналитика и трекинг (от $600) - Кастомный дашборд + 3 мес отчётов
-8. Оптимизация товаров (от $1,000) - 50 оптимизированных карточек
-9. Базовая автоматизация (от $900) - 10 email-шаблонов
-10. Поддержка магазина (от $200/мес) - 1 месяц премиум поддержки
-11. Маркетплейсы (от $1,200) - Подключение к 2 маркетплейсам
-12. Digital продукты (от $1,500) - Шаблон воронки
-13. SOP (от $2,000) - 10 SOP-шаблонов
-
-### Interactive Features ✅
-- [x] Service tabs with dynamic content
-- [x] Testimonials carousel with auto-play
-- [x] Portfolio filter and scroll
-- [x] Mobile responsive menu
-- [x] All CTA buttons navigate correctly
-- [x] Toast notifications on form submission
+2. Структура и дизайн - 10 шаблонов продающих страниц
+3. Платёжные системы - Настройка 3 платёжных систем
+4. + 10 more services
 
 ## Tech Stack
 - **Frontend**: React, React Router, TailwindCSS, Shadcn/UI
-- **Backend**: FastAPI (template, not integrated)
-- **Database**: MongoDB (template, not integrated)
+- **Animation**: Canvas API
 - **Icons**: Lucide React
-- **Animation**: Canvas API for background
-
-## What's Been Implemented
-
-### December 2025
-- [x] Initial website clone from itgeeks.com
-- [x] Russian language translation
-- [x] Color scheme update (orange, emerald, black, white)
-- [x] Multi-page architecture (6 pages)
-- [x] Canvas-based animated background with particles, hexagons, energy lines
-- [x] Glass-morphism and floating card effects
-- [x] Shopify service added as #1 with special gift
-- [x] All services have gifts displayed
-- [x] WOW-factor tech aesthetic throughout
-- [x] Mobile responsive design
-- [x] All interactive elements functional
+- **State**: React hooks
+- **Backend**: Not integrated (template only)
 
 ## File Structure
 ```
 /app/frontend/src/
 ├── components/
-│   ├── ui/                    # Shadcn/UI components
+│   ├── ui/                    # Shadcn/UI
 │   ├── AnimatedBackground.jsx # Canvas animation
-│   ├── Header.jsx             # Navigation with glass effect
-│   ├── Footer.jsx             # Footer with glass effect
-│   ├── HeroSection.jsx        # Hero with floating images
-│   ├── ServicesSection.jsx    # Service tabs
-│   ├── TestimonialsSection.jsx # Carousel
-│   ├── StatsSection.jsx       # Animated counters
-│   ├── CaseStudiesSection.jsx # Portfolio scroll
-│   └── CTASection.jsx         # Call to action
+│   ├── Header.jsx             # Dropdown menu, top bar
+│   ├── HeroSection.jsx        # Grid images, badges
+│   ├── LiveChat.jsx           # Chat widget
+│   ├── WhoWeWorkWith.jsx      # Audience section
+│   ├── ProcessSection.jsx     # Process timeline
+│   ├── AwardsSection.jsx      # Partners & awards
+│   └── ...
 ├── pages/
-│   ├── HomePage.jsx
-│   ├── AboutPage.jsx
-│   ├── ServicesPage.jsx
-│   ├── PortfolioPage.jsx
-│   ├── ResourcesPage.jsx
-│   └── ContactPage.jsx
+│   ├── ContactPage.jsx        # Budget selector, escaping button
+│   └── ...
 ├── data/
-│   └── mockData.js            # All content data
-├── App.js                     # Router setup
-├── App.css                    # Custom CSS effects
-└── index.css                  # Tailwind + base styles
+│   └── mockData.js
+└── App.js
 ```
+
+## What's Been Implemented
+
+### Session 1 (December 2025)
+- Initial website clone
+- Multi-page architecture
+- Russian translation
+- Color scheme
+- Animated background
+- Glass-morphism effects
+
+### Session 2 (Current)
+- [x] Header with dropdown menu for services
+- [x] Top bar with CIS countries
+- [x] Hero images in grid (no overlap)
+- [x] Live Chat with form
+- [x] Contact page with budget + escaping "FREE" button
+- [x] "Кому мы подходим" section
+- [x] "Процесс работы" section
+- [x] Updated Awards with partners
+
+## Testing Status
+- **Iteration 1**: 100% pass (basic features)
+- **Iteration 2**: 100% pass (new features)
+- All features tested and working
+
+## ⚠️ MOCKED DATA
+- All content from `/app/frontend/src/data/mockData.js`
+- Form submissions show toast notifications only
+- No backend integration
 
 ## Prioritized Backlog
 
-### P0 - Critical (None)
-All critical features implemented and tested.
+### P0 - None
+All requested features implemented.
 
 ### P1 - Important
-- [ ] Backend integration for contact form
-- [ ] SEO meta tags optimization
-- [ ] Performance optimization (lazy loading images)
+- [ ] Backend integration for forms (store to MongoDB)
+- [ ] Email notifications on form submission
+- [ ] SEO meta tags
 
 ### P2 - Nice to Have
+- [ ] Admin panel for content
 - [ ] Blog article detail pages
-- [ ] Case study detail pages
-- [ ] Admin panel for content management
-- [ ] Multi-language support (Ukrainian, English)
-- [ ] Live chat integration
+- [ ] Multi-language (Ukrainian, English)
+- [ ] Real live chat integration (Tawk.to)
+- [ ] Analytics (Google Analytics, Facebook Pixel)
 
-## Known Limitations
-- **MOCKED DATA**: All content comes from `/app/frontend/src/data/mockData.js`
-- **No Backend**: Form submissions are simulated with toast notifications
-- **Static Images**: Using Unsplash stock photos
-
-## Testing Status
-- Frontend: 100% pass rate (tested by testing_agent)
-- Backend: Not applicable (not integrated)
-
-## Notes
-- Site is in Russian as requested by user
-- Shopify gift: "10 топовых товаров для продажи — исследование ниши + поставщики БЕСПЛАТНО"
-- All interactive elements have data-testid attributes for testing
+## Notes for Next Developer
+1. Dropdown menu opens on hover - uses `onMouseEnter/Leave`
+2. "БЕСПЛАТНО" button uses `onMouseMove` to calculate escape position
+3. Live Chat button may be blocked by Emergent badge in dev - normal
+4. All interactive elements have `data-testid` attributes
