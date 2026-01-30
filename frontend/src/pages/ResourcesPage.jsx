@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { resources, faq } from '../data/mockData';
-import { Clock, ArrowRight, ChevronDown, ChevronUp, BookOpen, FileText, CheckSquare, Lightbulb, TrendingUp, X, ExternalLink, Share2, Bookmark } from 'lucide-react';
+import { Clock, ArrowRight, ChevronDown, ChevronUp, BookOpen, FileText, CheckSquare, Lightbulb, TrendingUp, X, Share2, Bookmark, BookmarkCheck, Check } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '../components/ui/use-toast';
 
 const ResourcesPage = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [openFaq, setOpenFaq] = useState(null);
   const [filter, setFilter] = useState('all');
   const [selectedResource, setSelectedResource] = useState(null);
+  const [savedArticles, setSavedArticles] = useState(() => {
+    const saved = localStorage.getItem('savedArticles');
+    return saved ? JSON.parse(saved) : [];
+  });
 
   // Close modal on ESC key press
   useEffect(() => {
@@ -20,6 +26,52 @@ const ResourcesPage = () => {
     document.addEventListener('keydown', handleEscKey);
     return () => document.removeEventListener('keydown', handleEscKey);
   }, [selectedResource]);
+
+  // Check if article is saved
+  const isArticleSaved = (id) => savedArticles.includes(id);
+
+  // Toggle save article
+  const toggleSaveArticle = (article) => {
+    let newSaved;
+    if (isArticleSaved(article.id)) {
+      newSaved = savedArticles.filter(id => id !== article.id);
+      toast({
+        title: "Удалено из сохранённых",
+        description: article.title,
+      });
+    } else {
+      newSaved = [...savedArticles, article.id];
+      toast({
+        title: "✓ Сохранено!",
+        description: `"${article.title}" добавлено в закладки`,
+      });
+    }
+    setSavedArticles(newSaved);
+    localStorage.setItem('savedArticles', JSON.stringify(newSaved));
+  };
+
+  // Share article
+  const shareArticle = async (article) => {
+    const shareData = {
+      title: article.title,
+      text: article.excerpt,
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        toast({
+          title: "✓ Ссылка скопирована!",
+          description: "Теперь вы можете поделиться статьёй",
+        });
+      }
+    } catch (err) {
+      console.log('Share error:', err);
+    }
+  };
 
   const categories = ['all', 'Гайд', 'Сравнение', 'Чеклист', 'Стратегия', 'Тренды'];
 
