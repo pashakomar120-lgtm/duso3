@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { testimonials } from '../data/mockData';
+import { testimonials } from '../data/testimonialsData';
 import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const TestimonialsSection = () => {
