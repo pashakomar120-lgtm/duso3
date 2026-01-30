@@ -7,58 +7,66 @@ const cisCountries = [
   { 
     flag: '🇷🇺', 
     name: 'Россия', 
-    projects: 15, 
-    cities: ['Москва', 'Санкт-Петербург', 'Казань', 'Новосибирск', 'Екатеринбург'],
-    highlight: true
+    projects: 3200, 
+    cities: ['Москва', 'Санкт-Петербург', 'Казань', 'Новосибирск', 'Екатеринбург', 'Самара', 'Ростов'],
+    color: 'from-red-500/20 to-blue-500/20',
+    border: 'border-red-500/30 hover:border-red-500/50'
   },
   { 
     flag: '🇺🇦', 
     name: 'Украина', 
-    projects: 10, 
-    cities: ['Киев', 'Харьков', 'Одесса', 'Львов', 'Днепр'],
-    highlight: true
+    projects: 1500, 
+    cities: ['Киев', 'Харьков', 'Одесса', 'Львов', 'Днепр', 'Запорожье'],
+    color: 'from-blue-500/20 to-yellow-500/20',
+    border: 'border-blue-500/30 hover:border-yellow-500/50'
   },
   { 
     flag: '🇰🇿', 
     name: 'Казахстан', 
-    projects: 8, 
+    projects: 800, 
     cities: ['Алматы', 'Нур-Султан', 'Шымкент', 'Караганда'],
-    highlight: false
+    color: 'from-cyan-500/20 to-yellow-500/20',
+    border: 'border-cyan-500/30 hover:border-cyan-500/50'
   },
   { 
     flag: '🇧🇾', 
     name: 'Беларусь', 
-    projects: 7, 
+    projects: 450, 
     cities: ['Минск', 'Гомель', 'Брест', 'Гродно'],
-    highlight: false
+    color: 'from-red-500/20 to-green-500/20',
+    border: 'border-green-500/30 hover:border-green-500/50'
   },
   { 
     flag: '🇺🇿', 
     name: 'Узбекистан', 
-    projects: 5, 
+    projects: 250, 
     cities: ['Ташкент', 'Самарканд', 'Бухара'],
-    highlight: false
+    color: 'from-blue-500/20 to-green-500/20',
+    border: 'border-blue-500/30 hover:border-blue-500/50'
   },
   { 
     flag: '🇦🇿', 
     name: 'Азербайджан', 
-    projects: 3, 
-    cities: ['Баку'],
-    highlight: false
+    projects: 180, 
+    cities: ['Баку', 'Гянджа'],
+    color: 'from-blue-500/20 to-red-500/20',
+    border: 'border-red-500/30 hover:border-red-500/50'
   },
   { 
     flag: '🇬🇪', 
     name: 'Грузия', 
-    projects: 2, 
+    projects: 80, 
     cities: ['Тбилиси', 'Батуми'],
-    highlight: false
+    color: 'from-red-500/20 to-white/10',
+    border: 'border-red-500/30 hover:border-red-500/50'
   },
   { 
     flag: '🇦🇲', 
     name: 'Армения', 
-    projects: 2, 
+    projects: 40, 
     cities: ['Ереван'],
-    highlight: false
+    color: 'from-red-500/20 to-orange-500/20',
+    border: 'border-orange-500/30 hover:border-orange-500/50'
   },
 ];
 
@@ -110,33 +118,35 @@ const CISSection = () => {
           </div>
         </div>
 
-        {/* Countries Grid */}
+        {/* Countries Grid - WOW Design with Flags */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-          {cisCountries.map((country, index) => (
+          {cisCountries.map((country) => (
             <div
               key={country.name}
               data-testid={`cis-country-${country.name}`}
-              className={`floating-card rounded-xl p-5 transition-all duration-300 hover:scale-105 cursor-pointer ${
-                country.highlight ? 'border-orange-500/30' : ''
-              }`}
+              className={`floating-card rounded-2xl p-5 transition-all duration-300 hover:scale-105 cursor-pointer border ${country.border}`}
               onClick={() => navigate('/portfolio')}
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-3xl">{country.flag}</span>
+              {/* Flag Header */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${country.color} flex items-center justify-center`}>
+                  <span className="text-4xl">{country.flag}</span>
+                </div>
                 <div>
-                  <div className="text-white font-bold">{country.name}</div>
-                  <div className="text-orange-500 text-sm font-medium">{country.projects} проектов</div>
+                  <div className="text-white font-bold text-lg">{country.name}</div>
+                  <div className="text-emerald-400 text-sm font-semibold">{country.projects.toLocaleString()}+ магазинов</div>
                 </div>
               </div>
+              {/* Cities */}
               <div className="flex flex-wrap gap-1">
-                {country.cities.slice(0, 3).map((city) => (
-                  <span key={city} className="text-xs px-2 py-1 glass rounded text-gray-400">
+                {country.cities.slice(0, 4).map((city) => (
+                  <span key={city} className="text-xs px-2 py-1 glass rounded-lg text-gray-400 border border-white/5">
                     {city}
                   </span>
                 ))}
-                {country.cities.length > 3 && (
-                  <span className="text-xs px-2 py-1 text-gray-500">
-                    +{country.cities.length - 3}
+                {country.cities.length > 4 && (
+                  <span className="text-xs px-2 py-1 text-orange-500">
+                    +{country.cities.length - 4}
                   </span>
                 )}
               </div>
