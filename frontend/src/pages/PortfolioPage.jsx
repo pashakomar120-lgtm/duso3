@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { caseStudies } from '../data/mockData';
+import { caseStudies } from '../data/portfolioData';
 import { ExternalLink, Filter, MapPin, TrendingUp, Globe, Sparkles } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useNavigate } from 'react-router-dom';
