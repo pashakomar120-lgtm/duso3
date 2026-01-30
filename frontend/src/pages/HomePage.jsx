@@ -4,6 +4,7 @@ import ScrollingText from '../components/ScrollingText';
 import ServicesSection from '../components/ServicesSection';
 import WhoWeWorkWith from '../components/WhoWeWorkWith';
 import ProcessSection from '../components/ProcessSection';
+import CISSection from '../components/CISSection';
 import RatingsSection from '../components/RatingsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import TrustedBySection from '../components/TrustedBySection';
@@ -20,6 +21,7 @@ const HomePage = () => {
       <ServicesSection />
       <WhoWeWorkWith />
       <ProcessSection />
+      <CISSection />
       <RatingsSection />
       <TestimonialsSection />
       <TrustedBySection />
