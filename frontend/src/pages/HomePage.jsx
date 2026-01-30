@@ -5,6 +5,7 @@ import ServicesSection from '../components/ServicesSection';
 import WhoWeWorkWith from '../components/WhoWeWorkWith';
 import ProcessSection from '../components/ProcessSection';
 import CISSection from '../components/CISSection';
+import StoreLogosWow from '../components/StoreLogosWow';
 import RatingsSection from '../components/RatingsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import TrustedBySection from '../components/TrustedBySection';
@@ -18,6 +19,7 @@ const HomePage = () => {
     <div className="min-h-screen">
       <HeroSection />
       <ScrollingText />
+      <StoreLogosWow />
       <ServicesSection />
       <WhoWeWorkWith />
       <ProcessSection />
