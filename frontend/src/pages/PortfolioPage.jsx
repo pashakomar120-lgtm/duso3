@@ -1,9 +1,31 @@
 import React, { useState, useMemo } from 'react';
 import { caseStudies } from '../data/portfolioData';
-import { ExternalLink, Filter, MapPin, TrendingUp, Globe, Sparkles } from 'lucide-react';
+import { ExternalLink, Filter, MapPin, TrendingUp, Globe, Sparkles, X } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { Dialog, DialogContent } from '../components/ui/dialog';
+
+// CIS flags from flagcdn.com
+const countryFlags = {
+  '🇷🇺 Россия': { code: 'ru', name: 'Россия' },
+  '🇺🇦 Украина': { code: 'ua', name: 'Украина' },
+  '🇰🇿 Казахстан': { code: 'kz', name: 'Казахстан' },
+  '🇧🇾 Беларусь': { code: 'by', name: 'Беларусь' },
+  '🇺🇿 Узбекистан': { code: 'uz', name: 'Узбекистан' },
+  '🇦🇿 Азербайджан': { code: 'az', name: 'Азербайджан' },
+  '🇬🇪 Грузия': { code: 'ge', name: 'Грузия' },
+  '🇦🇲 Армения': { code: 'am', name: 'Армения' },
+};
+
+const allCisFlags = [
+  { code: 'ru', name: 'Россия', full: '🇷🇺 Россия' },
+  { code: 'ua', name: 'Украина', full: '🇺🇦 Украина' },
+  { code: 'kz', name: 'Казахстан', full: '🇰🇿 Казахстан' },
+  { code: 'by', name: 'Беларусь', full: '🇧🇾 Беларусь' },
+  { code: 'uz', name: 'Узбекистан', full: '🇺🇿 Узбекистан' },
+  { code: 'az', name: 'Азербайджан', full: '🇦🇿 Азербайджан' },
+  { code: 'ge', name: 'Грузия', full: '🇬🇪 Грузия' },
+  { code: 'am', name: 'Армения', full: '🇦🇲 Армения' },
+];
 
 const PortfolioPage = () => {
   const navigate = useNavigate();
@@ -11,15 +33,10 @@ const PortfolioPage = () => {
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [countryFilter, setCountryFilter] = useState('all');
 
-  // Get unique categories and countries
+  // Get unique categories
   const categories = useMemo(() => {
     const cats = [...new Set(caseStudies.map(p => p.category))];
     return ['all', ...cats];
-  }, []);
-
-  const countries = useMemo(() => {
-    const countryList = [...new Set(caseStudies.map(p => p.country))];
-    return ['all', ...countryList];
   }, []);
 
   // Filter projects
@@ -41,6 +58,10 @@ const PortfolioPage = () => {
     return stats;
   }, []);
 
+  const getFlagCode = (country) => {
+    return countryFlags[country]?.code || 'ru';
+  };
+
   return (
     <div className="min-h-screen pt-32 relative z-10">
       {/* Hero Section */}
@@ -50,33 +71,57 @@ const PortfolioPage = () => {
             <div>
               <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 border border-orange-500/20">
                 <Sparkles className="w-4 h-4 text-orange-500" />
-                <span className="text-orange-500 text-sm font-medium">50+ проектов по СНГ</span>
+                <span className="text-orange-500 text-sm font-medium">51+ проект по всьому СНГ</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4 mb-6">
-                Наши <span className="text-emerald-500 text-glow-emerald">проекты</span>
+                Наші <span className="text-emerald-500 text-glow-emerald">проекти</span>
               </h1>
               <p className="text-gray-400 text-xl leading-relaxed">
-                Более <span className="text-orange-500 font-bold">6500+</span> успешных проектов в <span className="text-emerald-500 font-bold">8 странах СНГ</span>. 
-                От стартапов до enterprise — мы создаём магазины, которые продают.
+                Більше <span className="text-orange-500 font-bold">6500+</span> успішних проектів у <span className="text-emerald-500 font-bold">всіх 8 країнах СНГ</span>. 
+                Від стартапів до enterprise — ми створюємо магазини, які продають.
               </p>
+              
+              {/* All CIS countries highlight */}
+              <div className="mt-6 p-4 glass rounded-xl border border-emerald-500/20">
+                <p className="text-emerald-400 text-sm font-medium mb-3">🌍 Працюємо з усіма країнами СНГ:</p>
+                <div className="flex flex-wrap gap-2">
+                  {allCisFlags.map((flag) => (
+                    <div key={flag.code} className="flex items-center gap-2 px-3 py-1.5 glass rounded-lg border border-white/5">
+                      <img 
+                        src={`https://flagcdn.com/w20/${flag.code}.png`}
+                        alt={flag.name}
+                        className="w-5 h-4 object-cover rounded-sm"
+                      />
+                      <span className="text-white text-xs">{flag.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Country Stats */}
+            {/* Country Stats with Real Flags */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {Object.entries(countryStats).slice(0, 8).map(([country, count]) => (
-                <button
-                  key={country}
-                  onClick={() => setCountryFilter(countryFilter === country ? 'all' : country)}
-                  className={`floating-card rounded-xl p-4 text-center transition-all duration-300 ${
-                    countryFilter === country ? 'border-orange-500/50 scale-105' : 'hover:border-orange-500/30'
-                  }`}
-                  data-testid={`country-filter-${country}`}
-                >
-                  <div className="text-2xl mb-1">{country.split(' ')[0]}</div>
-                  <div className="text-white font-bold">{count}</div>
-                  <div className="text-gray-500 text-xs">проектов</div>
-                </button>
-              ))}
+              {allCisFlags.map((flag) => {
+                const count = countryStats[flag.full] || 0;
+                return (
+                  <button
+                    key={flag.code}
+                    onClick={() => setCountryFilter(countryFilter === flag.full ? 'all' : flag.full)}
+                    className={`floating-card rounded-xl p-4 text-center transition-all duration-300 ${
+                      countryFilter === flag.full ? 'border-orange-500/50 scale-105' : 'hover:border-orange-500/30 hover:scale-105'
+                    }`}
+                    data-testid={`country-filter-${flag.code}`}
+                  >
+                    <img 
+                      src={`https://flagcdn.com/w40/${flag.code}.png`}
+                      alt={flag.name}
+                      className="w-10 h-7 object-cover rounded shadow-lg mx-auto mb-2"
+                    />
+                    <div className="text-white font-bold">{count}</div>
+                    <div className="text-gray-500 text-xs">{flag.name}</div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -86,10 +131,10 @@ const PortfolioPage = () => {
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-6">
           {/* Category Filter */}
-          <div className="mb-4">
+          <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <Filter className="w-4 h-4 text-orange-500" />
-              <span className="text-gray-400 text-sm">Категория:</span>
+              <span className="text-gray-400 text-sm">Категорія:</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {categories.slice(0, 12).map((cat) => (
@@ -100,51 +145,51 @@ const PortfolioPage = () => {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     categoryFilter === cat
                       ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/30'
-                      : 'glass text-gray-400 hover:text-white'
+                      : 'glass text-gray-400 hover:text-white border border-white/5'
                   }`}
                 >
-                  {cat === 'all' ? 'Все категории' : cat}
+                  {cat === 'all' ? 'Всі категорії' : cat}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Country Filter */}
+          {/* Country Filter with Flags */}
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Globe className="w-4 h-4 text-emerald-500" />
-              <span className="text-gray-400 text-sm">Страна:</span>
+              <span className="text-gray-400 text-sm">Країна:</span>
             </div>
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setCountryFilter('all')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                   countryFilter === 'all'
                     ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-500/30'
-                    : 'glass text-gray-400 hover:text-white'
+                    : 'glass text-gray-400 hover:text-white border border-white/5'
                 }`}
               >
-                Все страны
+                🌍 Всі країни СНГ
               </button>
-              {countries.filter(c => c !== 'all').map((country) => (
+              {allCisFlags.map((flag) => (
                 <button
-                  key={country}
-                  onClick={() => setCountryFilter(country)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    countryFilter === country
+                  key={flag.code}
+                  onClick={() => setCountryFilter(flag.full)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+                    countryFilter === flag.full
                       ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-500/30'
-                      : 'glass text-gray-400 hover:text-white'
+                      : 'glass text-gray-400 hover:text-white border border-white/5'
                   }`}
                 >
-                  {country}
+                  <img 
+                    src={`https://flagcdn.com/w20/${flag.code}.png`}
+                    alt={flag.name}
+                    className="w-5 h-3 object-cover rounded-sm"
+                  />
+                  {flag.name}
                 </button>
               ))}
             </div>
-          </div>
-
-          {/* Results count */}
-          <div className="mt-6 text-gray-400">
-            Показано: <span className="text-orange-500 font-bold">{filteredProjects.length}</span> проектов
           </div>
         </div>
       </section>
@@ -152,13 +197,27 @@ const PortfolioPage = () => {
       {/* Projects Grid */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between mb-8">
+            <p className="text-gray-400">
+              Показано: <span className="text-white font-bold">{filteredProjects.length}</span> проектів
+            </p>
+            {(categoryFilter !== 'all' || countryFilter !== 'all') && (
+              <button
+                onClick={() => { setCategoryFilter('all'); setCountryFilter('all'); }}
+                className="text-orange-500 hover:text-orange-400 text-sm flex items-center gap-1"
+              >
+                Скинути фільтри <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project) => (
-              <div
+              <article
                 key={project.id}
+                className="floating-card rounded-2xl overflow-hidden cursor-pointer group"
                 onClick={() => setSelectedProject(project)}
                 data-testid={`project-card-${project.id}`}
-                className="floating-card rounded-2xl overflow-hidden cursor-pointer group"
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -167,161 +226,179 @@ const PortfolioPage = () => {
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   
-                  {/* Badges */}
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full">
+                  {/* Country Flag Badge */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 glass rounded-full backdrop-blur-sm">
+                    <img 
+                      src={`https://flagcdn.com/w20/${getFlagCode(project.country)}.png`}
+                      alt={project.country}
+                      className="w-5 h-3 object-cover rounded-sm"
+                    />
+                    <span className="text-white text-xs font-medium">{project.city}</span>
+                  </div>
+
+                  {/* Category Badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1.5 bg-orange-500/90 text-white text-xs font-medium rounded-full backdrop-blur-sm">
                       {project.category}
-                    </span>
-                    <span className="px-2 py-1 glass text-white text-xs font-medium rounded-full">
-                      {project.country}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-5">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
-                      {project.title}
-                    </h3>
-                    <ExternalLink className="w-4 h-4 text-gray-500 group-hover:text-emerald-500 transition-colors" />
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-gray-500 text-sm mb-2">
+                    <Globe className="w-4 h-4" />
+                    <span>{project.website}</span>
                   </div>
-                  
-                  <div className="flex items-center gap-2 text-gray-500 text-xs mb-3">
-                    <MapPin className="w-3 h-3" />
-                    {project.city}
-                  </div>
-
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-500 transition-colors">
+                    {project.title}
+                  </h3>
                   <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
                   
-                  {/* Results preview */}
-                  <div className="flex flex-wrap gap-2 mb-3">
+                  {/* Results */}
+                  <div className="flex flex-wrap gap-2">
                     {project.results.slice(0, 2).map((result, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 bg-emerald-500/10 text-emerald-500 text-xs rounded-lg flex items-center gap-1"
-                      >
-                        <TrendingUp className="w-3 h-3" />
+                      <span key={idx} className="px-2 py-1 glass rounded text-emerald-400 text-xs border border-emerald-500/20">
                         {result}
                       </span>
                     ))}
                   </div>
 
-                  {/* Services */}
-                  <div className="flex flex-wrap gap-1">
-                    {project.services.map((service, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded"
-                      >
-                        {service}
-                      </span>
-                    ))}
-                  </div>
+                  {project.revenue && (
+                    <div className="mt-4 pt-4 border-t border-white/5">
+                      <span className="text-emerald-500 font-bold">{project.revenue}</span>
+                    </div>
+                  )}
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="floating-card rounded-3xl p-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Готові до зростання?
+            </h2>
+            <p className="text-gray-400 text-lg mb-8">
+              Ваш бізнес в будь-якій країні СНГ? Ми знаємо локальний ринок та допоможемо масштабуватись!
+            </p>
+            <div className="flex flex-wrap gap-2 justify-center mb-8">
+              {allCisFlags.map((flag) => (
+                <img 
+                  key={flag.code}
+                  src={`https://flagcdn.com/w40/${flag.code}.png`}
+                  alt={flag.name}
+                  className="w-10 h-7 object-cover rounded shadow-lg hover:scale-110 transition-transform"
+                />
+              ))}
+            </div>
+            <Button
+              onClick={() => navigate('/contact')}
+              className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 px-8 py-6 text-lg font-medium shadow-lg shadow-orange-500/25"
+            >
+              Обговорити проект
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Project Modal */}
-      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="bg-gray-900 border-white/10 text-white max-w-2xl max-h-[90vh] overflow-y-auto">
-          {selectedProject && (
-            <div>
+      {selectedProject && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div 
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-strong rounded-2xl border border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header Image */}
+            <div className="relative h-64 overflow-hidden rounded-t-2xl">
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                className="w-full h-64 object-cover rounded-lg mb-6"
+                className="w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
               
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full">
-                  {selectedProject.category}
-                </span>
-                <span className="px-3 py-1 glass text-white text-xs font-medium rounded-full">
-                  {selectedProject.country}
-                </span>
-                <span className="px-3 py-1 glass text-gray-400 text-xs font-medium rounded-full flex items-center gap-1">
-                  <MapPin className="w-3 h-3" />
-                  {selectedProject.city}
-                </span>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <img 
+                    src={`https://flagcdn.com/w40/${getFlagCode(selectedProject.country)}.png`}
+                    alt={selectedProject.country}
+                    className="w-10 h-7 object-cover rounded shadow-lg"
+                  />
+                  <span className="text-white text-sm">{selectedProject.country} • {selectedProject.city}</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white">{selectedProject.title}</h2>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-8">
+              <div className="flex items-center gap-2 text-gray-400 mb-4">
+                <Globe className="w-4 h-4" />
+                <span>{selectedProject.website}</span>
               </div>
 
-              <h2 className="text-3xl font-bold text-white mb-2">{selectedProject.title}</h2>
-              <p className="text-emerald-500 mb-4">{selectedProject.website}</p>
-              <p className="text-gray-400 mb-6">{selectedProject.description}</p>
-              
-              <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-emerald-500" />
-                Результаты:
-              </h4>
-              <div className="flex flex-wrap gap-3 mb-6">
-                {selectedProject.results.map((result, idx) => (
-                  <span
-                    key={idx}
-                    className="px-4 py-2 bg-emerald-500/10 text-emerald-500 rounded-lg font-medium"
-                  >
-                    {result}
-                  </span>
-                ))}
+              <p className="text-gray-300 mb-6">{selectedProject.description}</p>
+
+              <div className="mb-6">
+                <h4 className="text-white font-semibold mb-3">Результати:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.results.map((result, idx) => (
+                    <span key={idx} className="px-3 py-1.5 glass rounded-lg text-emerald-400 text-sm border border-emerald-500/20">
+                      <TrendingUp className="w-3 h-3 inline mr-1" />
+                      {result}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <h4 className="text-white font-semibold mb-3">Услуги:</h4>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {selectedProject.services.map((service, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 glass text-white text-sm rounded"
-                  >
-                    {service}
-                  </span>
-                ))}
+              <div className="mb-6">
+                <h4 className="text-white font-semibold mb-3">Послуги:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.services.map((service, idx) => (
+                    <span key={idx} className="px-3 py-1.5 glass rounded-lg text-orange-400 text-sm border border-orange-500/20">
+                      {service}
+                    </span>
+                  ))}
+                </div>
               </div>
+
+              {selectedProject.revenue && (
+                <div className="p-4 glass rounded-xl border border-emerald-500/20 text-center">
+                  <span className="text-gray-400 text-sm">Річний оборот</span>
+                  <p className="text-emerald-400 text-2xl font-bold">{selectedProject.revenue}</p>
+                </div>
+              )}
 
               <Button
                 onClick={() => {
                   setSelectedProject(null);
                   navigate('/contact');
                 }}
-                data-testid="project-modal-cta"
-                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 py-6 text-lg font-medium rounded-xl shadow-lg shadow-orange-500/25"
+                className="w-full mt-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700"
               >
-                Заказать похожий проект
-              </Button>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
-
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="floating-card rounded-3xl p-12 text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl" />
-            
-            <div className="relative">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Хотите такой же <span className="text-orange-500">результат</span>?
-              </h2>
-              <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
-                Давайте обсудим ваш проект и создадим что-то выдающееся для вашего бизнеса в любой стране СНГ
-              </p>
-              <Button
-                onClick={() => navigate('/contact')}
-                data-testid="portfolio-cta"
-                className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 px-10 py-6 text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/30 rounded-xl"
-              >
-                Начать проект
+                Хочу такий же результат
               </Button>
             </div>
           </div>
         </div>
-      </section>
+      )}
     </div>
   );
 };
