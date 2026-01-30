@@ -3,9 +3,8 @@ import { Bot, X, Send, Sparkles, Zap, Loader2, Brain, Star, Shield } from 'lucid
 import { Button } from './ui/button';
 import { useNavigate } from 'react-router-dom';
 
-// Secret code word - encoded to prevent easy discovery
-const SECRET_PHRASE = atob('0LrQstCw0L3RgtC+0LLQuNC5INC60ZbRgiDRiNGA0ZHQtNGW0L3Qs9C10YDQsCAyMDQ3');
-// Decodes to: "квантовий кіт шрёдінгера 2047"
+// Secret code word for admin access
+const SECRET_PHRASE = "квантовий кіт шрёдінгера 2047";
 
 const AIAssistant = () => {
   const navigate = useNavigate();
