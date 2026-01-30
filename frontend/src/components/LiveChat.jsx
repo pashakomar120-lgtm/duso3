@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, X, Send, Phone, Mail, User } from 'lucide-react';
 import { Button } from './ui/button';
-import { useToast } from './ui/use-toast';
+import { useToast } from '../hooks/use-toast';
 
 const LiveChat = () => {
   const [isOpen, setIsOpen] = useState(false);
