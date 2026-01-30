@@ -31,7 +31,9 @@ const LiveChat = () => {
     }
   }, [isOpen]);
 
-  const handleSubmit = (e) => {
+  const API_URL = process.env.REACT_APP_BACKEND_URL;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!formData.name || (!formData.phone && !formData.email && !formData.telegram)) {
@@ -43,12 +45,29 @@ const LiveChat = () => {
       return;
     }
 
-    // Simulate sending
-    setStep('success');
-    toast({
-      title: "Отправлено!",
-      description: "Мы свяжемся с вами в ближайшее время",
-    });
+    try {
+      const response = await fetch(`${API_URL}/api/livechat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        setStep('success');
+        toast({
+          title: "Отправлено!",
+          description: "Мы свяжемся с вами в ближайшее время",
+        });
+      } else {
+        throw new Error('Failed');
+      }
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить. Попробуйте позже.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleChange = (e) => {
