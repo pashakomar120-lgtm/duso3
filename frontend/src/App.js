@@ -12,7 +12,6 @@ import ContactPage from "./pages/ContactPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import AnimatedBackground from "./components/AnimatedBackground";
-import LiveChat from "./components/LiveChat";
 import AIAssistant from "./components/AIAssistant";
 import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "./components/ui/toaster";
@@ -56,7 +55,6 @@ const MainSiteLayout = ({ children }) => {
         <main>{children}</main>
         <Footer />
       </div>
-      <LiveChat />
       <AIAssistant />
     </>
   );
