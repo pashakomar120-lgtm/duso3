@@ -1,0 +1,657 @@
+{% comment %}
+  Hero Section for duso_ecom Shopify Theme
+{% endcomment %}
+
+<style>
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .hero {
+      padding: 10rem 0 6rem;
+    }
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+
+  .hero__orb--1 {
+    top: 20%;
+    left: 15%;
+    width: 400px;
+    height: 400px;
+    background: rgba(249, 115, 22, 0.08);
+  }
+
+  .hero__orb--2 {
+    bottom: 20%;
+    right: 15%;
+    width: 300px;
+    height: 300px;
+    background: rgba(16, 185, 129, 0.06);
+  }
+
+  .hero__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 640px) {
+    .hero__container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero__grid {
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+    }
+  }
+
+  .hero__content {
+    max-width: 700px;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__badge-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), #ea580c);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+  }
+
+  .hero__badge-icon svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+  }
+
+  .hero__badge-text {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  @media (min-width: 640px) {
+    .hero__badge-text {
+      font-size: 0.875rem;
+    }
+  }
+
+  .hero__badge-tag {
+    padding: 0.25rem 0.5rem;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 9999px;
+    color: var(--color-secondary);
+    font-size: 0.625rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero__badge-tag {
+      font-size: 0.75rem;
+    }
+  }
+
+  .hero__title {
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .hero__title-line {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  @media (min-width: 640px) {
+    .hero__title-line {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero__title-line {
+      font-size: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__title-line {
+      font-size: 3.5rem;
+    }
+  }
+
+  .hero__title-accent {
+    color: var(--color-primary);
+    text-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+  }
+
+  .hero__title-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero__title-emerald {
+    color: var(--color-secondary);
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+  }
+
+  .hero__description {
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 550px;
+  }
+
+  @media (min-width: 640px) {
+    .hero__description {
+      font-size: 1.125rem;
+    }
+  }
+
+  .hero__description-highlight {
+    color: white;
+    font-weight: 600;
+  }
+
+  .hero__description-accent {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .hero__trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero__trust {
+      gap: 1rem;
+    }
+  }
+
+  .hero__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text);
+    font-size: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero__trust-item {
+      font-size: 0.875rem;
+    }
+  }
+
+  .hero__trust-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-secondary);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero__actions {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+
+  .hero__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+  }
+
+  @media (min-width: 640px) {
+    .hero__btn {
+      padding: 1.25rem 2rem;
+      font-size: 1rem;
+    }
+  }
+
+  .hero__btn--primary {
+    background: linear-gradient(135deg, var(--color-primary), #ea580c);
+    color: white;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.3);
+  }
+
+  .hero__btn--primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 25px rgba(249, 115, 22, 0.4);
+  }
+
+  .hero__btn--secondary {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero__btn--secondary:hover {
+    border-color: rgba(16, 185, 129, 0.5);
+    background: rgba(16, 185, 129, 0.1);
+  }
+
+  .hero__btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero__stats {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero__stats {
+      gap: 2rem;
+    }
+  }
+
+  .hero__stat {
+    text-align: center;
+  }
+
+  .hero__stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  @media (min-width: 640px) {
+    .hero__stat-value {
+      font-size: 2rem;
+    }
+  }
+
+  .hero__stat-value--orange {
+    color: var(--color-primary);
+  }
+
+  .hero__stat-value--green {
+    color: var(--color-secondary);
+  }
+
+  .hero__stat-value--white {
+    color: white;
+  }
+
+  .hero__stat-label {
+    font-size: 0.625rem;
+    color: var(--color-text-light);
+  }
+
+  @media (min-width: 640px) {
+    .hero__stat-label {
+      font-size: 0.75rem;
+    }
+  }
+
+  /* Animated cards on right */
+  .hero__visual {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .hero__visual {
+      display: block;
+      position: relative;
+      height: 500px;
+    }
+  }
+
+  .hero__card {
+    position: absolute;
+    background: rgba(17, 24, 39, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .hero__card--1 {
+    top: 0;
+    right: 0;
+    width: 280px;
+    animation-delay: 0s;
+  }
+
+  .hero__card--2 {
+    top: 40%;
+    left: 0;
+    width: 260px;
+    animation-delay: -2s;
+  }
+
+  .hero__card--3 {
+    bottom: 0;
+    right: 20%;
+    width: 240px;
+    animation-delay: -4s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  .hero__card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero__card-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 0.75rem;
+  }
+
+  .hero__card-icon svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+  }
+
+  .hero__card-title {
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .hero__card-subtitle {
+    color: var(--color-text-light);
+    font-size: 0.75rem;
+  }
+
+  .hero__card-stat {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero__card-label {
+    color: var(--color-text);
+    font-size: 0.75rem;
+  }
+</style>
+
+<section class="hero">
+  <!-- Background -->
+  <div class="hero__bg">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+  </div>
+
+  <div class="hero__container">
+    <div class="hero__grid">
+      <!-- Content -->
+      <div class="hero__content" data-animate>
+        <!-- Badge -->
+        <div class="hero__badge">
+          <div class="hero__badge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <span class="hero__badge-text">{{ section.settings.badge_text }}</span>
+          <span class="hero__badge-tag">#1 в СНГ</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero__title">
+          <span class="hero__title-line">
+            Создаём <span class="hero__title-accent">Shopify</span> магазины
+          </span>
+          <span class="hero__title-line">
+            которые <span class="hero__title-gradient">продают</span>
+          </span>
+          <span class="hero__title-line">
+            по всему <span class="hero__title-emerald">СНГ</span>
+          </span>
+        </h1>
+
+        <!-- Description -->
+        <p class="hero__description">
+          {{ section.settings.description }}
+        </p>
+
+        <!-- Trust badges -->
+        <div class="hero__trust">
+          <div class="hero__trust-item">
+            <svg class="hero__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Shopify Plus Partner</span>
+          </div>
+          <div class="hero__trust-item">
+            <svg class="hero__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>98% довольных клиентов</span>
+          </div>
+          <div class="hero__trust-item">
+            <svg class="hero__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Гарантия результата</span>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hero__actions">
+          <a href="{{ section.settings.primary_button_link }}" class="hero__btn hero__btn--primary">
+            {{ section.settings.primary_button_text }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="{{ section.settings.secondary_button_link }}" class="hero__btn hero__btn--secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            {{ section.settings.secondary_button_text }}
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <div class="hero__stat-value hero__stat-value--orange">6500+</div>
+            <div class="hero__stat-label">Магазинов</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-value hero__stat-value--green">$3B+</div>
+            <div class="hero__stat-label">Оборот клиентов</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-value hero__stat-value--white">15+</div>
+            <div class="hero__stat-label">Стран СНГ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="hero__visual">
+        <div class="hero__card hero__card--1">
+          <div class="hero__card-header">
+            <div class="hero__card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="hero__card-title">Shopify</div>
+              <div class="hero__card-subtitle">Partner</div>
+            </div>
+          </div>
+          <div class="hero__card-stat">+340%</div>
+          <div class="hero__card-label">Средний рост продаж</div>
+        </div>
+
+        <div class="hero__card hero__card--2">
+          <div class="hero__card-header">
+            <div class="hero__card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="hero__card-title">Клиенты</div>
+              <div class="hero__card-subtitle">по всему СНГ</div>
+            </div>
+          </div>
+          <div class="hero__card-stat">8</div>
+          <div class="hero__card-label">Стран присутствия</div>
+        </div>
+
+        <div class="hero__card hero__card--3">
+          <div class="hero__card-header">
+            <div class="hero__card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="hero__card-title">ROI</div>
+              <div class="hero__card-subtitle">Возврат инвестиций</div>
+            </div>
+          </div>
+          <div class="hero__card-stat">x12</div>
+          <div class="hero__card-label">За первый год</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero секция",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "default": "Shopify Plus Partner",
+      "label": "Текст бейджа"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "От идеи до запуска за 2-4 недели. Сертифицированный Shopify Partner с опытом 6500+ успешных проектов.",
+      "label": "Описание"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "default": "Бесплатная консультация",
+      "label": "Текст основной кнопки"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "default": "/pages/contact",
+      "label": "Ссылка основной кнопки"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "default": "Смотреть кейсы",
+      "label": "Текст вторичной кнопки"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "default": "/pages/portfolio",
+      "label": "Ссылка вторичной кнопки"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero секция"
+    }
+  ]
+}
+{% endschema %}
