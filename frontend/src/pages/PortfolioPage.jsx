@@ -63,36 +63,36 @@ const PortfolioPage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 relative z-10">
+    <div className="min-h-screen pt-24 sm:pt-32 relative z-10">
       {/* Hero Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-8 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 border border-orange-500/20">
+              <div className="inline-flex items-center gap-2 glass rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 border border-orange-500/20">
                 <Sparkles className="w-4 h-4 text-orange-500" />
-                <span className="text-orange-500 text-sm font-medium">51+ проект по всьому СНГ</span>
+                <span className="text-orange-500 text-xs sm:text-sm font-medium">51+ проект по всему СНГ</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4 mb-6">
-                Наші <span className="text-emerald-500 text-glow-emerald">проекти</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4 mb-4 sm:mb-6">
+                Наши <span className="text-emerald-500 text-glow-emerald">проекты</span>
               </h1>
-              <p className="text-gray-400 text-xl leading-relaxed">
-                Більше <span className="text-orange-500 font-bold">6500+</span> успішних проектів у <span className="text-emerald-500 font-bold">всіх 8 країнах СНГ</span>. 
-                Від стартапів до enterprise — ми створюємо магазини, які продають.
+              <p className="text-gray-400 text-base sm:text-xl leading-relaxed">
+                Более <span className="text-orange-500 font-bold">6500+</span> успешных проектов в <span className="text-emerald-500 font-bold">всех 8 странах СНГ</span>. 
+                От стартапов до enterprise — мы создаём магазины, которые продают.
               </p>
               
               {/* All CIS countries highlight */}
-              <div className="mt-6 p-4 glass rounded-xl border border-emerald-500/20">
-                <p className="text-emerald-400 text-sm font-medium mb-3">🌍 Працюємо з усіма країнами СНГ:</p>
-                <div className="flex flex-wrap gap-2">
+              <div className="mt-4 sm:mt-6 p-3 sm:p-4 glass rounded-xl border border-emerald-500/20">
+                <p className="text-emerald-400 text-xs sm:text-sm font-medium mb-2 sm:mb-3">🌍 Работаем со всеми странами СНГ:</p>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {allCisFlags.map((flag) => (
-                    <div key={flag.code} className="flex items-center gap-2 px-3 py-1.5 glass rounded-lg border border-white/5">
+                    <div key={flag.code} className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 glass rounded-lg border border-white/5">
                       <img 
                         src={`https://flagcdn.com/w20/${flag.code}.png`}
                         alt={flag.name}
-                        className="w-5 h-4 object-cover rounded-sm"
+                        className="w-4 sm:w-5 h-3 sm:h-4 object-cover rounded-sm"
                       />
-                      <span className="text-white text-xs">{flag.name}</span>
+                      <span className="text-white text-[10px] sm:text-xs">{flag.name}</span>
                     </div>
                   ))}
                 </div>
@@ -100,14 +100,14 @@ const PortfolioPage = () => {
             </div>
 
             {/* Country Stats with Real Flags */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-2 sm:gap-4">
               {allCisFlags.map((flag) => {
                 const count = countryStats[flag.full] || 0;
                 return (
                   <button
                     key={flag.code}
                     onClick={() => setCountryFilter(countryFilter === flag.full ? 'all' : flag.full)}
-                    className={`floating-card rounded-xl p-4 text-center transition-all duration-300 ${
+                    className={`floating-card rounded-lg sm:rounded-xl p-2 sm:p-4 text-center transition-all duration-300 ${
                       countryFilter === flag.full ? 'border-orange-500/50 scale-105' : 'hover:border-orange-500/30 hover:scale-105'
                     }`}
                     data-testid={`country-filter-${flag.code}`}
@@ -115,10 +115,10 @@ const PortfolioPage = () => {
                     <img 
                       src={`https://flagcdn.com/w40/${flag.code}.png`}
                       alt={flag.name}
-                      className="w-10 h-7 object-cover rounded shadow-lg mx-auto mb-2"
+                      className="w-6 sm:w-10 h-4 sm:h-7 object-cover rounded shadow-lg mx-auto mb-1 sm:mb-2"
                     />
-                    <div className="text-white font-bold">{count}</div>
-                    <div className="text-gray-500 text-xs">{flag.name}</div>
+                    <div className="text-white font-bold text-sm sm:text-base">{count}</div>
+                    <div className="text-gray-500 text-[8px] sm:text-xs">{flag.name}</div>
                   </button>
                 );
               })}
