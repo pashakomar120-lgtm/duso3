@@ -317,7 +317,7 @@ const ContactPage = () => {
                   </h4>
                   <div className="flex flex-col items-center gap-3 p-4 glass rounded-xl border border-orange-500/20">
                     <img 
-                      src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://t.me/duso_ecom&bgcolor=1f2937&color=f97316`}
+                      src="https://customer-assets.emergentagent.com/job_responsive-admin-30/artifacts/z3erb60m_image.png"
                       alt="QR код Telegram"
                       className="w-24 h-24 sm:w-28 sm:h-28 rounded-lg"
                       loading="lazy"
