@@ -195,19 +195,19 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 relative z-10">
+    <div className="min-h-screen pt-24 sm:pt-32 relative z-10">
       {/* Hero Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-8 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 border border-orange-500/20">
+            <div className="inline-flex items-center gap-2 glass rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 border border-orange-500/20">
               <Sparkles className="w-4 h-4 text-orange-500" />
-              <span className="text-orange-500 text-sm font-medium">Бесплатная консультация</span>
+              <span className="text-orange-500 text-xs sm:text-sm font-medium">Бесплатная консультация</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4 mb-4 sm:mb-6">
               Давайте <span className="text-emerald-500 text-glow-emerald">поговорим</span>
             </h1>
-            <p className="text-gray-400 text-xl leading-relaxed">
+            <p className="text-gray-400 text-base sm:text-xl leading-relaxed">
               Расскажите о своём проекте — мы подберём лучшее решение для вашего бизнеса по всему СНГ.
             </p>
           </div>
@@ -215,9 +215,9 @@ const ContactPage = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-12">
+      <section className="py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <div className="floating-card rounded-2xl p-8 sticky top-40">
