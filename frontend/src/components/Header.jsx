@@ -85,7 +85,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo with glow */}
           <Link to="/" className="flex items-center gap-2 group" data-testid="logo">
-            <div className="text-2xl font-bold text-white tracking-tight transition-all duration-300 group-hover:scale-105">
+            <div className="text-xl sm:text-2xl font-bold text-white tracking-tight transition-all duration-300 group-hover:scale-105">
               <span className="text-orange-500 text-glow-orange">duso</span>_ecom
             </div>
             <div className="flex flex-col items-start">
