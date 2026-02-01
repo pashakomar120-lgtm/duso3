@@ -63,20 +63,20 @@ const AdminDashboard = () => {
   };
 
   const StatCard = ({ icon: Icon, label, value, trend, trendUp, color }) => (
-    <div className="glass-strong rounded-xl p-6 border border-white/10">
+    <div className="glass-strong rounded-xl p-3 sm:p-6 border border-white/10">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-gray-400 text-sm mb-1">{label}</p>
-          <p className="text-3xl font-bold text-white">{value}</p>
+          <p className="text-gray-400 text-[10px] sm:text-sm mb-1">{label}</p>
+          <p className="text-xl sm:text-3xl font-bold text-white">{value}</p>
           {trend && (
-            <div className={`flex items-center gap-1 mt-2 text-sm ${trendUp ? 'text-emerald-400' : 'text-red-400'}`}>
-              {trendUp ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownRight className="w-4 h-4" />}
+            <div className={`flex items-center gap-1 mt-1 sm:mt-2 text-[10px] sm:text-sm ${trendUp ? 'text-emerald-400' : 'text-red-400'}`}>
+              {trendUp ? <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4" /> : <ArrowDownRight className="w-3 h-3 sm:w-4 sm:h-4" />}
               {trend}
             </div>
           )}
         </div>
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${color}`}>
-          <Icon className="w-6 h-6 text-white" />
+        <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${color}`}>
+          <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
         </div>
       </div>
     </div>
