@@ -7,6 +7,9 @@
 - ✅ All text translated to Russian
 - ✅ Live Chat removed (only AI Assistant remains)
 - ✅ Admin panel mobile-friendly
+- ✅ Services dropdown menu fixed (stays open on hover)
+- ✅ QR code for Telegram added to Contact page
+- ✅ Performance optimization (lazy loading, reduced animations)
 - ✅ 5x content expansion (40+ testimonials, 51 projects)
 - ✅ WOW logo wall on homepage
 - ✅ Flag images for all CIS countries
@@ -37,16 +40,15 @@
 - `/api/leads` - Contact form submissions
 - `/api/calls` - Scheduled call requests
 - `/api/ai` - AI Assistant conversations
-- `/api/livechat` - Live chat messages
 - `/api/admin/login` - Admin authentication
 - `/api/admin/dashboard` - Dashboard statistics
 - `/api/admin/leads` - Admin leads management
 
-## Content Summary
-- **Testimonials:** 40+ reviews from 8 CIS countries
-- **Portfolio:** 51 projects with real domains
-- **Store Logos:** 40+ stores in WOW section
-- **Countries:** Russia, Ukraine, Kazakhstan, Belarus, Uzbekistan, Azerbaijan, Georgia, Armenia
+## Performance Optimizations Done
+- AnimatedBackground: reduced particles, FPS throttling, disabled on mobile
+- StoreLogosWow: memo components, IntersectionObserver, lazy loading
+- Images: lazy loading added throughout
+- Components: React.memo for frequently re-rendered components
 
 ## Next Steps (Shopify Migration)
 User requested to convert this React app to Shopify Liquid theme.
