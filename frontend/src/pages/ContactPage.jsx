@@ -308,6 +308,25 @@ const ContactPage = () => {
                     <p className="text-emerald-500">Поддержка 24/7</p>
                   </div>
                 </div>
+
+                {/* QR Code for Telegram */}
+                <div className="mt-6 pt-6 border-t border-white/5">
+                  <h4 className="text-white font-medium mb-4 flex items-center gap-2">
+                    <MessageCircle className="w-4 h-4 text-orange-500" />
+                    Быстрая связь
+                  </h4>
+                  <div className="flex flex-col items-center gap-3 p-4 glass rounded-xl border border-orange-500/20">
+                    <img 
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://t.me/duso_ecom&bgcolor=1f2937&color=f97316`}
+                      alt="QR код Telegram"
+                      className="w-24 h-24 sm:w-28 sm:h-28 rounded-lg"
+                      loading="lazy"
+                    />
+                    <p className="text-gray-400 text-xs text-center">
+                      Сканируйте для связи в Telegram
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
