@@ -164,29 +164,29 @@ const AdminLeadsPage = () => {
       </button>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 lg:p-8 overflow-auto">
-        <div className="flex items-center justify-between mb-8">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8 pt-12 lg:pt-0">
           <div>
-            <h1 className="text-2xl font-bold text-white">Заявки</h1>
-            <p className="text-gray-400">Всього: {total} заявок</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-white">Заявки</h1>
+            <p className="text-gray-400 text-sm">Всего: {total} заявок</p>
           </div>
-          <Button onClick={exportCSV} className="bg-white/5 border border-white/10 text-white hover:bg-white/10">
+          <Button onClick={exportCSV} className="bg-white/5 border border-white/10 text-white hover:bg-white/10 text-sm">
             <Download className="w-4 h-4 mr-2" />
-            Експорт CSV
+            Экспорт CSV
           </Button>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap gap-4 mb-6">
+        <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6">
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-white text-sm focus:border-purple-500 focus:outline-none"
+            className="bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2 text-white text-xs sm:text-sm focus:border-purple-500 focus:outline-none"
           >
-            <option value="">Всі статуси</option>
-            <option value="new">Нові</option>
-            <option value="in_progress">В роботі</option>
-            <option value="closed">Закриті</option>
+            <option value="">Все статусы</option>
+            <option value="new">Новые</option>
+            <option value="in_progress">В работе</option>
+            <option value="closed">Закрытые</option>
           </select>
         </div>
 
