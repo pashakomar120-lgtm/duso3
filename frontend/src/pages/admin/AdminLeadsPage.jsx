@@ -37,9 +37,9 @@ const AdminLeadsPage = () => {
   };
 
   const statusLabels = {
-    new: 'Нова',
-    in_progress: 'В роботі',
-    closed: 'Закрита'
+    new: 'Новая',
+    in_progress: 'В работе',
+    closed: 'Закрыта'
   };
 
   const fetchLeads = async () => {
