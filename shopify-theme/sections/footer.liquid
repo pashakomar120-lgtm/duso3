@@ -1,0 +1,441 @@
+{% comment %}
+  Footer Section for duso_ecom Shopify Theme
+{% endcomment %}
+
+<style>
+  .footer {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .footer__bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.5);
+    backdrop-filter: blur(20px);
+  }
+
+  .footer__container {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer__container {
+      padding: 4rem 1.5rem;
+    }
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer__grid {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .footer__brand {
+    max-width: 300px;
+  }
+
+  .footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .footer__logo-accent {
+    color: var(--color-primary);
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+  }
+
+  .footer__description {
+    color: var(--color-text);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer__socials {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .footer__social {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+  }
+
+  .footer__social:hover {
+    color: white;
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+  }
+
+  .footer__social svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer__column-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .footer__column-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .footer__column-dot--orange {
+    background: var(--color-primary);
+  }
+
+  .footer__column-dot--green {
+    background: var(--color-secondary);
+  }
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer__link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer__link:hover {
+    color: var(--color-primary);
+  }
+
+  .footer__link svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .footer__link:hover svg {
+    opacity: 1;
+  }
+
+  .footer__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer__contact-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .footer__contact-icon svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text);
+  }
+
+  .footer__contact-text {
+    color: var(--color-text);
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+  }
+
+  a.footer__contact-text:hover {
+    color: var(--color-secondary);
+  }
+
+  .footer__bottom {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .footer__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .footer__copyright {
+    color: var(--color-text-light);
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .footer__copyright {
+      font-size: 0.875rem;
+      text-align: left;
+    }
+  }
+
+  .footer__copyright-accent {
+    color: var(--color-primary);
+  }
+
+  .footer__legal {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer__legal-link {
+    color: var(--color-text-light);
+    font-size: 0.75rem;
+    transition: color 0.3s ease;
+  }
+
+  @media (min-width: 640px) {
+    .footer__legal-link {
+      font-size: 0.875rem;
+    }
+  }
+
+  .footer__legal-link:hover {
+    color: white;
+  }
+</style>
+
+<footer class="footer">
+  <div class="footer__bg"></div>
+  
+  <div class="footer__container">
+    <div class="footer__grid">
+      <!-- Brand Column -->
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <span class="footer__logo-accent">duso</span>_ecom
+        </a>
+        <p class="footer__description">
+          {{ section.settings.description }}
+        </p>
+        
+        <div class="footer__socials">
+          {% if settings.social_telegram != blank %}
+            <a href="https://t.me/{{ settings.social_telegram | remove: '@' }}" class="footer__social" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.094.034.309.019.476z"/>
+              </svg>
+            </a>
+          {% endif %}
+          
+          {% if settings.social_instagram != blank %}
+            <a href="https://instagram.com/{{ settings.social_instagram }}" class="footer__social" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          {% endif %}
+          
+          {% if settings.social_facebook != blank %}
+            <a href="https://facebook.com/{{ settings.social_facebook }}" class="footer__social" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          {% endif %}
+          
+          {% if settings.social_linkedin != blank %}
+            <a href="https://linkedin.com/company/{{ settings.social_linkedin }}" class="footer__social" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Navigation Column -->
+      <div>
+        <h4 class="footer__column-title">
+          <span class="footer__column-dot footer__column-dot--orange"></span>
+          Навигация
+        </h4>
+        <nav class="footer__links">
+          {% for link in linklists[section.settings.menu].links %}
+            <a href="{{ link.url }}" class="footer__link">
+              {{ link.title }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+
+      <!-- Services Column -->
+      <div>
+        <h4 class="footer__column-title">
+          <span class="footer__column-dot footer__column-dot--green"></span>
+          Услуги
+        </h4>
+        <nav class="footer__links">
+          {% for link in linklists[section.settings.services_menu].links %}
+            <a href="{{ link.url }}" class="footer__link">
+              {{ link.title }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+
+      <!-- Contacts Column -->
+      <div>
+        <h4 class="footer__column-title">
+          <span class="footer__column-dot footer__column-dot--orange"></span>
+          Контакты
+        </h4>
+        
+        <div class="footer__contact-item">
+          <div class="footer__contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <a href="mailto:{{ section.settings.email }}" class="footer__contact-text">
+            {{ section.settings.email }}
+          </a>
+        </div>
+        
+        <div class="footer__contact-item">
+          <div class="footer__contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <a href="tel:{{ section.settings.phone | remove: ' ' | remove: '-' }}" class="footer__contact-text">
+            {{ section.settings.phone }}
+          </a>
+        </div>
+        
+        <div class="footer__contact-item">
+          <div class="footer__contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <span class="footer__contact-text">
+            {{ section.settings.address }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        © {{ 'now' | date: '%Y' }} <span class="footer__copyright-accent">duso_ecom</span>. Все права защищены
+      </p>
+      
+      <div class="footer__legal">
+        <a href="/pages/privacy-policy" class="footer__legal-link">Политика конфиденциальности</a>
+        <a href="/pages/terms" class="footer__legal-link">Условия использования</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "Создаём успешные e-commerce проекты с 2015 года. Ваш надёжный партнёр в мире онлайн-торговли.",
+      "label": "Описание"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "footer",
+      "label": "Меню навигации"
+    },
+    {
+      "type": "link_list",
+      "id": "services_menu",
+      "default": "services",
+      "label": "Меню услуг"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "default": "hello@duso-ecom.com",
+      "label": "Email"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "default": "+7 (800) 123-45-67",
+      "label": "Телефон"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "default": "Москва, Россия",
+      "label": "Адрес"
+    }
+  ]
+}
+{% endschema %}
