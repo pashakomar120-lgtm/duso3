@@ -183,44 +183,44 @@ const AdminDashboard = () => {
         ) : (
           <>
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-6 sm:mb-8">
               <StatCard
                 icon={Users}
-                label="Всього заявок"
+                label="Всего заявок"
                 value={stats?.total_leads || 0}
                 color="bg-gradient-to-br from-purple-500 to-purple-600"
               />
               <StatCard
                 icon={AlertCircle}
-                label="Нові заявки"
+                label="Новые заявки"
                 value={stats?.new_leads || 0}
                 color="bg-gradient-to-br from-orange-500 to-orange-600"
               />
               <StatCard
                 icon={Clock}
-                label="В роботі"
+                label="В работе"
                 value={stats?.in_progress_leads || 0}
                 color="bg-gradient-to-br from-blue-500 to-blue-600"
               />
               <StatCard
                 icon={CheckCircle}
-                label="Закрито"
+                label="Закрыто"
                 value={stats?.closed_leads || 0}
                 color="bg-gradient-to-br from-emerald-500 to-emerald-600"
               />
             </div>
 
             {/* Secondary Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-8">
               <StatCard
                 icon={Phone}
-                label="Заплановані дзвінки"
+                label="Запланированные звонки"
                 value={stats?.total_calls || 0}
                 color="bg-gradient-to-br from-cyan-500 to-cyan-600"
               />
               <StatCard
                 icon={MessageSquare}
-                label="Live Chat повідомлення"
+                label="Live Chat сообщения"
                 value={stats?.total_chats || 0}
                 color="bg-gradient-to-br from-pink-500 to-pink-600"
               />
