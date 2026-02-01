@@ -279,30 +279,30 @@ const PortfolioPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="floating-card rounded-3xl p-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Готові до зростання?
+      <section className="py-12 sm:py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <div className="floating-card rounded-2xl sm:rounded-3xl p-6 sm:p-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+              Готовы к росту?
             </h2>
-            <p className="text-gray-400 text-lg mb-8">
-              Ваш бізнес в будь-якій країні СНГ? Ми знаємо локальний ринок та допоможемо масштабуватись!
+            <p className="text-gray-400 text-base sm:text-lg mb-6 sm:mb-8">
+              Ваш бизнес в любой стране СНГ? Мы знаем локальный рынок и поможем масштабироваться!
             </p>
-            <div className="flex flex-wrap gap-2 justify-center mb-8">
+            <div className="flex flex-wrap gap-2 justify-center mb-6 sm:mb-8">
               {allCisFlags.map((flag) => (
                 <img 
                   key={flag.code}
                   src={`https://flagcdn.com/w40/${flag.code}.png`}
                   alt={flag.name}
-                  className="w-10 h-7 object-cover rounded shadow-lg hover:scale-110 transition-transform"
+                  className="w-8 sm:w-10 h-5 sm:h-7 object-cover rounded shadow-lg hover:scale-110 transition-transform"
                 />
               ))}
             </div>
             <Button
               onClick={() => navigate('/contact')}
-              className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 px-8 py-6 text-lg font-medium shadow-lg shadow-orange-500/25"
+              className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-medium shadow-lg shadow-orange-500/25 w-full sm:w-auto"
             >
-              Обговорити проект
+              Обсудить проект
             </Button>
           </div>
         </div>
