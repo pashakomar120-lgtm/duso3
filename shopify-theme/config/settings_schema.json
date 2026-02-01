@@ -1,0 +1,123 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "duso_ecom Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "duso_ecom",
+    "theme_documentation_url": "https://duso-ecom.com",
+    "theme_support_url": "https://duso-ecom.com/support"
+  },
+  {
+    "name": "Цвета",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Основной цвет",
+        "default": "#f97316"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Вторичный цвет",
+        "default": "#10b981"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Цвет фона",
+        "default": "#0a0a0b"
+      }
+    ]
+  },
+  {
+    "name": "Типография",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "inter_n4",
+        "label": "Основной шрифт"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "inter_n7",
+        "label": "Шрифт заголовков"
+      }
+    ]
+  },
+  {
+    "name": "Логотип",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Логотип"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 50,
+        "max": 300,
+        "step": 10,
+        "default": 150,
+        "unit": "px",
+        "label": "Ширина логотипа"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Социальные сети",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_telegram",
+        "label": "Telegram",
+        "default": "@duso_ecom"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin",
+        "label": "LinkedIn"
+      }
+    ]
+  },
+  {
+    "name": "AI Ассистент",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "ai_assistant_enabled",
+        "label": "Включить AI ассистента",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ai_assistant_greeting",
+        "label": "Приветственное сообщение",
+        "default": "Привет! Я AI-консультант duso_ecom. Чем могу помочь?"
+      }
+    ]
+  }
+]
