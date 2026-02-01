@@ -313,19 +313,19 @@ const AdminLeadsPage = () => {
               <div className="flex gap-2 pt-4">
                 <Button
                   onClick={() => updateLeadStatus(selectedLead.id, 'in_progress')}
-                  className="flex-1 bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30"
+                  className="flex-1 bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30 text-xs sm:text-sm"
                   disabled={selectedLead.status === 'in_progress'}
                 >
-                  <Clock className="w-4 h-4 mr-2" />
-                  В роботу
+                  <Clock className="w-4 h-4 mr-1 sm:mr-2" />
+                  В работу
                 </Button>
                 <Button
                   onClick={() => updateLeadStatus(selectedLead.id, 'closed')}
-                  className="flex-1 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30"
+                  className="flex-1 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 text-xs sm:text-sm"
                   disabled={selectedLead.status === 'closed'}
                 >
-                  <CheckCircle className="w-4 h-4 mr-2" />
-                  Закрити
+                  <CheckCircle className="w-4 h-4 mr-1 sm:mr-2" />
+                  Закрыть
                 </Button>
               </div>
             </div>
