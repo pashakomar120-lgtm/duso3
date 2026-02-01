@@ -196,58 +196,58 @@ const AdminLeadsPage = () => {
             <div className="w-8 h-8 border-2 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
           </div>
         ) : leads.length === 0 ? (
-          <div className="glass-strong rounded-xl p-12 text-center border border-white/10">
-            <Users className="w-12 h-12 text-gray-600 mx-auto mb-4" />
-            <p className="text-gray-400">Поки немає заявок</p>
+          <div className="glass-strong rounded-xl p-8 sm:p-12 text-center border border-white/10">
+            <Users className="w-10 h-10 sm:w-12 sm:h-12 text-gray-600 mx-auto mb-4" />
+            <p className="text-gray-400 text-sm">Пока нет заявок</p>
           </div>
         ) : (
           <div className="glass-strong rounded-xl border border-white/10 overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="border-b border-white/10">
-                    <th className="text-left p-4 text-gray-400 font-medium">Ім'я</th>
-                    <th className="text-left p-4 text-gray-400 font-medium">Контакти</th>
-                    <th className="text-left p-4 text-gray-400 font-medium">Послуга</th>
-                    <th className="text-left p-4 text-gray-400 font-medium">Бюджет</th>
-                    <th className="text-left p-4 text-gray-400 font-medium">Статус</th>
-                    <th className="text-left p-4 text-gray-400 font-medium">Дата</th>
-                    <th className="text-left p-4 text-gray-400 font-medium">Дії</th>
+                    <th className="text-left p-3 sm:p-4 text-gray-400 font-medium text-xs sm:text-sm">Имя</th>
+                    <th className="text-left p-3 sm:p-4 text-gray-400 font-medium text-xs sm:text-sm">Контакты</th>
+                    <th className="text-left p-3 sm:p-4 text-gray-400 font-medium text-xs sm:text-sm">Услуга</th>
+                    <th className="text-left p-3 sm:p-4 text-gray-400 font-medium text-xs sm:text-sm">Бюджет</th>
+                    <th className="text-left p-3 sm:p-4 text-gray-400 font-medium text-xs sm:text-sm">Статус</th>
+                    <th className="text-left p-3 sm:p-4 text-gray-400 font-medium text-xs sm:text-sm">Дата</th>
+                    <th className="text-left p-3 sm:p-4 text-gray-400 font-medium text-xs sm:text-sm">Действия</th>
                   </tr>
                 </thead>
                 <tbody>
                   {leads.map((lead) => (
                     <tr key={lead.id} className="border-b border-white/5 hover:bg-white/5">
-                      <td className="p-4">
-                        <p className="text-white font-medium">{lead.name}</p>
-                        {lead.company && <p className="text-gray-500 text-sm">{lead.company}</p>}
+                      <td className="p-3 sm:p-4">
+                        <p className="text-white font-medium text-xs sm:text-sm">{lead.name}</p>
+                        {lead.company && <p className="text-gray-500 text-[10px] sm:text-sm">{lead.company}</p>}
                       </td>
-                      <td className="p-4">
-                        <p className="text-gray-300 text-sm">{lead.email}</p>
-                        <p className="text-gray-500 text-sm">{lead.phone}</p>
+                      <td className="p-3 sm:p-4">
+                        <p className="text-gray-300 text-[10px] sm:text-sm truncate max-w-[100px] sm:max-w-none">{lead.email}</p>
+                        <p className="text-gray-500 text-[10px] sm:text-sm">{lead.phone}</p>
                       </td>
-                      <td className="p-4 text-gray-300 text-sm max-w-[150px] truncate">{lead.service}</td>
-                      <td className="p-4 text-gray-300 text-sm">{lead.budget}</td>
-                      <td className="p-4">
+                      <td className="p-3 sm:p-4 text-gray-300 text-[10px] sm:text-sm max-w-[80px] sm:max-w-[150px] truncate">{lead.service}</td>
+                      <td className="p-3 sm:p-4 text-gray-300 text-[10px] sm:text-sm">{lead.budget}</td>
+                      <td className="p-3 sm:p-4">
                         <select
                           value={lead.status}
                           onChange={(e) => updateLeadStatus(lead.id, e.target.value)}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-medium border ${statusColors[lead.status]} bg-transparent cursor-pointer`}
+                          className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-[10px] sm:text-xs font-medium border ${statusColors[lead.status]} bg-transparent cursor-pointer`}
                         >
-                          <option value="new">Нова</option>
-                          <option value="in_progress">В роботі</option>
-                          <option value="closed">Закрита</option>
+                          <option value="new">Новая</option>
+                          <option value="in_progress">В работе</option>
+                          <option value="closed">Закрыта</option>
                         </select>
                       </td>
-                      <td className="p-4 text-gray-500 text-sm">
-                        {new Date(lead.created_at).toLocaleDateString('uk-UA')}
+                      <td className="p-3 sm:p-4 text-gray-500 text-[10px] sm:text-sm">
+                        {new Date(lead.created_at).toLocaleDateString('ru-RU')}
                       </td>
-                      <td className="p-4">
+                      <td className="p-3 sm:p-4">
                         <button
                           onClick={() => setSelectedLead(lead)}
-                          className="p-2 rounded-lg bg-white/5 text-gray-400 hover:bg-purple-500/20 hover:text-purple-400 transition-colors"
+                          className="p-1.5 sm:p-2 rounded-lg bg-white/5 text-gray-400 hover:bg-purple-500/20 hover:text-purple-400 transition-colors"
                         >
-                          <Eye className="w-4 h-4" />
+                          <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
                         </button>
                       </td>
                     </tr>
