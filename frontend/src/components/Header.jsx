@@ -218,14 +218,20 @@ const Header = () => {
                 </Link>
               ))}
               <div className="mt-4 pt-4 border-t border-white/10 space-y-3">
-                <div className="flex items-center gap-2 justify-center">
-                  {['🇷🇺', '🇺🇦', '🇰🇿', '🇧🇾', '🇺🇿', '🇦🇿'].map((flag, i) => (
-                    <span key={i} className="text-lg">{flag}</span>
+                <div className="flex items-center gap-2 justify-center flex-wrap">
+                  {cisFlags.map((flag) => (
+                    <img 
+                      key={flag.code}
+                      src={`https://flagcdn.com/w20/${flag.code}.png`}
+                      alt={flag.name}
+                      title={flag.name}
+                      className="w-6 h-4 object-cover rounded-sm shadow-sm"
+                    />
                   ))}
                 </div>
                 <Button
                   onClick={() => { navigate('/contact'); setMobileMenuOpen(false); }}
-                  className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 w-full py-6 rounded-xl shadow-lg shadow-orange-500/25"
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 w-full py-5 sm:py-6 rounded-xl shadow-lg shadow-orange-500/25 text-sm sm:text-base"
                 >
                   Бесплатная консультация
                   <ArrowRight className="w-4 h-4 ml-2" />
