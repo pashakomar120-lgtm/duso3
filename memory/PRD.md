@@ -8,58 +8,54 @@
 - ✅ Live Chat removed (only AI Assistant remains)
 - ✅ Admin panel mobile-friendly
 - ✅ Services dropdown menu fixed (stays open on hover)
-- ✅ QR code for Telegram added to Contact page
+- ✅ QR code for Telegram (custom) added to Contact page
 - ✅ Performance optimization (lazy loading, reduced animations)
-- ✅ 5x content expansion (40+ testimonials, 51 projects)
-- ✅ WOW logo wall on homepage
-- ✅ Flag images for all CIS countries
-- ✅ Secret admin access via AI Assistant
-- ✅ Full admin panel with JWT auth
+- ✅ **Shopify Liquid Theme Created** - `/app/shopify-theme/`
 
-## Secret Access
+### Shopify Theme Structure
+```
+/app/shopify-theme/
+├── assets/
+│   ├── base.css          # Full CSS with glass effects, buttons, utilities
+│   └── global.js         # JS for menus, lazy loading, animations
+├── config/
+│   ├── settings_schema.json  # Theme settings (colors, fonts, socials, AI)
+│   └── settings_data.json    # Default values
+├── layout/
+│   └── theme.liquid      # Main layout with header, footer, AI assistant
+├── locales/
+│   └── ru.default.json   # Russian translations
+├── sections/
+│   ├── announcement-bar.liquid
+│   ├── header.liquid     # Mobile-responsive header with dropdown
+│   ├── hero.liquid       # Hero section with stats, CTAs, cards
+│   ├── footer.liquid     # Footer with contacts, socials, links
+│   └── main-contact.liquid # Contact page with form & QR code
+├── snippets/
+│   ├── ai-assistant.liquid  # AI chat widget
+│   └── meta-tags.liquid     # SEO meta tags
+└── templates/
+    ├── index.json        # Homepage
+    ├── page.json         # Generic page
+    └── page.contact.json # Contact page
+```
+
+### Theme ZIP Ready
+**File:** `/app/shopify-theme.zip` (26KB)
+
+## How to Install on Shopify
+1. Go to **Shopify Admin** → **Online Store** → **Themes**
+2. Click **"Add theme"** → **"Upload ZIP file"**
+3. Upload `/app/shopify-theme.zip`
+4. Click **"Customize"** to configure
+
+## Secret Access (React Version)
 **Code word (AI Assistant):** `квантовий кіт шрёдінгера 2047`
 **Admin Login:** `duso_phantom_x7`
 **Admin Password:** `Zk9#mNp$vR2@qLw8!xYj`
 
-## Architecture
-```
-/app
-├── backend/
-│   ├── server.py (FastAPI + MongoDB + JWT Auth + AI)
-│   └── .env (MONGO_URL, OPENAI)
-└── frontend/
-    ├── src/
-    │   ├── components/ (Header, Footer, AIAssistant, etc.)
-    │   ├── pages/ (HomePage, PortfolioPage, admin/*)
-    │   ├── data/ (portfolioData.js, testimonialsData.js)
-    │   └── context/AuthContext.jsx
-    └── .env (REACT_APP_BACKEND_URL)
-```
-
-## Key APIs
-- `/api/leads` - Contact form submissions
-- `/api/calls` - Scheduled call requests
-- `/api/ai` - AI Assistant conversations
-- `/api/admin/login` - Admin authentication
-- `/api/admin/dashboard` - Dashboard statistics
-- `/api/admin/leads` - Admin leads management
-
-## Performance Optimizations Done
-- AnimatedBackground: reduced particles, FPS throttling, disabled on mobile
-- StoreLogosWow: memo components, IntersectionObserver, lazy loading
-- Images: lazy loading added throughout
-- Components: React.memo for frequently re-rendered components
-
-## Next Steps (Shopify Migration)
-User requested to convert this React app to Shopify Liquid theme.
-This requires:
-1. Creating Shopify theme structure (layout/theme.liquid)
-2. Converting React components to Liquid templates
-3. Adapting CSS to Shopify format
-4. Implementing Shopify-native features
-
-## Backlog
-- [ ] Shopify Liquid theme conversion (P0 - User's main goal)
-- [ ] Email/Telegram notifications for new leads
-- [ ] Refactor mockData.js further
-- [ ] Fix .js to .jsx file extensions
+## Next Steps
+- [ ] Add more sections: Services grid, Testimonials, Clients logos
+- [ ] Create product templates for Shopify catalog
+- [ ] Add blog templates
+- [ ] Connect AI Assistant to backend API
