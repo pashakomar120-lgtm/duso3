@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "clients": {
+      "type": "clients-logos",
+      "settings": {}
+    },
+    "services": {
+      "type": "services-grid",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-section",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "clients",
+    "services",
+    "testimonials",
+    "cta"
+  ]
+}
