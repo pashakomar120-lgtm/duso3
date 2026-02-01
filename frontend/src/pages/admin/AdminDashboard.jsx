@@ -233,72 +233,72 @@ const AdminDashboard = () => {
             </div>
 
             {/* Charts Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
               {/* Leads by Service */}
-              <div className="glass-strong rounded-xl p-6 border border-white/10">
-                <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-                  <PieChart className="w-5 h-5 text-purple-400" />
-                  Заявки по послугах
+              <div className="glass-strong rounded-xl p-4 sm:p-6 border border-white/10">
+                <h3 className="text-white font-semibold mb-4 flex items-center gap-2 text-sm sm:text-base">
+                  <PieChart className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+                  Заявки по услугам
                 </h3>
                 {stats?.leads_by_service && Object.keys(stats.leads_by_service).length > 0 ? (
                   <div className="space-y-3">
                     {Object.entries(stats.leads_by_service).map(([service, count]) => (
                       <div key={service} className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm truncate max-w-[200px]">{service}</span>
-                        <div className="flex items-center gap-3">
-                          <div className="w-24 h-2 bg-white/10 rounded-full overflow-hidden">
+                        <span className="text-gray-400 text-xs sm:text-sm truncate max-w-[120px] sm:max-w-[200px]">{service}</span>
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="w-16 sm:w-24 h-2 bg-white/10 rounded-full overflow-hidden">
                             <div 
                               className="h-full bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"
                               style={{ width: `${Math.min((count / stats.total_leads) * 100, 100)}%` }}
                             />
                           </div>
-                          <span className="text-white font-medium w-8 text-right">{count}</span>
+                          <span className="text-white font-medium w-6 sm:w-8 text-right text-sm">{count}</span>
                         </div>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-gray-500 text-center py-8">Поки немає даних</p>
+                  <p className="text-gray-500 text-center py-8 text-sm">Пока нет данных</p>
                 )}
               </div>
 
               {/* Leads by Budget */}
-              <div className="glass-strong rounded-xl p-6 border border-white/10">
-                <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-emerald-400" />
+              <div className="glass-strong rounded-xl p-4 sm:p-6 border border-white/10">
+                <h3 className="text-white font-semibold mb-4 flex items-center gap-2 text-sm sm:text-base">
+                  <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
                   Заявки по бюджету
                 </h3>
                 {stats?.leads_by_budget && Object.keys(stats.leads_by_budget).length > 0 ? (
                   <div className="space-y-3">
                     {Object.entries(stats.leads_by_budget).map(([budget, count]) => (
                       <div key={budget} className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">{budget}</span>
-                        <div className="flex items-center gap-3">
-                          <div className="w-24 h-2 bg-white/10 rounded-full overflow-hidden">
+                        <span className="text-gray-400 text-xs sm:text-sm">{budget}</span>
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="w-16 sm:w-24 h-2 bg-white/10 rounded-full overflow-hidden">
                             <div 
                               className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"
                               style={{ width: `${Math.min((count / stats.total_leads) * 100, 100)}%` }}
                             />
                           </div>
-                          <span className="text-white font-medium w-8 text-right">{count}</span>
+                          <span className="text-white font-medium w-6 sm:w-8 text-right text-sm">{count}</span>
                         </div>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-gray-500 text-center py-8">Поки немає даних</p>
+                  <p className="text-gray-500 text-center py-8 text-sm">Пока нет данных</p>
                 )}
               </div>
             </div>
 
             {/* Daily Leads Chart */}
             {stats?.leads_by_day && stats.leads_by_day.length > 0 && (
-              <div className="glass-strong rounded-xl p-6 border border-white/10 mt-6">
-                <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-orange-400" />
-                  Заявки за останні 30 днів
+              <div className="glass-strong rounded-xl p-4 sm:p-6 border border-white/10 mt-4 sm:mt-6">
+                <h3 className="text-white font-semibold mb-4 flex items-center gap-2 text-sm sm:text-base">
+                  <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
+                  Заявки за последние 30 дней
                 </h3>
-                <div className="flex items-end gap-1 h-40">
+                <div className="flex items-end gap-0.5 sm:gap-1 h-32 sm:h-40 overflow-x-auto">
                   {stats.leads_by_day.map((day, index) => {
                     const maxCount = Math.max(...stats.leads_by_day.map(d => d.count));
                     const height = maxCount > 0 ? (day.count / maxCount) * 100 : 0;
