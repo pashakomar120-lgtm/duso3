@@ -128,27 +128,27 @@ const PortfolioPage = () => {
       </section>
 
       {/* Filters */}
-      <section className="py-8">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-4 sm:py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Category Filter */}
-          <div className="mb-6">
-            <div className="flex items-center gap-2 mb-3">
+          <div className="mb-4 sm:mb-6">
+            <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <Filter className="w-4 h-4 text-orange-500" />
-              <span className="text-gray-400 text-sm">Категорія:</span>
+              <span className="text-gray-400 text-xs sm:text-sm">Категория:</span>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {categories.slice(0, 12).map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setCategoryFilter(cat)}
                   data-testid={`category-filter-${cat}`}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                     categoryFilter === cat
                       ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/30'
                       : 'glass text-gray-400 hover:text-white border border-white/5'
                   }`}
                 >
-                  {cat === 'all' ? 'Всі категорії' : cat}
+                  {cat === 'all' ? 'Все категории' : cat}
                 </button>
               ))}
             </div>
@@ -156,26 +156,26 @@ const PortfolioPage = () => {
 
           {/* Country Filter with Flags */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <Globe className="w-4 h-4 text-emerald-500" />
-              <span className="text-gray-400 text-sm">Країна:</span>
+              <span className="text-gray-400 text-xs sm:text-sm">Страна:</span>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               <button
                 onClick={() => setCountryFilter('all')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-1 sm:gap-2 ${
                   countryFilter === 'all'
                     ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-500/30'
                     : 'glass text-gray-400 hover:text-white border border-white/5'
                 }`}
               >
-                🌍 Всі країни СНГ
+                🌍 Все страны СНГ
               </button>
               {allCisFlags.map((flag) => (
                 <button
                   key={flag.code}
                   onClick={() => setCountryFilter(flag.full)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-1 sm:gap-2 ${
                     countryFilter === flag.full
                       ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-500/30'
                       : 'glass text-gray-400 hover:text-white border border-white/5'
@@ -184,9 +184,9 @@ const PortfolioPage = () => {
                   <img 
                     src={`https://flagcdn.com/w20/${flag.code}.png`}
                     alt={flag.name}
-                    className="w-5 h-3 object-cover rounded-sm"
+                    className="w-4 sm:w-5 h-2.5 sm:h-3 object-cover rounded-sm"
                   />
-                  {flag.name}
+                  <span className="hidden sm:inline">{flag.name}</span>
                 </button>
               ))}
             </div>
