@@ -85,57 +85,58 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0b] flex">
       {/* Sidebar */}
-      <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-[#111827] border-r border-white/10 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+      <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-[#111827] border-r border-white/10 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="p-6 border-b border-white/10">
+          <div className="p-4 sm:p-6 border-b border-white/10">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-orange-500 flex items-center justify-center">
-                <span className="text-white font-bold">D</span>
+              <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-xl bg-gradient-to-br from-purple-500 to-orange-500 flex items-center justify-center">
+                <span className="text-white font-bold text-sm sm:text-base">D</span>
               </div>
               <div>
-                <span className="text-white font-bold">duso_ecom</span>
-                <span className="block text-xs text-gray-500">Admin Panel</span>
+                <span className="text-white font-bold text-sm sm:text-base">duso_ecom</span>
+                <span className="block text-[10px] sm:text-xs text-gray-500">Admin Panel</span>
               </div>
             </Link>
           </div>
 
           {/* Menu */}
-          <nav className="flex-1 p-4 space-y-2">
+          <nav className="flex-1 p-3 sm:p-4 space-y-1.5 sm:space-y-2">
             {menuItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
+                onClick={() => setSidebarOpen(false)}
+                className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl transition-all text-sm ${
                   location.pathname === item.path
                     ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
                     : 'text-gray-400 hover:bg-white/5 hover:text-white'
                 }`}
               >
-                <item.icon className="w-5 h-5" />
+                <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="font-medium">{item.label}</span>
               </Link>
             ))}
           </nav>
 
           {/* User Info */}
-          <div className="p-4 border-t border-white/10">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                <span className="text-white font-bold">{admin?.username?.[0]?.toUpperCase()}</span>
+          <div className="p-3 sm:p-4 border-t border-white/10">
+            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                <span className="text-white font-bold text-sm">{admin?.username?.[0]?.toUpperCase()}</span>
               </div>
               <div>
-                <p className="text-white font-medium">{admin?.username}</p>
-                <p className="text-gray-500 text-xs">Адміністратор</p>
+                <p className="text-white font-medium text-sm">{admin?.username}</p>
+                <p className="text-gray-500 text-[10px] sm:text-xs">Администратор</p>
               </div>
             </div>
             <Button
               onClick={handleLogout}
               variant="outline"
-              className="w-full border-white/10 text-gray-400 hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/30"
+              className="w-full border-white/10 text-gray-400 hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/30 text-sm"
             >
               <LogOut className="w-4 h-4 mr-2" />
-              Вийти
+              Выйти
             </Button>
           </div>
         </div>
@@ -146,24 +147,32 @@ const AdminDashboard = () => {
         onClick={() => setSidebarOpen(!sidebarOpen)}
         className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-xl bg-[#111827] border border-white/10 text-white"
       >
-        {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {sidebarOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
       </button>
 
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="lg:hidden fixed inset-0 bg-black/50 z-40"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Main Content */}
-      <main className="flex-1 p-6 lg:p-8 overflow-auto">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto ml-0">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8 pt-12 lg:pt-0">
           <div>
-            <h1 className="text-2xl font-bold text-white">Дашборд</h1>
-            <p className="text-gray-400">Огляд всіх показників</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-white">Дашборд</h1>
+            <p className="text-gray-400 text-sm">Обзор всех показателей</p>
           </div>
           <Button
             onClick={handleRefresh}
             disabled={refreshing}
-            className="bg-white/5 border border-white/10 text-white hover:bg-white/10"
+            className="bg-white/5 border border-white/10 text-white hover:bg-white/10 text-sm"
           >
             <RefreshCw className={`w-4 h-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
-            Оновити
+            Обновить
           </Button>
         </div>
 
