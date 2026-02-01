@@ -8,46 +8,46 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen pt-32 pb-16 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-5 gap-12 items-center min-h-[75vh]">
+    <section className="min-h-screen pt-24 sm:pt-32 pb-8 sm:pb-16 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center min-h-[60vh] lg:min-h-[75vh]">
           {/* Left Content - 3 columns */}
-          <div className="lg:col-span-3 space-y-8 fade-in-up">
+          <div className="lg:col-span-3 space-y-6 sm:space-y-8 fade-in-up">
             {/* Badge with glow */}
-            <div className="inline-flex items-center gap-2 glass rounded-full px-5 py-2.5 border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300 group cursor-pointer">
-              <div className="w-7 h-7 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform">
-                <Sparkles className="w-4 h-4 text-white" />
+            <div className="inline-flex items-center gap-2 glass rounded-full px-3 sm:px-5 py-2 sm:py-2.5 border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300 group cursor-pointer">
+              <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform">
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
               </div>
-              <span className="text-white text-sm font-medium tracking-wider">
+              <span className="text-white text-xs sm:text-sm font-medium tracking-wider">
                 {heroContent.badge}
               </span>
-              <span className="text-emerald-500 text-xs px-2 py-0.5 bg-emerald-500/10 rounded-full">
+              <span className="text-emerald-500 text-[10px] sm:text-xs px-2 py-0.5 bg-emerald-500/10 rounded-full">
                 #1 в СНГ
               </span>
             </div>
 
             {/* Main Headline with glow effect */}
-            <div className="space-y-2">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+            <div className="space-y-1 sm:space-y-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
                 Создаём <span className="text-orange-500 text-glow-orange">Shopify</span> магазины
               </h1>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
                 <span className="text-white">которые </span>
                 <span className="gradient-text">продают</span>
               </h1>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
                 по всему <span className="text-emerald-500 text-glow-emerald">СНГ</span>
               </h1>
             </div>
 
             {/* Description */}
-            <p className="text-gray-400 text-lg max-w-xl">
+            <p className="text-gray-400 text-base sm:text-lg max-w-xl">
               От идеи до запуска за <span className="text-white font-semibold">2-4 недели</span>. 
               Сертифицированный Shopify Partner с опытом <span className="text-orange-500 font-semibold">6500+</span> успешных проектов.
             </p>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap items-center gap-4 text-sm">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm">
               <div className="flex items-center gap-2 text-gray-400">
                 <CheckCircle className="w-4 h-4 text-emerald-500" />
                 <span>Shopify Plus Partner</span>
@@ -63,38 +63,38 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons with glow */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button
                 onClick={() => navigate('/contact')}
-                className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 px-8 py-6 text-base font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 btn-glow rounded-xl"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 btn-glow rounded-xl w-full sm:w-auto"
                 data-testid="hero-cta-primary"
               >
                 Бесплатная консультация
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </Button>
               <Button
                 onClick={() => navigate('/portfolio')}
-                className="glass border-2 border-white/10 text-white hover:border-emerald-500/50 hover:bg-emerald-500/10 px-8 py-6 text-base font-medium transition-all duration-300 rounded-xl group"
+                className="glass border-2 border-white/10 text-white hover:border-emerald-500/50 hover:bg-emerald-500/10 px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium transition-all duration-300 rounded-xl group w-full sm:w-auto"
                 data-testid="hero-cta-secondary"
               >
-                <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Смотреть кейсы
               </Button>
             </div>
 
             {/* Stats mini row */}
-            <div className="flex gap-8 pt-4">
+            <div className="flex gap-6 sm:gap-8 pt-4">
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-500">6500+</div>
-                <div className="text-xs text-gray-500">Магазинов</div>
+                <div className="text-2xl sm:text-3xl font-bold text-orange-500">6500+</div>
+                <div className="text-[10px] sm:text-xs text-gray-500">Магазинов</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-500">$3B+</div>
-                <div className="text-xs text-gray-500">Оборот клиентов</div>
+                <div className="text-2xl sm:text-3xl font-bold text-emerald-500">$3B+</div>
+                <div className="text-[10px] sm:text-xs text-gray-500">Оборот клиентов</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">15+</div>
-                <div className="text-xs text-gray-500">Стран СНГ</div>
+                <div className="text-2xl sm:text-3xl font-bold text-white">15+</div>
+                <div className="text-[10px] sm:text-xs text-gray-500">Стран СНГ</div>
               </div>
             </div>
           </div>
