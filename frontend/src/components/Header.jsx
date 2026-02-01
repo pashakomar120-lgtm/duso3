@@ -99,18 +99,17 @@ const Header = () => {
             {navItems.map((item) => (
               <div 
                 key={item.label}
-                className="relative"
-                onMouseEnter={() => item.href === '/services' && setServicesOpen(true)}
-                onMouseLeave={() => item.href === '/services' && setServicesOpen(false)}
+                className="relative group"
               >
                 <Link
                   to={item.href}
                   data-testid={`nav-${item.href.replace('/', '') || 'home'}`}
-                  className={`relative px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium group flex items-center gap-1 ${
+                  className={`relative px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium flex items-center gap-1 ${
                     location.pathname === item.href
                       ? 'text-orange-500'
                       : 'text-gray-400 hover:text-white'
                   }`}
+                  onMouseEnter={() => item.href === '/services' && setServicesOpen(true)}
                 >
                   {item.label}
                   {item.href === '/services' && (
@@ -123,44 +122,46 @@ const Header = () => {
                 </Link>
 
                 {/* Services Dropdown */}
-                {item.href === '/services' && servicesOpen && (
+                {item.href === '/services' && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-[600px] glass-strong rounded-2xl border border-white/10 shadow-2xl p-4 grid grid-cols-2 gap-2 fade-in-up"
+                    className={`absolute top-full left-0 pt-2 transition-all duration-200 ${servicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
                   >
-                    {services.slice(0, 8).map((service) => {
-                      const IconComponent = LucideIcons[service.icon] || LucideIcons.Box;
-                      return (
-                        <Link
-                          key={service.id}
-                          to={`/services#${service.id}`}
+                    <div className="w-[600px] glass-strong rounded-2xl border border-white/10 shadow-2xl p-4 grid grid-cols-2 gap-2">
+                      {services.slice(0, 8).map((service) => {
+                        const IconComponent = LucideIcons[service.icon] || LucideIcons.Box;
+                        return (
+                          <Link
+                            key={service.id}
+                            to={`/services#${service.id}`}
+                            onClick={() => setServicesOpen(false)}
+                            className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-all group/item"
+                          >
+                            <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange-500/20 transition-colors">
+                              <IconComponent className="w-5 h-5 text-orange-500" />
+                            </div>
+                            <div>
+                              <div className="text-white font-medium text-sm group-hover/item:text-orange-500 transition-colors">
+                                {service.title}
+                              </div>
+                              <div className="text-gray-500 text-xs line-clamp-1">
+                                {service.price}
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                      <div className="col-span-2 pt-3 mt-2 border-t border-white/5">
+                        <Link 
+                          to="/services" 
                           onClick={() => setServicesOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-all group"
+                          className="flex items-center justify-center gap-2 text-orange-500 hover:text-white text-sm font-medium transition-colors"
                         >
-                          <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500/20 transition-colors">
-                            <IconComponent className="w-5 h-5 text-orange-500" />
-                          </div>
-                          <div>
-                            <div className="text-white font-medium text-sm group-hover:text-orange-500 transition-colors">
-                              {service.title}
-                            </div>
-                            <div className="text-gray-500 text-xs line-clamp-1">
-                              {service.price}
-                            </div>
-                          </div>
+                          Все 13 услуг
+                          <ArrowRight className="w-4 h-4" />
                         </Link>
-                      );
-                    })}
-                    <div className="col-span-2 pt-3 mt-2 border-t border-white/5">
-                      <Link 
-                        to="/services" 
-                        onClick={() => setServicesOpen(false)}
-                        className="flex items-center justify-center gap-2 text-orange-500 hover:text-white text-sm font-medium transition-colors"
-                      >
-                        Все 13 услуг
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 )}
