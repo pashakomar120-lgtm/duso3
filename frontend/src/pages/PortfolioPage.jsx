@@ -195,23 +195,23 @@ const PortfolioPage = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between mb-8">
-            <p className="text-gray-400">
-              Показано: <span className="text-white font-bold">{filteredProjects.length}</span> проектів
+      <section className="py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between mb-6 sm:mb-8">
+            <p className="text-gray-400 text-sm">
+              Показано: <span className="text-white font-bold">{filteredProjects.length}</span> проектов
             </p>
             {(categoryFilter !== 'all' || countryFilter !== 'all') && (
               <button
                 onClick={() => { setCategoryFilter('all'); setCountryFilter('all'); }}
-                className="text-orange-500 hover:text-orange-400 text-sm flex items-center gap-1"
+                className="text-orange-500 hover:text-orange-400 text-xs sm:text-sm flex items-center gap-1"
               >
-                Скинути фільтри <X className="w-4 h-4" />
+                Сбросить фильтры <X className="w-4 h-4" />
               </button>
             )}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filteredProjects.map((project) => (
               <article
                 key={project.id}
