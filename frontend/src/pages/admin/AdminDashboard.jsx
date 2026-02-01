@@ -320,41 +320,41 @@ const AdminDashboard = () => {
             )}
 
             {/* Quick Actions */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-4 sm:mt-6">
               <Link
                 to="/admin/leads"
-                className="glass-strong rounded-xl p-4 border border-white/10 hover:border-purple-500/50 transition-colors group"
+                className="glass-strong rounded-xl p-3 sm:p-4 border border-white/10 hover:border-purple-500/50 transition-colors group"
               >
-                <div className="flex items-center gap-3">
-                  <Users className="w-5 h-5 text-purple-400" />
-                  <span className="text-white group-hover:text-purple-400 transition-colors">Переглянути заявки</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+                  <span className="text-white group-hover:text-purple-400 transition-colors text-xs sm:text-sm">Смотреть заявки</span>
                 </div>
               </Link>
               <Link
                 to="/admin/calls"
-                className="glass-strong rounded-xl p-4 border border-white/10 hover:border-cyan-500/50 transition-colors group"
+                className="glass-strong rounded-xl p-3 sm:p-4 border border-white/10 hover:border-cyan-500/50 transition-colors group"
               >
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-cyan-400" />
-                  <span className="text-white group-hover:text-cyan-400 transition-colors">Заплановані дзвінки</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+                  <span className="text-white group-hover:text-cyan-400 transition-colors text-xs sm:text-sm">Запл. звонки</span>
                 </div>
               </Link>
               <Link
                 to="/admin/livechats"
-                className="glass-strong rounded-xl p-4 border border-white/10 hover:border-pink-500/50 transition-colors group"
+                className="glass-strong rounded-xl p-3 sm:p-4 border border-white/10 hover:border-pink-500/50 transition-colors group"
               >
-                <div className="flex items-center gap-3">
-                  <MessageSquare className="w-5 h-5 text-pink-400" />
-                  <span className="text-white group-hover:text-pink-400 transition-colors">Live Chat</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-pink-400" />
+                  <span className="text-white group-hover:text-pink-400 transition-colors text-xs sm:text-sm">Live Chat</span>
                 </div>
               </Link>
               <Link
                 to="/admin/ai-conversations"
-                className="glass-strong rounded-xl p-4 border border-white/10 hover:border-violet-500/50 transition-colors group"
+                className="glass-strong rounded-xl p-3 sm:p-4 border border-white/10 hover:border-violet-500/50 transition-colors group"
               >
-                <div className="flex items-center gap-3">
-                  <Brain className="w-5 h-5 text-violet-400" />
-                  <span className="text-white group-hover:text-violet-400 transition-colors">AI Переписки</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
+                  <span className="text-white group-hover:text-violet-400 transition-colors text-xs sm:text-sm">AI Переписки</span>
                 </div>
               </Link>
             </div>
