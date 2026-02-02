@@ -1,0 +1,15 @@
+{
+  "current": {
+    "brand_name": "duso_ecom",
+    "brand_tagline": "#1 СНГ",
+    "contact_email": "contact@duso-ecom.com",
+    "contact_phone": "+7 (495) 123-45-67",
+    "contact_address": "Москва, ул. Тверская, 12, офис 301",
+    "telegram_url": "https://t.me/duso_ecom",
+    "social_facebook": "https://facebook.com",
+    "social_instagram": "https://instagram.com",
+    "social_linkedin": "https://linkedin.com",
+    "ai_enabled": true,
+    "ai_api_url": ""
+  }
+}
