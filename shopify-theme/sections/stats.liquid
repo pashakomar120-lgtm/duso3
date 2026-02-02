@@ -1,0 +1,67 @@
+{% comment %}
+  Stats Section - Exact copy from React StatsSection.jsx
+{% endcomment %}
+
+<section id="stats" class="py-24 relative z-10">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="text-orange-500 text-sm font-medium tracking-wider uppercase mb-4 block">
+        {{ 'stats.section_title' | t }}
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        {{ 'stats.title_1' | t }} <span class="text-emerald-500 text-glow-emerald">{{ 'stats.title_highlight' | t }}</span> {{ 'stats.title_2' | t }}
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        {{ 'stats.subtitle' | t }}
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {% assign stat_values = "6,500+,$3B+,15+,98%" | split: "," %}
+      {% assign stat_labels = "Магазинов запущено,Оборот клиентов,Стран СНГ,Довольных клиентов" | split: "," %}
+      {% assign stat_icons = "shopping-cart,trending-up,globe,heart" | split: "," %}
+      {% assign stat_colors = "orange,emerald,orange,emerald" | split: "," %}
+      {% assign stat_growing = "Растёт каждый день,Ежегодно,Покрытие,Рейтинг" | split: "," %}
+      
+      {% for i in (0..3) %}
+        <div 
+          data-testid="stat-{{ i }}"
+          class="floating-card rounded-2xl p-6 text-center hover:border-{{ stat_colors[i] }}-500/30 transition-all duration-300 group cursor-pointer"
+        >
+          <div class="w-14 h-14 mx-auto rounded-xl bg-{{ stat_colors[i] }}-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="{{ stat_icons[i] }}" class="w-7 h-7 text-{{ stat_colors[i] }}-500"></i>
+          </div>
+          <div class="text-3xl md:text-4xl font-bold text-white mb-2">{{ stat_values[i] }}</div>
+          <div class="text-gray-400 text-sm mb-2">{{ stat_labels[i] }}</div>
+          <div class="text-{{ stat_colors[i] }}-500 text-xs font-medium">
+            {{ stat_growing[i] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Additional Row with mini stats -->
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-8">
+      {% assign mini_values = "+180%,24/7,$2.5K,2-4,99.9%,5/5" | split: "," %}
+      {% assign mini_labels = "Конверсия,Поддержка,Мин. бюджет,Недели запуск,Uptime,Рейтинг" | split: "," %}
+      
+      {% for i in (0..5) %}
+        <div class="glass rounded-xl p-4 text-center hover:bg-white/5 transition-all duration-300">
+          <div class="text-xl font-bold {% cycle 'text-orange-500', 'text-emerald-500', 'text-orange-500', 'text-emerald-500', 'text-orange-500', 'text-emerald-500' %}">
+            {{ mini_values[i] }}
+          </div>
+          <div class="text-gray-500 text-xs">{{ mini_labels[i] }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stats",
+  "settings": []
+}
+{% endschema %}
