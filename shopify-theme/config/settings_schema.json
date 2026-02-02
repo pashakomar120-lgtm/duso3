@@ -1,9 +1,10 @@
-{
-  "current_version": "1.0.0",
-  "name": "duso_ecom",
-  "theme_name": "duso_ecom Shopify Theme",
-  "theme_version": "1.0.0",
-  "theme_author": "duso_ecom",
-  "theme_documentation_url": "https://duso-ecom.com",
-  "theme_support_url": "https://t.me/duso_ecom"
-}
+[
+  {
+    "name": "theme_info",
+    "theme_name": "duso_ecom",
+    "theme_version": "1.0.0",
+    "theme_author": "duso_ecom",
+    "theme_documentation_url": "https://duso-ecom.com",
+    "theme_support_url": "https://t.me/duso_ecom"
+  }
+]
