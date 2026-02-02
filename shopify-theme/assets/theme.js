@@ -1,28 +1,24 @@
 /* duso_ecom Shopify Theme - JavaScript */
 
+// Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Lucide Icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    // Initialize Lucide Icons with delay to prevent blocking
+    setTimeout(function() {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }, 100);
     
-    // Header scroll effect
+    // Initialize components
     initHeaderScroll();
-    
-    // Mobile menu
     initMobileMenu();
-    
-    // Services tabs
     initServicesTabs();
-    
-    // Store logos scroll
-    initStoreLogosScroll();
-    
-    // AI Assistant
     initAIAssistant();
     
-    // Reinitialize icons after dynamic content
-    observeDynamicContent();
+    // Delay heavy animations
+    setTimeout(function() {
+        initStoreLogosScroll();
+    }, 500);
 });
 
 // ==========================================
@@ -30,26 +26,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // ==========================================
 
 function initHeaderScroll() {
-    const header = document.getElementById('main-header');
-    const topbar = document.getElementById('header-topbar');
+    var header = document.getElementById('main-header');
+    var topbar = document.getElementById('header-topbar');
     
     if (!header) return;
     
     window.addEventListener('scroll', function() {
-        const scrolled = window.scrollY > 50;
+        var scrolled = window.scrollY > 50;
         
         if (scrolled) {
-            header.classList.add('glass-strong', 'shadow-2xl');
-            header.classList.remove('bg-transparent');
+            header.classList.add('glass-strong');
             header.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
-            if (topbar) topbar.classList.replace('py-2', 'py-1');
         } else {
-            header.classList.remove('glass-strong', 'shadow-2xl');
-            header.classList.add('bg-transparent');
+            header.classList.remove('glass-strong');
             header.style.borderBottom = 'none';
-            if (topbar) topbar.classList.replace('py-1', 'py-2');
         }
-    });
+    }, { passive: true });
 }
 
 // ==========================================
@@ -58,13 +50,15 @@ function initHeaderScroll() {
 
 function initMobileMenu() {
     window.toggleMobileMenu = function() {
-        const menu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-menu-icon');
+        var menu = document.getElementById('mobile-menu');
+        var menuIcon = document.getElementById('menu-icon');
+        var closeIcon = document.getElementById('close-menu-icon');
         
         if (!menu) return;
         
-        if (menu.classList.contains('hidden')) {
+        var isHidden = menu.classList.contains('hidden');
+        
+        if (isHidden) {
             menu.classList.remove('hidden');
             if (menuIcon) menuIcon.classList.add('hidden');
             if (closeIcon) closeIcon.classList.remove('hidden');
@@ -85,25 +79,27 @@ function initMobileMenu() {
 function initServicesTabs() {
     window.showService = function(serviceId) {
         // Hide all content and features
-        document.querySelectorAll('.service-content').forEach(el => el.classList.add('hidden'));
-        document.querySelectorAll('.features-list').forEach(el => el.classList.add('hidden'));
+        var contents = document.querySelectorAll('.service-content');
+        var features = document.querySelectorAll('.features-list');
+        var tabs = document.querySelectorAll('#service-tabs button');
+        
+        contents.forEach(function(el) { el.classList.add('hidden'); });
+        features.forEach(function(el) { el.classList.add('hidden'); });
         
         // Reset all tabs
-        document.querySelectorAll('#service-tabs button').forEach(btn => {
-            btn.className = 'px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 glass text-gray-400 hover:text-white hover:border-orange-500/30 border border-transparent';
+        tabs.forEach(function(btn) {
+            btn.className = 'px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 glass text-gray-400 hover:text-white border border-transparent';
         });
         
         // Show selected content and features
-        const content = document.getElementById('content-' + serviceId);
-        const features = document.getElementById('features-' + serviceId);
+        var content = document.getElementById('content-' + serviceId);
+        var featureList = document.getElementById('features-' + serviceId);
+        var tab = document.getElementById('tab-' + serviceId);
         
         if (content) content.classList.remove('hidden');
-        if (features) features.classList.remove('hidden');
-        
-        // Highlight active tab
-        const tab = document.getElementById('tab-' + serviceId);
+        if (featureList) featureList.classList.remove('hidden');
         if (tab) {
-            tab.className = 'px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/30';
+            tab.className = 'px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gradient-to-r from-orange-500 to-orange-600 text-white';
         }
         
         reinitIcons();
@@ -111,31 +107,22 @@ function initServicesTabs() {
 }
 
 // ==========================================
-// STORE LOGOS SCROLL
+// STORE LOGOS SCROLL (Optimized - no infinite loop)
 // ==========================================
 
 function initStoreLogosScroll() {
-    const scrollContainer = document.getElementById('store-logos-scroll');
+    var scrollContainer = document.getElementById('store-logos-scroll');
     if (!scrollContainer) return;
     
-    let scrollPosition = 0;
-    const speed = 0.3;
-    let animationId = null;
-    
-    function animate() {
-        scrollPosition += speed;
-        if (scrollPosition >= scrollContainer.scrollWidth / 2) {
-            scrollPosition = 0;
-        }
-        scrollContainer.scrollLeft = scrollPosition;
-        animationId = requestAnimationFrame(animate);
-    }
-    
-    const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-            animationId = requestAnimationFrame(animate);
-            observer.disconnect();
-        }
+    // Only run animation when visible
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                scrollContainer.style.animation = 'scrollLogos 30s linear infinite';
+            } else {
+                scrollContainer.style.animation = 'none';
+            }
+        });
     }, { threshold: 0.1 });
     
     observer.observe(scrollContainer);
@@ -145,27 +132,28 @@ function initStoreLogosScroll() {
 // AI ASSISTANT
 // ==========================================
 
-const SECRET_CODE = 'квантовий кіт шрёдінгера 2047';
-let conversationHistory = [];
-let aiChatOpen = false;
+var SECRET_CODE = 'квантовий кіт шрёдінгера 2047';
+var conversationHistory = [];
+var aiChatOpen = false;
 
 function initAIAssistant() {
     window.toggleAIChat = function() {
         aiChatOpen = !aiChatOpen;
-        const panel = document.getElementById('ai-chat-panel');
-        const chatIcon = document.getElementById('chat-icon');
-        const closeIcon = document.getElementById('close-icon');
+        var panel = document.getElementById('ai-chat-panel');
+        var chatIcon = document.getElementById('chat-icon');
+        var closeIcon = document.getElementById('close-icon');
         
         if (!panel) return;
         
         if (aiChatOpen) {
             panel.classList.remove('hidden');
-            panel.classList.add('flex');
+            panel.style.display = 'flex';
+            panel.style.flexDirection = 'column';
             if (chatIcon) chatIcon.classList.add('hidden');
             if (closeIcon) closeIcon.classList.remove('hidden');
         } else {
             panel.classList.add('hidden');
-            panel.classList.remove('flex');
+            panel.style.display = 'none';
             if (chatIcon) chatIcon.classList.remove('hidden');
             if (closeIcon) closeIcon.classList.add('hidden');
         }
@@ -174,16 +162,16 @@ function initAIAssistant() {
     };
     
     window.sendSuggestion = function(text) {
-        const input = document.getElementById('ai-input');
+        var input = document.getElementById('ai-input');
         if (input) {
             input.value = text;
             sendMessage();
         }
     };
     
-    window.sendMessage = async function() {
-        const input = document.getElementById('ai-input');
-        const message = input ? input.value.trim() : '';
+    window.sendMessage = function() {
+        var input = document.getElementById('ai-input');
+        var message = input ? input.value.trim() : '';
         
         if (!message) return;
         
@@ -195,127 +183,93 @@ function initAIAssistant() {
             return;
         }
         
-        // Hide suggestions after first message
-        const suggestions = document.getElementById('ai-suggestions');
+        // Hide suggestions
+        var suggestions = document.getElementById('ai-suggestions');
         if (suggestions) suggestions.classList.add('hidden');
         
         addMessage(message, true);
         input.value = '';
         
-        conversationHistory.push({ role: 'user', content: message });
-        
+        // Show typing and respond
         showTypingIndicator();
         
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        hideTypingIndicator();
-        
-        const fallbackResponse = getFallbackResponse(message);
-        addMessage(fallbackResponse);
-        conversationHistory.push({ role: 'assistant', content: fallbackResponse });
+        setTimeout(function() {
+            hideTypingIndicator();
+            var response = getFallbackResponse(message);
+            addMessage(response, false);
+        }, 1500);
     };
     
     window.showAdminPanel = function() {
-        const panel = document.getElementById('admin-panel');
+        var panel = document.getElementById('admin-panel');
         if (panel) panel.classList.remove('hidden');
     };
     
     window.closeAdminPanel = function() {
-        const panel = document.getElementById('admin-panel');
+        var panel = document.getElementById('admin-panel');
         if (panel) panel.classList.add('hidden');
     };
 }
 
-function addMessage(content, isUser = false) {
-    const messagesContainer = document.getElementById('ai-messages');
-    if (!messagesContainer) return;
+function addMessage(content, isUser) {
+    var container = document.getElementById('ai-messages');
+    if (!container) return;
     
-    const messageDiv = document.createElement('div');
-    messageDiv.className = isUser ? 'flex gap-3 justify-end' : 'flex gap-3';
+    var div = document.createElement('div');
+    div.className = isUser ? 'flex gap-3 justify-end' : 'flex gap-3';
+    
+    var escaped = content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     
     if (isUser) {
-        messageDiv.innerHTML = `
-            <div class="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl rounded-tr-sm p-4 max-w-[280px]">
-                <p class="text-white text-sm">${escapeHtml(content)}</p>
-            </div>
-            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="user" class="w-4 h-4 text-white"></i>
-            </div>
-        `;
+        div.innerHTML = '<div class="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl rounded-tr-sm p-4 max-w-xs"><p class="text-white text-sm">' + escaped + '</p></div><div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center flex-shrink-0"><i data-lucide="user" class="w-4 h-4 text-white"></i></div>';
     } else {
-        messageDiv.innerHTML = `
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="bot" class="w-4 h-4 text-white"></i>
-            </div>
-            <div class="glass rounded-2xl rounded-tl-sm p-4 max-w-[280px]">
-                <p class="text-white text-sm">${escapeHtml(content)}</p>
-            </div>
-        `;
+        div.innerHTML = '<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-4 h-4 text-white"></i></div><div class="glass rounded-2xl rounded-tl-sm p-4 max-w-xs"><p class="text-white text-sm">' + escaped + '</p></div>';
     }
     
-    messagesContainer.appendChild(messageDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
     reinitIcons();
 }
 
 function showTypingIndicator() {
-    const messagesContainer = document.getElementById('ai-messages');
-    if (!messagesContainer) return;
+    var container = document.getElementById('ai-messages');
+    if (!container) return;
     
-    const typingDiv = document.createElement('div');
-    typingDiv.id = 'typing-indicator';
-    typingDiv.className = 'flex gap-3';
-    typingDiv.innerHTML = `
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
-            <i data-lucide="bot" class="w-4 h-4 text-white"></i>
-        </div>
-        <div class="glass rounded-2xl rounded-tl-sm p-4">
-            <div class="flex gap-1">
-                <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
-                <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
-                <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
-            </div>
-        </div>
-    `;
-    messagesContainer.appendChild(typingDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    var div = document.createElement('div');
+    div.id = 'typing-indicator';
+    div.className = 'flex gap-3';
+    div.innerHTML = '<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-4 h-4 text-white"></i></div><div class="glass rounded-2xl rounded-tl-sm p-4"><div class="flex gap-1"><span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span><span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:0.15s"></span><span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:0.3s"></span></div></div>';
     
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
     reinitIcons();
 }
 
 function hideTypingIndicator() {
-    const typing = document.getElementById('typing-indicator');
+    var typing = document.getElementById('typing-indicator');
     if (typing) typing.remove();
 }
 
 function getFallbackResponse(message) {
-    const lowerMessage = message.toLowerCase();
+    var m = message.toLowerCase();
     
-    if (lowerMessage.includes('стоимость') || lowerMessage.includes('цена') || lowerMessage.includes('сколько')) {
-        return 'Стоимость разработки Shopify магазина начинается от $2,500. Точная цена зависит от сложности проекта, количества товаров и необходимых интеграций. Хотите получить индивидуальный расчёт? Напишите нам в Telegram: @duso_ecom';
+    if (m.indexOf('стоимость') !== -1 || m.indexOf('цена') !== -1 || m.indexOf('сколько') !== -1) {
+        return 'Стоимость разработки Shopify магазина начинается от $2,500. Точная цена зависит от сложности проекта. Напишите нам в Telegram: @duso_ecom';
     }
     
-    if (lowerMessage.includes('гарант') || lowerMessage.includes('возврат')) {
-        return 'Мы даём гарантию на все наши работы: ✓ Бесплатные правки в течение 30 дней после запуска ✓ Техподдержка 24/7 ✓ Возврат 100% при невыполнении условий договора. Работаем по договору с чётким ТЗ.';
+    if (m.indexOf('гарант') !== -1 || m.indexOf('возврат') !== -1) {
+        return 'Мы даём гарантию на все наши работы: бесплатные правки 30 дней, техподдержка 24/7, возврат 100% при невыполнении условий.';
     }
     
-    if (lowerMessage.includes('кейс') || lowerMessage.includes('портфолио') || lowerMessage.includes('пример')) {
-        return 'У нас более 6500+ успешных проектов! Средний рост продаж наших клиентов +180%. Посмотрите раздел "Портфолио" на сайте или напишите нам — пришлём релевантные кейсы из вашей ниши.';
+    if (m.indexOf('кейс') !== -1 || m.indexOf('портфолио') !== -1 || m.indexOf('пример') !== -1) {
+        return 'У нас более 6500+ успешных проектов! Средний рост продаж +180%. Посмотрите раздел Портфолио на сайте.';
     }
     
-    if (lowerMessage.includes('срок') || lowerMessage.includes('время') || lowerMessage.includes('долго')) {
-        return 'Сроки разработки: • Базовый магазин: 2-3 недели • Средний проект: 3-4 недели • Сложный/кастомный: 4-6 недель. Мы всегда укладываемся в оговоренные сроки!';
+    if (m.indexOf('срок') !== -1 || m.indexOf('время') !== -1 || m.indexOf('долго') !== -1) {
+        return 'Сроки: базовый магазин 2-3 недели, средний проект 3-4 недели, сложный 4-6 недель. Всегда укладываемся в сроки!';
     }
     
-    return 'Спасибо за ваш вопрос! Для детальной консультации свяжитесь с нами: Telegram: @duso_ecom или оставьте заявку на сайте. Наши эксперты ответят в течение 15 минут!';
-}
-
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+    return 'Спасибо за вопрос! Свяжитесь с нами: Telegram @duso_ecom. Ответим в течение 15 минут!';
 }
 
 // ==========================================
@@ -323,18 +277,14 @@ function escapeHtml(text) {
 // ==========================================
 
 function reinitIcons() {
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    setTimeout(function() {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }, 50);
 }
 
-function observeDynamicContent() {
-    const observer = new MutationObserver(function(mutations) {
-        reinitIcons();
-    });
-    
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-}
+// Add CSS animation for logos scroll
+var style = document.createElement('style');
+style.textContent = '@keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }';
+document.head.appendChild(style);
