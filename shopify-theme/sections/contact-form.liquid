@@ -1,0 +1,94 @@
+<section class="py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-2xl font-bold text-white mb-8">Контактная информация</h2>
+        
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div style="width: 48px; height: 48px; background: rgba(249,115,22,0.1); border-radius: 12px;" class="flex items-center justify-center flex-shrink-0">
+              <i data-lucide="mail" style="color: #f97316;" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-medium mb-1">Email</h3>
+              <p class="text-gray-400">hello@duso-ecom.com</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <div style="width: 48px; height: 48px; background: rgba(16,185,129,0.1); border-radius: 12px;" class="flex items-center justify-center flex-shrink-0">
+              <i data-lucide="phone" style="color: #10b981;" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-medium mb-1">Телефон</h3>
+              <p class="text-gray-400">+7 (999) 123-45-67</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <div style="width: 48px; height: 48px; background: rgba(249,115,22,0.1); border-radius: 12px;" class="flex items-center justify-center flex-shrink-0">
+              <i data-lucide="send" style="color: #f97316;" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-medium mb-1">Telegram</h3>
+              <p class="text-gray-400">@duso_ecom</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <div style="width: 48px; height: 48px; background: rgba(16,185,129,0.1); border-radius: 12px;" class="flex items-center justify-center flex-shrink-0">
+              <i data-lucide="clock" style="color: #10b981;" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-medium mb-1">Время работы</h3>
+              <p class="text-gray-400">Пн-Пт: 9:00 - 18:00 (МСК)</p>
+              <p class="text-gray-400">Поддержка: 24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="floating-card rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-white mb-6">Оставить заявку</h2>
+        
+        <form action="/contact" method="post" class="space-y-4">
+          <input type="hidden" name="form_type" value="contact">
+          <input type="hidden" name="utf8" value="✓">
+          
+          <div>
+            <label class="text-gray-400 text-sm mb-2 block">Ваше имя</label>
+            <input type="text" name="contact[name]" required class="w-full px-4 py-3 rounded-xl border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500" style="background: rgba(255,255,255,0.05);" placeholder="Иван Иванов">
+          </div>
+          
+          <div>
+            <label class="text-gray-400 text-sm mb-2 block">Email</label>
+            <input type="email" name="contact[email]" required class="w-full px-4 py-3 rounded-xl border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500" style="background: rgba(255,255,255,0.05);" placeholder="email@example.com">
+          </div>
+          
+          <div>
+            <label class="text-gray-400 text-sm mb-2 block">Телефон</label>
+            <input type="tel" name="contact[phone]" class="w-full px-4 py-3 rounded-xl border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500" style="background: rgba(255,255,255,0.05);" placeholder="+7 (999) 123-45-67">
+          </div>
+          
+          <div>
+            <label class="text-gray-400 text-sm mb-2 block">Сообщение</label>
+            <textarea name="contact[body]" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 resize-none" style="background: rgba(255,255,255,0.05);" placeholder="Расскажите о вашем проекте..."></textarea>
+          </div>
+          
+          <button type="submit" class="w-full py-4 rounded-xl font-medium text-white transition-all duration-300 btn-glow" style="background: linear-gradient(to right, #f97316, #ea580c);">
+            Отправить заявку
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": []
+}
+{% endschema %}
