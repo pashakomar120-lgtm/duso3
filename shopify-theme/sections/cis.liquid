@@ -1,0 +1,119 @@
+{% comment %}
+  CIS Section - Exact copy from React CISSection.jsx
+{% endcomment %}
+
+<section class="py-24 relative z-10">
+  <div class="absolute inset-0 glass opacity-20"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="text-emerald-500 text-sm font-medium tracking-wider uppercase mb-4 block">
+        {{ 'cis.section_title' | t }}
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        <span class="text-orange-500 text-glow-orange">{{ 'cis.title_1' | t }}</span> {{ 'cis.title_2' | t }} <span class="text-emerald-500 text-glow-emerald">{{ 'cis.title_highlight' | t }}</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        {{ 'cis.subtitle' | t }}
+      </p>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="floating-card rounded-xl p-6 text-center">
+        <i data-lucide="globe" class="w-8 h-8 text-orange-500 mx-auto mb-2"></i>
+        <div class="text-3xl font-bold text-white">8</div>
+        <div class="text-gray-500 text-sm">{{ 'cis.countries' | t }}</div>
+      </div>
+      <div class="floating-card rounded-xl p-6 text-center">
+        <i data-lucide="map-pin" class="w-8 h-8 text-emerald-500 mx-auto mb-2"></i>
+        <div class="text-3xl font-bold text-white">30+</div>
+        <div class="text-gray-500 text-sm">{{ 'cis.cities' | t }}</div>
+      </div>
+      <div class="floating-card rounded-xl p-6 text-center">
+        <i data-lucide="users" class="w-8 h-8 text-orange-500 mx-auto mb-2"></i>
+        <div class="text-3xl font-bold text-white">6500+</div>
+        <div class="text-gray-500 text-sm">{{ 'cis.projects' | t }}</div>
+      </div>
+      <div class="floating-card rounded-xl p-6 text-center">
+        <i data-lucide="trending-up" class="w-8 h-8 text-emerald-500 mx-auto mb-2"></i>
+        <div class="text-3xl font-bold text-white">$3B+</div>
+        <div class="text-gray-500 text-sm">{{ 'cis.revenue' | t }}</div>
+      </div>
+    </div>
+
+    <!-- Countries Grid with REAL FLAG IMAGES -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+      {% assign country_codes = "ru,ua,kz,by,uz,az,ge,am" | split: "," %}
+      {% assign country_names = "Россия,Украина,Казахстан,Беларусь,Узбекистан,Азербайджан,Грузия,Армения" | split: "," %}
+      {% assign country_projects = "3200+,1500+,800+,450+,250+,180+,80+,40+" | split: "," %}
+      {% assign country_cities = "Москва Санкт-Петербург Казань Новосибирск Екатеринбург,Киев Харьков Одесса Львов Днепр,Алматы Нур-Султан Шымкент Караганда,Минск Гомель Брест Гродно,Ташкент Самарканд Бухара,Баку Гянджа,Тбилиси Батуми,Ереван" | split: "," %}
+      {% assign country_colors = "from-red-500/20 to-blue-500/20,from-blue-500/20 to-yellow-500/20,from-cyan-500/20 to-yellow-500/20,from-red-500/20 to-green-500/20,from-blue-500/20 to-green-500/20,from-blue-500/20 to-red-500/20,from-red-500/20 to-white/10,from-red-500/20 to-orange-500/20" | split: "," %}
+      {% assign country_borders = "border-red-500/30 hover:border-red-500/50,border-blue-500/30 hover:border-yellow-500/50,border-cyan-500/30 hover:border-cyan-500/50,border-green-500/30 hover:border-green-500/50,border-blue-500/30 hover:border-blue-500/50,border-red-500/30 hover:border-red-500/50,border-red-500/30 hover:border-red-500/50,border-orange-500/30 hover:border-orange-500/50" | split: "," %}
+      
+      {% for i in (0..7) %}
+        {% assign cities = country_cities[i] | split: " " %}
+        <div
+          data-testid="cis-country-{{ country_names[i] }}"
+          class="floating-card rounded-2xl p-5 transition-all duration-300 hover:scale-105 cursor-pointer border {{ country_borders[i] }}"
+        >
+          <!-- Flag Header -->
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br {{ country_colors[i] }} flex items-center justify-center overflow-hidden">
+              <img 
+                src="https://flagcdn.com/w80/{{ country_codes[i] }}.png" 
+                alt="{{ country_names[i] }}"
+                class="w-12 h-9 object-cover rounded shadow-lg"
+                loading="lazy"
+              >
+            </div>
+            <div>
+              <div class="text-white font-bold text-lg">{{ country_names[i] }}</div>
+              <div class="text-emerald-400 text-sm font-semibold">{{ country_projects[i] }} магазинов</div>
+            </div>
+          </div>
+          <!-- Cities -->
+          <div class="flex flex-wrap gap-1">
+            {% for city in cities limit: 4 %}
+              <span class="text-xs px-2 py-1 glass rounded-lg text-gray-400 border border-white/5">
+                {{ city }}
+              </span>
+            {% endfor %}
+            {% if cities.size > 4 %}
+              <span class="text-xs px-2 py-1 text-orange-500">
+                +{{ cities.size | minus: 4 }}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-gray-400 mb-4">{{ 'cis.your_business' | t }}</p>
+      <a
+        href="/pages/portfolio"
+        data-testid="cis-portfolio-btn"
+        class="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 px-8 py-4 rounded-xl shadow-lg shadow-orange-500/25 mr-4 inline-flex items-center gap-2 transition-all duration-300 hover:scale-105"
+      >
+        {{ 'cis.view_projects' | t }}
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+      <a
+        href="/pages/contact"
+        class="border border-emerald-500/30 text-emerald-500 hover:bg-emerald-500/10 px-8 py-4 rounded-xl inline-flex items-center transition-all duration-300"
+      >
+        {{ 'cis.get_consultation' | t }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CIS Section",
+  "settings": []
+}
+{% endschema %}
