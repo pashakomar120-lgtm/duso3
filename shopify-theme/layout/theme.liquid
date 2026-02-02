@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0b">
+  <title>{{ page_title }}{% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}</title>
+  
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+  
+  <link rel="canonical" href="{{ canonical_url }}">
+  
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+</head>
+<body class="template-{{ template.name }}">
+
+  {% comment %} HEADER - Inline, no section {% endcomment %}
+  <header class="header" id="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="header__top-content">
+          <span class="header__stat">✓ 6500+ проектов</span>
+          <span class="header__stat">✓ 8 стран СНГ</span>
+          <span class="header__stat">✓ Shopify Partner</span>
+        </div>
+      </div>
+    </div>
+    <div class="header__main">
+      <div class="container">
+        <div class="header__content">
+          <a href="/" class="header__logo">
+            <span class="header__logo-accent">duso</span>_ecom
+            <span class="header__logo-badge">#1 СНГ</span>
+          </a>
+          
+          <nav class="header__nav">
+            <a href="/" class="header__nav-link">Главная</a>
+            <a href="/pages/about" class="header__nav-link">О нас</a>
+            <a href="/collections/all" class="header__nav-link">Услуги</a>
+            <a href="/pages/portfolio" class="header__nav-link">Портфолио</a>
+            <a href="/pages/contact" class="header__nav-link">Контакты</a>
+          </nav>
+          
+          <a href="/pages/contact" class="header__cta">
+            Консультация
+          </a>
+          
+          <button class="header__burger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="header__mobile" id="mobile-menu">
+      <nav class="header__mobile-nav">
+        <a href="/" class="header__mobile-link">Главная</a>
+        <a href="/pages/about" class="header__mobile-link">О нас</a>
+        <a href="/collections/all" class="header__mobile-link">Услуги</a>
+        <a href="/pages/portfolio" class="header__mobile-link">Портфолио</a>
+        <a href="/pages/contact" class="header__mobile-link">Контакты</a>
+        <a href="/pages/contact" class="header__mobile-cta">Бесплатная консультация</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% comment %} FOOTER - Inline {% endcomment %}
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo">
+            <span class="footer__logo-accent">duso</span>_ecom
+          </a>
+          <p class="footer__desc">Создаём успешные e-commerce проекты с 2015 года. Ваш надёжный партнёр в мире онлайн-торговли.</p>
+          <div class="footer__socials">
+            <a href="https://t.me/duso_ecom" class="footer__social" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.094.034.309.019.476z"/></svg>
+            </a>
+            <a href="#" class="footer__social">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer__col">
+          <h4 class="footer__title">Навигация</h4>
+          <nav class="footer__links">
+            <a href="/">Главная</a>
+            <a href="/pages/about">О нас</a>
+            <a href="/collections/all">Услуги</a>
+            <a href="/pages/portfolio">Портфолио</a>
+            <a href="/pages/contact">Контакты</a>
+          </nav>
+        </div>
+        
+        <div class="footer__col">
+          <h4 class="footer__title">Контакты</h4>
+          <div class="footer__contacts">
+            <a href="mailto:hello@duso-ecom.com">hello@duso-ecom.com</a>
+            <a href="tel:+78001234567">+7 (800) 123-45-67</a>
+            <span>Москва, Россия</span>
+          </div>
+        </div>
+        
+        <div class="footer__col">
+          <h4 class="footer__title">Telegram</h4>
+          <div class="footer__qr">
+            <img src="https://customer-assets.emergentagent.com/job_responsive-admin-30/artifacts/z3erb60m_image.png" alt="QR Telegram" width="100" height="100">
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p>© {{ 'now' | date: '%Y' }} duso_ecom. Все права защищены</p>
+        <div class="footer__legal">
+          <a href="/pages/privacy">Политика конфиденциальности</a>
+          <a href="/pages/terms">Условия использования</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  {% comment %} AI Chat Widget {% endcomment %}
+  <div class="ai-chat" id="ai-chat">
+    <button class="ai-chat__toggle" onclick="toggleChat()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+    <div class="ai-chat__window" id="chat-window">
+      <div class="ai-chat__header">
+        <div class="ai-chat__avatar">AI</div>
+        <div class="ai-chat__info">
+          <span class="ai-chat__name">AI Консультант</span>
+          <span class="ai-chat__status">● Онлайн</span>
+        </div>
+        <button class="ai-chat__close" onclick="toggleChat()">×</button>
+      </div>
+      <div class="ai-chat__messages" id="chat-messages">
+        <div class="ai-chat__msg ai-chat__msg--bot">Привет! Я AI-консультант duso_ecom. Чем могу помочь?</div>
+      </div>
+      <div class="ai-chat__input">
+        <input type="text" id="chat-input" placeholder="Напишите сообщение..." onkeypress="handleChatKeypress(event)">
+        <button onclick="sendChatMessage()">→</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('is-open');
+    }
+    
+    function toggleChat() {
+      document.getElementById('ai-chat').classList.toggle('is-open');
+    }
+    
+    function sendChatMessage() {
+      const input = document.getElementById('chat-input');
+      const messages = document.getElementById('chat-messages');
+      const text = input.value.trim();
+      if (!text) return;
+      
+      messages.innerHTML += '<div class="ai-chat__msg ai-chat__msg--user">' + text + '</div>';
+      input.value = '';
+      
+      setTimeout(() => {
+        const responses = [
+          'Спасибо за вопрос! Оставьте заявку на странице контактов, и мы свяжемся с вами.',
+          'Отличный выбор! Мы специализируемся на Shopify магазинах уже более 8 лет.',
+          'Стоимость разработки от $2000. Для точного расчёта оставьте заявку.',
+          'Работаем со всеми странами СНГ! Россия, Украина, Казахстан, Беларусь и другие.'
+        ];
+        messages.innerHTML += '<div class="ai-chat__msg ai-chat__msg--bot">' + responses[Math.floor(Math.random() * responses.length)] + '</div>';
+        messages.scrollTop = messages.scrollHeight;
+      }, 1000);
+    }
+    
+    function handleChatKeypress(e) {
+      if (e.key === 'Enter') sendChatMessage();
+    }
+    
+    // Sticky header
+    window.addEventListener('scroll', function() {
+      document.getElementById('header').classList.toggle('is-scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
