@@ -1,0 +1,273 @@
+{% comment %} AI Assistant Snippet - Exact match to React AIAssistant.jsx {% endcomment %}
+
+<div id="ai-assistant">
+  {% comment %} AI Toggle Button {% endcomment %}
+  <button class="ai-toggle closed" id="ai-toggle" data-testid="ai-assistant-toggle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="ai-brain-icon"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+    <span id="ai-toggle-text">{{ 'ai.button_label' | t }}</span>
+    <div class="ai-toggle-badge" id="ai-toggle-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      <span>{{ 'ai.experience' | t }}</span>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="ai-close-icon" style="display: none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  
+  {% comment %} AI Chat Window {% endcomment %}
+  <div class="ai-window" id="ai-window" style="display: none;" data-testid="ai-assistant-window">
+    {% comment %} Header {% endcomment %}
+    <div class="ai-header">
+      <div class="ai-header-bg"></div>
+      <div class="ai-header-content">
+        <div class="ai-avatar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+        </div>
+        <div style="flex: 1;">
+          <h3 class="ai-title">
+            {{ 'ai.title' | t }}
+            <span class="ai-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              {{ 'ai.badge' | t }}
+            </span>
+          </h3>
+          <div class="ai-status">
+            <span style="display: flex; align-items: center; gap: 0.25rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#facc15" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              {{ 'ai.experience' | t }}
+            </span>
+            <span>•</span>
+            <span style="display: flex; align-items: center; gap: 0.25rem;">
+              <span class="ai-status-dot"></span>
+              {{ 'ai.status' | t }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% comment %} Messages {% endcomment %}
+    <div class="ai-messages" id="ai-messages">
+      {% comment %} Messages will be populated by JavaScript {% endcomment %}
+    </div>
+    
+    {% comment %} Suggestions {% endcomment %}
+    <div class="ai-suggestions" id="ai-suggestions">
+      <div class="ai-suggestions-list">
+        <button class="ai-suggestion" data-suggestion="{{ 'ai.suggestion_1' | t }}">{{ 'ai.suggestion_1' | t }}</button>
+        <button class="ai-suggestion" data-suggestion="{{ 'ai.suggestion_2' | t }}">{{ 'ai.suggestion_2' | t }}</button>
+        <button class="ai-suggestion" data-suggestion="{{ 'ai.suggestion_3' | t }}">{{ 'ai.suggestion_3' | t }}</button>
+      </div>
+    </div>
+    
+    {% comment %} Input {% endcomment %}
+    <form class="ai-input-form" id="ai-form">
+      <input 
+        type="text" 
+        class="ai-input" 
+        id="ai-input" 
+        placeholder="{{ 'ai.placeholder' | t }}"
+        autocomplete="off"
+        data-testid="ai-input"
+      >
+      <button type="submit" class="ai-send" id="ai-send" data-testid="ai-send">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Secret phrase for admin access
+  const SECRET_PHRASE = "квантовий кіт шрёдінгера 2047";
+  
+  // AI API URL from settings
+  const API_URL = '{{ settings.ai_api_url }}';
+  
+  // Session ID
+  const sessionId = 'ai-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+  
+  // State
+  let isOpen = false;
+  let isLoading = false;
+  let messages = [];
+  let showSecretAccess = false;
+  
+  // Elements
+  const toggle = document.getElementById('ai-toggle');
+  const window_el = document.getElementById('ai-window');
+  const messagesContainer = document.getElementById('ai-messages');
+  const suggestions = document.getElementById('ai-suggestions');
+  const form = document.getElementById('ai-form');
+  const input = document.getElementById('ai-input');
+  const sendBtn = document.getElementById('ai-send');
+  const brainIcon = document.getElementById('ai-brain-icon');
+  const closeIcon = document.getElementById('ai-close-icon');
+  const toggleText = document.getElementById('ai-toggle-text');
+  const toggleBadge = document.getElementById('ai-toggle-badge');
+  
+  // Welcome message
+  const welcomeMessage = `{{ 'ai.welcome' | t }}
+
+{{ 'ai.help_intro' | t }}
+{{ 'ai.help_1' | t }}
+{{ 'ai.help_2' | t }}
+{{ 'ai.help_3' | t }}
+{{ 'ai.help_4' | t }}
+
+{{ 'ai.help_question' | t }}`;
+
+  // Toggle chat
+  function toggleChat() {
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      window_el.style.display = 'block';
+      toggle.classList.remove('closed');
+      toggle.classList.add('open');
+      brainIcon.style.display = 'none';
+      closeIcon.style.display = 'block';
+      toggleText.style.display = 'none';
+      toggleBadge.style.display = 'none';
+      
+      // Add welcome message if empty
+      if (messages.length === 0) {
+        addMessage('assistant', welcomeMessage);
+      }
+      
+      input.focus();
+    } else {
+      window_el.style.display = 'none';
+      toggle.classList.remove('open');
+      toggle.classList.add('closed');
+      brainIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+      toggleText.style.display = 'inline';
+      toggleBadge.style.display = 'flex';
+    }
+  }
+  
+  // Add message to chat
+  function addMessage(role, content) {
+    messages.push({ role, content });
+    renderMessages();
+  }
+  
+  // Render messages
+  function renderMessages() {
+    messagesContainer.innerHTML = messages.map(msg => `
+      <div class="ai-message ${msg.role}">
+        <div class="ai-message-bubble">
+          <p class="ai-message-text">${msg.content}</p>
+        </div>
+      </div>
+    `).join('');
+    
+    // Add secret access button if needed
+    if (showSecretAccess) {
+      messagesContainer.innerHTML += `
+        <div style="display: flex; justify-content: center;">
+          <button class="ai-secret-btn" id="secret-access-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            {{ 'ai.secret_button' | t }}
+          </button>
+        </div>
+      `;
+      
+      document.getElementById('secret-access-btn')?.addEventListener('click', function() {
+        window.location.href = '/admin';
+      });
+    }
+    
+    // Add loading indicator if needed
+    if (isLoading) {
+      messagesContainer.innerHTML += `
+        <div class="ai-message assistant">
+          <div class="ai-loading">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+            <span>{{ 'ai.thinking' | t }}</span>
+          </div>
+        </div>
+      `;
+    }
+    
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+  
+  // Check for secret phrase
+  function checkSecretPhrase(text) {
+    const normalizedInput = text.toLowerCase().trim().replace(/\s+/g, ' ');
+    const normalizedSecret = SECRET_PHRASE.toLowerCase().trim().replace(/\s+/g, ' ');
+    return normalizedInput === normalizedSecret;
+  }
+  
+  // Send message
+  async function sendMessage(text) {
+    if (!text.trim() || isLoading) return;
+    
+    // Check for secret phrase
+    if (checkSecretPhrase(text)) {
+      addMessage('user', '••••••••••••');
+      input.value = '';
+      
+      setTimeout(() => {
+        addMessage('assistant', `{{ 'ai.secret_success' | t }}
+
+{{ 'ai.secret_welcome' | t }}`);
+        showSecretAccess = true;
+        suggestions.style.display = 'none';
+        renderMessages();
+      }, 500);
+      return;
+    }
+    
+    addMessage('user', text);
+    input.value = '';
+    isLoading = true;
+    renderMessages();
+    
+    try {
+      if (API_URL) {
+        const response = await fetch(API_URL + '/api/ai/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            session_id: sessionId,
+            message: text
+          })
+        });
+        
+        if (!response.ok) throw new Error('API Error');
+        
+        const data = await response.json();
+        addMessage('assistant', data.response);
+      } else {
+        // Fallback response if no API URL
+        addMessage('assistant', 'Спасибо за ваш вопрос! К сожалению, AI-сервис временно недоступен. Пожалуйста, свяжитесь с нами напрямую через Telegram: @duso_ecom 📱');
+      }
+    } catch (error) {
+      console.error('AI Error:', error);
+      addMessage('assistant', 'Произошла техническая ошибка. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую через Telegram: @duso_ecom 📱');
+    } finally {
+      isLoading = false;
+      renderMessages();
+    }
+  }
+  
+  // Event listeners
+  toggle.addEventListener('click', toggleChat);
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    sendMessage(input.value);
+  });
+  
+  // Suggestion buttons
+  document.querySelectorAll('.ai-suggestion').forEach(btn => {
+    btn.addEventListener('click', function() {
+      sendMessage(this.dataset.suggestion);
+    });
+  });
+  
+})();
+</script>
