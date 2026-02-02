@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "portfolio-page-content",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

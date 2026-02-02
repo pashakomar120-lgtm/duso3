@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-services",
+      "settings": {}
+    },
+    "main": {
+      "type": "services-page-content",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "main"]
+}
