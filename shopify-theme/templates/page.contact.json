@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "contact": { "type": "contact-page" }
+  },
+  "order": ["contact"]
+}
