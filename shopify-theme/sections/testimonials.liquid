@@ -1,4 +1,4 @@
-<section class="py-24 relative z-10">
+<section class="py-24 relative z-10 overflow-hidden">
   <div class="absolute inset-0 glass opacity-20"></div>
   <div class="max-w-7xl mx-auto px-6 relative">
     <div class="text-center mb-16">
@@ -6,189 +6,761 @@
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Что говорят <span class="text-orange-500 text-glow-orange">наши клиенты</span></h2>
       <p class="text-gray-400 text-lg max-w-2xl mx-auto">Более 6500+ успешных проектов по всему СНГ</p>
     </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Отзыв 1 - Россия -->
-      <div class="floating-card rounded-2xl p-6 hover:border-orange-500/30 transition-all duration-300">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex gap-1">
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+
+    <!-- Карусель Row 1 - Left to Right -->
+    <div class="relative mb-6">
+      <div class="flex gap-6 testimonials-scroll-left">
+        <!-- Відгук 1 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
           </div>
-          <span class="text-2xl" title="Россия">🇷🇺</span>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Их управление проектами было выдающимся. Продажи выросли на 200% за первый квартал!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-orange-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Алексей Иванов</div>
+              <div class="text-orange-500 text-xs truncate">TechStore Russia • $2.5M/год</div>
+            </div>
+          </div>
         </div>
-        <p class="text-gray-300 text-sm mb-6 leading-relaxed">"Их управление проектами было выдающимся. Каждый этап работы был прозрачным, а результат превзошёл наши ожидания. Продажи выросли на 200% за первый квартал!"</p>
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Алексей Иванов" class="w-12 h-12 rounded-full object-cover border-2 border-orange-500/30">
-          <div>
-            <div class="text-white font-medium text-sm">Алексей Иванов</div>
-            <div class="text-gray-500 text-xs">CEO</div>
+
+        <!-- Відгук 2 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Профессиональная команда с отличными результатами. Продажи выросли на 150% после редизайна!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Мария Петрова</div>
+              <div class="text-orange-500 text-xs truncate">Fashion Hub Moscow • $1.8M/год</div>
+            </div>
           </div>
         </div>
-        <div class="flex items-center justify-between pt-3 border-t border-white/10">
-          <div>
-            <div class="text-orange-500 font-semibold text-sm">TechStore Russia</div>
-            <div class="text-gray-500 text-xs">techstore.ru</div>
+
+        <!-- Відгук 3 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
           </div>
-          <div class="text-right">
-            <div class="text-emerald-500 font-bold text-sm">$2.5M/год</div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Миграция на Shopify прошла идеально. Теперь магазин работает в 3 раза быстрее."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-purple-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Дмитрий Смирнов</div>
+              <div class="text-orange-500 text-xs truncate">ElectroWorld • $4.2M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 4 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Автоматизация сэкономила нам 30 часов в неделю. Команда фокусируется на росте!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-pink-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Анна Козлова</div>
+              <div class="text-orange-500 text-xs truncate">BeautyPro Russia • $890K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 5 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"За год оборот вырос в 5 раз! Теперь мы №1 в своей нише."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-cyan-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Сергей Волков</div>
+              <div class="text-orange-500 text-xs truncate">SportMax • $3.1M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 6 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Подключение к Ozon и Wildberries удвоило наши продажи за 2 месяца!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-blue-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Елена Новикова</div>
+              <div class="text-orange-500 text-xs truncate">HomeStyle • $1.5M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 7 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇺🇦</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Лучшая команда! Конверсия выросла на 340%, а ROAS достиг 12x."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-yellow-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Оксана Шевченко</div>
+              <div class="text-orange-500 text-xs truncate">FashionUA • $1.2M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 8 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇺🇦</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Запуск магазину за 4 тижні з інтеграцією Нової Пошти та ПриватБанку!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-indigo-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Андрій Коваленко</div>
+              <div class="text-orange-500 text-xs truncate">TechnoKyiv • $980K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 9 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇰🇿</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"С нуля до $2M/год за 8 месяцев! Интеграция с Kaspi стала ключом к успеху."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-teal-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Нурлан Ахметов</div>
+              <div class="text-orange-500 text-xs truncate">КазахТекстиль • $2.1M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 10 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇰🇿</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Kaspi интеграция работает безупречно. Заказы приходят автоматически!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-rose-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Айгуль Сагынбаева</div>
+              <div class="text-orange-500 text-xs truncate">AlmatyShop • $1.6M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Дублюємо для безкінечного скролу -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Их управление проектами было выдающимся. Продажи выросли на 200% за первый квартал!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-orange-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Алексей Иванов</div>
+              <div class="text-orange-500 text-xs truncate">TechStore Russia • $2.5M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Профессиональная команда с отличными результатами. Продажи выросли на 150% после редизайна!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Мария Петрова</div>
+              <div class="text-orange-500 text-xs truncate">Fashion Hub Moscow • $1.8M/год</div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Отзыв 2 - Россия -->
-      <div class="floating-card rounded-2xl p-6 hover:border-orange-500/30 transition-all duration-300">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex gap-1">
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+    <!-- Карусель Row 2 - Right to Left -->
+    <div class="relative mb-6">
+      <div class="flex gap-6 testimonials-scroll-right">
+        <!-- Відгук 11 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇧🇾</span>
           </div>
-          <span class="text-2xl" title="Россия">🇷🇺</span>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Интеграция с 5 маркетплейсами за 1 месяц! Автоматизация позволила сократить команду склада вдвое."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-red-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Александр Новиков</div>
+              <div class="text-orange-500 text-xs truncate">TechBY • $780K/год</div>
+            </div>
+          </div>
         </div>
-        <p class="text-gray-300 text-sm mb-6 leading-relaxed">"Профессиональная команда с отличными результатами. Продажи выросли на 150% после редизайна магазина. Лучшие инвестиции в наш бизнес!"</p>
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Мария Петрова" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-500/30">
-          <div>
-            <div class="text-white font-medium text-sm">Мария Петрова</div>
-            <div class="text-gray-500 text-xs">Marketing Director</div>
+
+        <!-- Відгук 12 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇧🇾</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Профессиональный подход к каждому этапу. Магазин заработал в срок и сразу начал приносить прибыль."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-green-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Виктория Новик</div>
+              <div class="text-orange-500 text-xs truncate">MinskFashion • $620K/год</div>
+            </div>
           </div>
         </div>
-        <div class="flex items-center justify-between pt-3 border-t border-white/10">
-          <div>
-            <div class="text-orange-500 font-semibold text-sm">Fashion Hub Moscow</div>
-            <div class="text-gray-500 text-xs">fashionhub.ru</div>
+
+        <!-- Відгук 13 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇦🇿</span>
           </div>
-          <div class="text-right">
-            <div class="text-emerald-500 font-bold text-sm">$1.8M/год</div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Лучшие в СНГ! Магазин окупился за 3 месяца. Теперь планируем экспансию в Турцию."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-blue-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Эльдар Мамедов</div>
+              <div class="text-orange-500 text-xs truncate">BakuElectro • $670K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 14 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇺🇿</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Первый премиум-магазин продуктов в стране! Благодарим за веру в наш проект."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-amber-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Рустам Каримов</div>
+              <div class="text-orange-500 text-xs truncate">UzFood Premium • $450K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 15 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇬🇪</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"TBC Bank и BOG интеграции настроены за 2 дня. Очень быстрая и качественная работа!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-violet-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Нино Гурамишвили</div>
+              <div class="text-orange-500 text-xs truncate">GeorgiaWine • $290K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 16 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇦🇲</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Магазин запущен в срок, продажи растут каждый месяц. Рекомендую!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-lime-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Арам Саркисян</div>
+              <div class="text-orange-500 text-xs truncate">YerevanTech • $340K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 17 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"TikTok Shop интеграция принесла нам 200K новых клиентов за месяц!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-pink-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Дарья Волкова</div>
+              <div class="text-orange-500 text-xs truncate">TrendyRu • $1.9M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 18 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Shopify Plus миграция 10M товаров за 48 часов без единой проблемы!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-cyan-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Владимир Соловьёв</div>
+              <div class="text-orange-500 text-xs truncate">MegaStore • $8.5M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 19 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇰🇿</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"B2B портал автоматизировал работу с 500+ оптовиками. Экономия 100 часов в неделю!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Асель Жанбырбаева</div>
+              <div class="text-orange-500 text-xs truncate">WholesaleKZ • $4.2M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 20 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"PWA приложение загружается за 0.5 секунды. Мобильная конверсия выросла на 240%!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-orange-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Артём Кузнецов</div>
+              <div class="text-orange-500 text-xs truncate">SpeedShop • $1.3M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Дублюємо для безкінечного скролу -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇧🇾</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Интеграция с 5 маркетплейсами за 1 месяц! Автоматизация позволила сократить команду склада вдвое."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-red-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Александр Новиков</div>
+              <div class="text-orange-500 text-xs truncate">TechBY • $780K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇧🇾</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Профессиональный подход к каждому этапу. Магазин заработал в срок и сразу начал приносить прибыль."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-green-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Виктория Новик</div>
+              <div class="text-orange-500 text-xs truncate">MinskFashion • $620K/год</div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Отзыв 3 - Украина -->
-      <div class="floating-card rounded-2xl p-6 hover:border-orange-500/30 transition-all duration-300">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex gap-1">
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+    <!-- Карусель Row 3 - Left to Right -->
+    <div class="relative">
+      <div class="flex gap-6 testimonials-scroll-left-slow">
+        <!-- Відгук 21 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇺🇦</span>
           </div>
-          <span class="text-2xl" title="Украина">🇺🇦</span>
-        </div>
-        <p class="text-gray-300 text-sm mb-6 leading-relaxed">"Лучшая команда с которой мы работали! Конверсия выросла на 340%, а ROAS достиг 12x. Рекомендую всем!"</p>
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop" alt="Оксана Шевченко" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500/30">
-          <div>
-            <div class="text-white font-medium text-sm">Оксана Шевченко</div>
-            <div class="text-gray-500 text-xs">CEO</div>
-          </div>
-        </div>
-        <div class="flex items-center justify-between pt-3 border-t border-white/10">
-          <div>
-            <div class="text-orange-500 font-semibold text-sm">FashionUA</div>
-            <div class="text-gray-500 text-xs">fashionua.com.ua</div>
-          </div>
-          <div class="text-right">
-            <div class="text-emerald-500 font-bold text-sm">$1.2M/год</div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Klaviyo настройка принесла 45% выручки через email. ROI 4200%!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-purple-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Юлія Ткаченко</div>
+              <div class="text-orange-500 text-xs truncate">EmailMaster • $720K/год</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Отзыв 4 - Казахстан -->
-      <div class="floating-card rounded-2xl p-6 hover:border-orange-500/30 transition-all duration-300">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex gap-1">
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+        <!-- Відгук 22 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
           </div>
-          <span class="text-2xl" title="Казахстан">🇰🇿</span>
-        </div>
-        <p class="text-gray-300 text-sm mb-6 leading-relaxed">"С нуля до $2M/год за 8 месяцев! Интеграция с Kaspi стала ключом к успеху. Лучшая команда!"</p>
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="Нурлан Ахметов" class="w-12 h-12 rounded-full object-cover border-2 border-cyan-500/30">
-          <div>
-            <div class="text-white font-medium text-sm">Нурлан Ахметов</div>
-            <div class="text-gray-500 text-xs">Founder</div>
-          </div>
-        </div>
-        <div class="flex items-center justify-between pt-3 border-t border-white/10">
-          <div>
-            <div class="text-orange-500 font-semibold text-sm">КазахТекстиль</div>
-            <div class="text-gray-500 text-xs">kazakhtextile.kz</div>
-          </div>
-          <div class="text-right">
-            <div class="text-emerald-500 font-bold text-sm">$2.1M/год</div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Subscription box бизнес с нуля до 10K подписчиков за 6 месяцев!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-pink-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Алина Захарова</div>
+              <div class="text-orange-500 text-xs truncate">BoxClub • $960K/год</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Отзыв 5 - Беларусь -->
-      <div class="floating-card rounded-2xl p-6 hover:border-orange-500/30 transition-all duration-300">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex gap-1">
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+        <!-- Відгук 23 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
           </div>
-          <span class="text-2xl" title="Беларусь">🇧🇾</span>
-        </div>
-        <p class="text-gray-300 text-sm mb-6 leading-relaxed">"Интеграция с 5 маркетплейсами за 1 месяц! Автоматизация позволила сократить команду склада вдвое."</p>
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&h=100&fit=crop" alt="Александр Новиков" class="w-12 h-12 rounded-full object-cover border-2 border-red-500/30">
-          <div>
-            <div class="text-white font-medium text-sm">Александр Новиков</div>
-            <div class="text-gray-500 text-xs">CTO</div>
-          </div>
-        </div>
-        <div class="flex items-center justify-between pt-3 border-t border-white/10">
-          <div>
-            <div class="text-orange-500 font-semibold text-sm">TechBY</div>
-            <div class="text-gray-500 text-xs">techby.by</div>
-          </div>
-          <div class="text-right">
-            <div class="text-emerald-500 font-bold text-sm">$780K/год</div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Headless Shopify архитектура ускорила сайт в 5 раз. Google Core Web Vitals в зелёной зоне!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1542190891-2093d38760f2?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-blue-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Никита Фёдоров</div>
+              <div class="text-orange-500 text-xs truncate">FastCommerce • $2.1M/год</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Отзыв 6 - Азербайджан -->
-      <div class="floating-card rounded-2xl p-6 hover:border-orange-500/30 transition-all duration-300">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex gap-1">
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
-            <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+        <!-- Відгук 24 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
           </div>
-          <span class="text-2xl" title="Азербайджан">🇦🇿</span>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Multi-currency и multi-language магазин для 8 стран. Всё работает автоматически!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-teal-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Михаил Романов</div>
+              <div class="text-orange-500 text-xs truncate">GlobalShop CIS • $6.8M/год</div>
+            </div>
+          </div>
         </div>
-        <p class="text-gray-300 text-sm mb-6 leading-relaxed">"Лучшие в СНГ! Магазин окупился за 3 месяца. Теперь планируем экспансию в Турцию."</p>
-        <div class="flex items-center gap-3 mb-3">
-          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&h=100&fit=crop" alt="Эльдар Мамедов" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500/30">
-          <div>
-            <div class="text-white font-medium text-sm">Эльдар Мамедов</div>
-            <div class="text-gray-500 text-xs">CEO</div>
+
+        <!-- Відгук 25 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"AR примерка увеличила конверсию обуви на 180%. Возвраты снизились на 60%!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-violet-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Екатерина Морозова</div>
+              <div class="text-orange-500 text-xs truncate">ShoesAR • $1.7M/год</div>
+            </div>
           </div>
         </div>
-        <div class="flex items-center justify-between pt-3 border-t border-white/10">
-          <div>
-            <div class="text-orange-500 font-semibold text-sm">BakuElectro</div>
-            <div class="text-gray-500 text-xs">bakuelectro.az</div>
+
+        <!-- Відгук 26 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇰🇿</span>
           </div>
-          <div class="text-right">
-            <div class="text-emerald-500 font-bold text-sm">$670K/год</div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Loyalty программа увеличила LTV клиента в 3 раза. Повторные покупки выросли на 150%!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-amber-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Динара Сулейменова</div>
+              <div class="text-orange-500 text-xs truncate">LoyaltyPro • $1.1M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 27 -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Dropshipping магазин с 50K товаров запущен за 2 недели. Синхронизация с поставщиками!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-indigo-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Денис Белов</div>
+              <div class="text-orange-500 text-xs truncate">DropMaster • $890K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 28-40 додаткові дубликати для безкінечного скролу -->
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇺🇦</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Print-on-demand интеграция работает идеально. 0 инвентаря, чистая прибыль 40%!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-rose-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Марина Кравченко</div>
+              <div class="text-orange-500 text-xs truncate">PrintUA • $420K/год</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"Email-маркетинг приносит нам 35% выручки. Open rate вырос с 12% до 28%!"</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-lime-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Максим Орлов</div>
+              <div class="text-orange-500 text-xs truncate">GadgetWorld • $2.8M/год</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 w-[380px] floating-card rounded-2xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-1">
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+              <i data-lucide="star" class="w-4 h-4 text-orange-500 fill-orange-500"></i>
+            </div>
+            <span class="text-2xl">🇷🇺</span>
+          </div>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">"С 5 до 50 сотрудников за год без потери качества благодаря их SOP и автоматизации."</p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?w=100&h=100&fit=crop" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-orange-500/30">
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-medium text-sm truncate">Ольга Соколова</div>
+              <div class="text-orange-500 text-xs truncate">FoodMarket • $5.4M/год</div>
+            </div>
           </div>
         </div>
       </div>
