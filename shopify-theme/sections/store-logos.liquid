@@ -15,25 +15,310 @@
       <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#0a0a0b] to-transparent z-10 pointer-events-none"></div>
       <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#0a0a0b] to-transparent z-10 pointer-events-none"></div>
 
-      <div class="flex gap-4 sm:gap-6 overflow-hidden py-4" id="store-logos-scroll">
-        {% for j in (1..2) %}
-          {% for i in (1..10) %}
-            <div class="flex-shrink-0 group">
-              <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10">
-                  <span class="text-white font-bold text-xs sm:text-sm">S{{ i }}</span>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <p class="text-white font-medium text-xs sm:text-sm truncate">Store {{ i }}</p>
-                  <p class="text-gray-500 text-[10px] sm:text-xs truncate">store{{ i }}.ru</p>
-                </div>
-              </div>
+      <div class="flex gap-4 sm:gap-6 overflow-hidden py-4 scroll-animation" id="store-logos-scroll">
+        <!-- First set of logos -->
+        <!-- Россия -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">TS</span>
             </div>
-          {% endfor %}
-        {% endfor %}
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">TechStore</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">techstore.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">FH</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">FashionHub</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">fashionhub.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">EW</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">ElectroWorld</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">electroworld.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">BP</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">BeautyPro</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">beautypro.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">SM</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">SportMax</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">sportmax.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">MS</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">MegaStore</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">megastore.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <!-- Украина -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-yellow-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">FU</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">FashionUA</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">fashionua.com.ua</p>
+              <img src="https://flagcdn.com/w40/ua.png" alt="UA" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-yellow-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">TK</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">TechnoKyiv</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">technokyiv.ua</p>
+              <img src="https://flagcdn.com/w40/ua.png" alt="UA" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <!-- Казахстан -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-cyan-500/20 to-yellow-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">КТ</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">КазахТекстиль</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">kazakhtextile.kz</p>
+              <img src="https://flagcdn.com/w40/kz.png" alt="KZ" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-cyan-500/20 to-yellow-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">AS</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">AlmatyShop</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">almatyshop.kz</p>
+              <img src="https://flagcdn.com/w40/kz.png" alt="KZ" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <!-- Беларусь -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-red-500/20 to-green-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">TB</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">TechBY</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">techby.by</p>
+              <img src="https://flagcdn.com/w40/by.png" alt="BY" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-red-500/20 to-green-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">MF</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">MinskFashion</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">minskfashion.by</p>
+              <img src="https://flagcdn.com/w40/by.png" alt="BY" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <!-- Узбекистан -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-green-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">UF</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">UzFood Premium</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">uzfood.uz</p>
+              <img src="https://flagcdn.com/w40/uz.png" alt="UZ" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <!-- Азербайджан -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-red-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">BE</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">BakuElectro</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">bakuelectro.az</p>
+              <img src="https://flagcdn.com/w40/az.png" alt="AZ" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <!-- Грузия -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-red-500/20 to-white/10 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">GW</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">GeorgiaWine</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">georgiawine.ge</p>
+              <img src="https://flagcdn.com/w40/ge.png" alt="GE" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <!-- Армения -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">YT</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">YerevanTech</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">yerevantech.am</p>
+              <img src="https://flagcdn.com/w40/am.png" alt="AM" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Duplicate set for infinite scroll -->
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">TS</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">TechStore</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">techstore.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">FH</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">FashionHub</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">fashionhub.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">EW</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">ElectroWorld</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">electroworld.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">BP</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">BeautyPro</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">beautypro.ru</p>
+              <img src="https://flagcdn.com/w40/ru.png" alt="RU" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-yellow-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">FU</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">FashionUA</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">fashionua.com.ua</p>
+              <img src="https://flagcdn.com/w40/ua.png" alt="UA" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-cyan-500/20 to-yellow-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">КТ</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">КазахТекстиль</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">kazakhtextile.kz</p>
+              <img src="https://flagcdn.com/w40/kz.png" alt="KZ" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-red-500/20 to-green-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">TB</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">TechBY</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">techby.by</p>
+              <img src="https://flagcdn.com/w40/by.png" alt="BY" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 group">
+          <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-pointer">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-green-500/20 flex items-center justify-center border border-white/10">
+              <span class="text-white font-bold text-xs sm:text-sm">UF</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-medium text-xs sm:text-sm truncate">UzFood Premium</p>
+              <p class="text-gray-500 text-[10px] sm:text-xs truncate">uzfood.uz</p>
+              <img src="https://flagcdn.com/w40/uz.png" alt="UZ" class="w-4 h-3 sm:w-5 sm:h-4 mt-1 rounded shadow-sm" loading="lazy">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Country flags summary -->
     <div class="grid grid-cols-4 md:grid-cols-8 gap-2 sm:gap-4 mt-8 sm:mt-12">
       <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-red-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
         <div class="flex flex-col items-center text-center">
