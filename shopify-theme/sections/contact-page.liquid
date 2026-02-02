@@ -1,0 +1,238 @@
+{% comment %} Contact Page Section - Exact match to React ContactPage.jsx {% endcomment %}
+
+<section class="pt-24 sm:pt-32 pb-16 relative overflow-hidden min-h-screen">
+  <div class="container">
+    
+    {% comment %} Hero {% endcomment %}
+    <div class="contact-hero text-center">
+      <div class="section-badge glass" style="display: inline-flex; border-color: rgba(249, 115, 22, 0.2);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <span style="color: var(--color-orange); font-size: 0.875rem; font-weight: 500;">{{ 'contact.hero_badge' | t }}</span>
+      </div>
+      
+      <h1 class="contact-hero-title">
+        {{ 'contact.hero_title_1' | t }} <span class="gradient-text">{{ 'contact.hero_title_2' | t }}</span>
+      </h1>
+      <p class="section-description text-center max-w-2xl mx-auto">
+        {{ 'contact.hero_description' | t }}
+      </p>
+    </div>
+    
+    {% comment %} Main content grid {% endcomment %}
+    <div class="contact-grid">
+      
+      {% comment %} Left column - Contact info {% endcomment %}
+      <div class="contact-info floating-card">
+        <h2 class="contact-info-title">{{ 'contact.info_title' | t }}</h2>
+        
+        <div class="contact-items">
+          <a href="mailto:{{ settings.contact_email }}" class="contact-item" data-testid="contact-email">
+            <div class="contact-item-icon orange">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">{{ 'contact.email' | t }}</p>
+              <p class="contact-item-value">{{ settings.contact_email }}</p>
+            </div>
+          </a>
+          
+          <a href="tel:{{ settings.contact_phone }}" class="contact-item" data-testid="contact-phone">
+            <div class="contact-item-icon emerald">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">{{ 'contact.phone' | t }}</p>
+              <p class="contact-item-value">{{ settings.contact_phone }}</p>
+            </div>
+          </a>
+          
+          <a href="{{ settings.telegram_url }}" target="_blank" rel="noopener noreferrer" class="contact-item" data-testid="contact-telegram">
+            <div class="contact-item-icon orange">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">{{ 'contact.telegram' | t }}</p>
+              <p class="contact-item-value">@duso_ecom</p>
+            </div>
+          </a>
+          
+          <div class="contact-item">
+            <div class="contact-item-icon emerald">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">{{ 'contact.address' | t }}</p>
+              <p class="contact-item-value">{{ settings.contact_address }}</p>
+            </div>
+          </div>
+        </div>
+        
+        {% comment %} Divider section {% endcomment %}
+        <div class="contact-divider">
+          <div class="contact-countries">
+            <h3 class="contact-countries-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              {{ 'contact.cis_work' | t }}
+            </h3>
+            <div class="contact-countries-list">
+              {% assign countries_list = "Россия,Украина,Казахстан,Беларусь,Узбекистан,Азербайджан,Грузия,Армения" | split: "," %}
+              {% for country in countries_list %}
+                <span class="contact-country glass">{{ country }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          
+          <div style="margin-top: 1.5rem;">
+            <h3 class="contact-hours-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              {{ 'contact.work_hours' | t }}
+            </h3>
+            <div class="contact-hours-list">
+              <p>{{ 'contact.work_hours_weekday' | t }}</p>
+              <p>{{ 'contact.work_hours_saturday' | t }}</p>
+              <p class="text-emerald-500 font-medium">{{ 'contact.support_247' | t }}</p>
+            </div>
+          </div>
+        </div>
+        
+        {% comment %} QR Code section {% endcomment %}
+        <div class="contact-qr">
+          <h3 class="contact-qr-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="9"></rect><rect x="14" y="7" width="3" height="5"></rect></svg>
+            {{ 'contact.quick_contact' | t }}
+          </h3>
+          <div class="contact-qr-box glass">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ settings.telegram_url | url_encode }}" alt="Telegram QR Code" class="contact-qr-image" data-testid="telegram-qr-code">
+            <p class="contact-qr-text">{{ 'contact.qr_scan' | t }}</p>
+          </div>
+        </div>
+      </div>
+      
+      {% comment %} Right column - Forms {% endcomment %}
+      <div>
+        {% comment %} Tabs {% endcomment %}
+        <div class="contact-tabs">
+          <button class="contact-tab active orange" id="tab-quote" data-testid="tab-quote">
+            {{ 'contact.tab_quote' | t }}
+          </button>
+          <button class="contact-tab" id="tab-call" data-testid="tab-call">
+            {{ 'contact.tab_call' | t }}
+          </button>
+        </div>
+        
+        {% comment %} Quote Form {% endcomment %}
+        <div class="contact-form floating-card" id="form-quote">
+          <h3 class="contact-form-title">{{ 'contact.form_title' | t }}</h3>
+          
+          <form data-ajax="true" data-testid="quote-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">{{ 'contact.form_name' | t }} *</label>
+                <input type="text" name="name" class="form-input" placeholder="Иван Иванов" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">{{ 'contact.form_email' | t }} *</label>
+                <input type="email" name="email" class="form-input" placeholder="ivan@example.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">{{ 'contact.form_phone' | t }}</label>
+                <input type="tel" name="phone" class="form-input" placeholder="+7 (900) 123-45-67">
+              </div>
+              <div class="form-group">
+                <label class="form-label">{{ 'contact.form_telegram' | t }}</label>
+                <input type="text" name="telegram" class="form-input" placeholder="@username">
+              </div>
+              <div class="form-group">
+                <label class="form-label">{{ 'contact.form_service' | t }}</label>
+                <select name="service" class="form-select">
+                  <option value="">Выберите услугу</option>
+                  <option value="shopify-store">Shopify магазин</option>
+                  <option value="design">Структура и дизайн</option>
+                  <option value="payments">Платёжные системы</option>
+                  <option value="optimization">Оптимизация сайта</option>
+                  <option value="seo">SEO оптимизация</option>
+                  <option value="ads">Таргетированная реклама</option>
+                  <option value="integration">Интеграции</option>
+                  <option value="support">Техническая поддержка</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">{{ 'contact.form_budget' | t }}</label>
+                <select name="budget" class="form-select">
+                  <option value="">Выберите бюджет</option>
+                  <option value="1000-3000">$1,000 - $3,000</option>
+                  <option value="3000-5000">$3,000 - $5,000</option>
+                  <option value="5000-10000">$5,000 - $10,000</option>
+                  <option value="10000+">$10,000+</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group mb-4">
+              <label class="form-label">{{ 'contact.form_message' | t }}</label>
+              <textarea name="message" class="form-textarea" placeholder="Расскажите о вашем проекте..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-glow form-submit" data-testid="submit-quote">
+              {{ 'contact.form_submit' | t }}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+            
+            <div class="form-bonus">
+              <div class="form-bonus-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="form-bonus-icon"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path></svg>
+                <div>
+                  <p class="form-bonus-title">{{ 'contact.bonus_title' | t }}</p>
+                  <p class="form-bonus-text">{{ 'contact.bonus_description' | t }}</p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+        {% comment %} Call Form {% endcomment %}
+        <div class="contact-form floating-card" id="form-call" style="display: none;">
+          <h3 class="contact-form-title">{{ 'contact.tab_call' | t }}</h3>
+          
+          <form data-ajax="true" data-testid="call-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">{{ 'contact.form_name' | t }} *</label>
+                <input type="text" name="name" class="form-input" placeholder="Иван Иванов" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">{{ 'contact.form_phone' | t }} *</label>
+                <input type="tel" name="phone" class="form-input" placeholder="+7 (900) 123-45-67" required>
+              </div>
+            </div>
+            
+            <div class="form-group mb-4">
+              <label class="form-label">Удобное время для звонка</label>
+              <select name="time" class="form-select">
+                <option value="">Выберите время</option>
+                <option value="9-12">09:00 - 12:00 (МСК)</option>
+                <option value="12-15">12:00 - 15:00 (МСК)</option>
+                <option value="15-18">15:00 - 18:00 (МСК)</option>
+                <option value="18-21">18:00 - 21:00 (МСК)</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="btn btn-glow form-submit" style="background: linear-gradient(135deg, var(--color-emerald), var(--color-emerald-dark));" data-testid="submit-call">
+              Запланировать звонок
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Page",
+  "settings": []
+}
+{% endschema %}
