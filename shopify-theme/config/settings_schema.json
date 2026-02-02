@@ -1,0 +1,37 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "duso_ecom",
+    "theme_version": "1.0.0",
+    "theme_author": "duso_ecom",
+    "theme_documentation_url": "https://duso-ecom.com",
+    "theme_support_url": "https://t.me/duso_ecom"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Color",
+        "default": "#f97316"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Color",
+        "default": "#10b981"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#0a0a0b"
+      }
+    ]
+  }
+]
