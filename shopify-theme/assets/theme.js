@@ -133,8 +133,12 @@ function initStoreLogosScroll() {
 // ==========================================
 
 var SECRET_CODE = 'квантовий кіт шрёдінгера 2047';
-var conversationHistory = [];
 var aiChatOpen = false;
+var aiSessionId = 'ai-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+var aiIsLoading = false;
+
+// API Base URL - will be set from Shopify or fallback
+var AI_API_URL = window.SHOPIFY_API_URL || 'https://liquid-migration-1.preview.emergentagent.com';
 
 function initAIAssistant() {
     window.toggleAIChat = function() {
@@ -169,17 +173,20 @@ function initAIAssistant() {
         }
     };
     
-    window.sendMessage = function() {
+    window.sendMessage = async function() {
         var input = document.getElementById('ai-input');
         var message = input ? input.value.trim() : '';
         
-        if (!message) return;
+        if (!message || aiIsLoading) return;
         
         // Check for secret code
         if (message.toLowerCase() === SECRET_CODE.toLowerCase()) {
-            addMessage(message, true);
+            addMessage('••••••••••••', true);
             input.value = '';
-            showAdminPanel();
+            setTimeout(function() {
+                addMessage('🔐 Верифікація пройдена успішно!\n\nЛаскаво просимо до секретного порталу duso_ecom.\nНатисніть кнопку нижче для доступу до панелі управління.', false);
+                showAdminPanel();
+            }, 500);
             return;
         }
         
@@ -190,14 +197,44 @@ function initAIAssistant() {
         addMessage(message, true);
         input.value = '';
         
-        // Show typing and respond
+        // Show typing indicator
         showTypingIndicator();
+        aiIsLoading = true;
         
-        setTimeout(function() {
+        try {
+            var response = await fetch(AI_API_URL + '/api/ai/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    session_id: aiSessionId,
+                    message: message
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('API Error: ' + response.status);
+            }
+            
+            var data = await response.json();
             hideTypingIndicator();
-            var response = getFallbackResponse(message);
-            addMessage(response, false);
-        }, 1500);
+            addMessage(data.response, false);
+            
+            // Update suggestions if provided
+            if (data.suggestions && data.suggestions.length > 0) {
+                updateSuggestions(data.suggestions);
+            }
+            
+        } catch (error) {
+            console.error('AI Chat Error:', error);
+            hideTypingIndicator();
+            // Fallback to local response if API fails
+            var fallbackResponse = getFallbackResponse(message);
+            addMessage(fallbackResponse, false);
+        } finally {
+            aiIsLoading = false;
+        }
     };
     
     window.showAdminPanel = function() {
@@ -209,6 +246,18 @@ function initAIAssistant() {
         var panel = document.getElementById('admin-panel');
         if (panel) panel.classList.add('hidden');
     };
+}
+
+function updateSuggestions(newSuggestions) {
+    var container = document.getElementById('ai-suggestions');
+    if (!container) return;
+    
+    container.classList.remove('hidden');
+    container.innerHTML = '<div class="flex flex-wrap gap-2">' +
+        newSuggestions.slice(0, 3).map(function(s) {
+            return '<button onclick="sendSuggestion(\'' + s.replace(/'/g, "\\'") + '\')" class="text-xs px-3 py-1.5 glass rounded-full text-gray-400 hover:text-white hover:border-orange-500/30 transition-all">' + s + '</button>';
+        }).join('') +
+    '</div>';
 }
 
 function addMessage(content, isUser) {
