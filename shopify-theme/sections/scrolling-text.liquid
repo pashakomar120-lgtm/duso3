@@ -1,0 +1,48 @@
+<section class="py-6 overflow-hidden relative z-10">
+  <div class="absolute inset-0 glass opacity-30"></div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+  
+  <div class="relative">
+    <div class="flex whitespace-nowrap scroll-animation">
+      {% for i in (1..2) %}
+        <div class="flex items-center">
+          <div class="flex items-center mx-8">
+            <i data-lucide="sparkles" class="w-5 h-5 text-orange-500 mr-2"></i>
+            <span class="text-xl md:text-2xl font-bold text-orange-500 text-glow-orange">Shopify Expert</span>
+            <span class="text-gray-600 mx-8">•</span>
+          </div>
+          <div class="flex items-center mx-8">
+            <span class="text-xl md:text-2xl font-semibold text-white/80">Превращаем исключительные идеи в исключительный опыт</span>
+            <span class="text-gray-600 mx-8">•</span>
+          </div>
+          <div class="flex items-center mx-8">
+            <i data-lucide="sparkles" class="w-5 h-5 text-orange-500 mr-2"></i>
+            <span class="text-xl md:text-2xl font-bold text-orange-500 text-glow-orange">6500+ магазинов</span>
+            <span class="text-gray-600 mx-8">•</span>
+          </div>
+          <div class="flex items-center mx-8">
+            <span class="text-xl md:text-2xl font-semibold text-white/80">Конверсия +180%</span>
+            <span class="text-gray-600 mx-8">•</span>
+          </div>
+          <div class="flex items-center mx-8">
+            <i data-lucide="sparkles" class="w-5 h-5 text-orange-500 mr-2"></i>
+            <span class="text-xl md:text-2xl font-bold text-orange-500 text-glow-orange">$3B+ оборота</span>
+            <span class="text-gray-600 mx-8">•</span>
+          </div>
+          <div class="flex items-center mx-8">
+            <span class="text-xl md:text-2xl font-semibold text-white/80">98% довольных клиентов</span>
+            <span class="text-gray-600 mx-8">•</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scrolling Text",
+  "settings": []
+}
+{% endschema %}
