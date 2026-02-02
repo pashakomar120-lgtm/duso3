@@ -179,6 +179,40 @@ body {
 }
 
 /* ==========================================
+   FORM SELECT DROPDOWN STYLING
+   ========================================== */
+
+select {
+  background-color: #111827 !important;
+  color: white !important;
+}
+
+select option {
+  background-color: #111827 !important;
+  color: white !important;
+  padding: 12px !important;
+}
+
+select:focus option:checked,
+select option:checked {
+  background: linear-gradient(#f97316, #f97316) !important;
+  background-color: #f97316 !important;
+  color: white !important;
+}
+
+select option:hover {
+  background-color: #1f2937 !important;
+}
+
+/* Fix for Firefox */
+@-moz-document url-prefix() {
+  select option {
+    background-color: #111827;
+    color: white;
+  }
+}
+
+/* ==========================================
    GLASS MORPHISM EFFECTS
    ========================================== */
 
