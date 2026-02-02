@@ -8,43 +8,13 @@
   <title>{{ page_title | default: 'duso_ecom' }} | #1 Shopify Partner в СНГ</title>
   <meta name="description" content="{{ page_description | default: 'Создаём Shopify магазины, которые продают по всему СНГ. 6500+ успешных проектов. Сертифицированный Shopify Partner.' }}">
   
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://cdn.shopify.com">
+  <!-- Google Fonts - Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Google Fonts - Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- TailwindCSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            orange: {
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c',
-            },
-            emerald: {
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
-            },
-          },
-        },
-      },
-    }
-  </script>
-  
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- TailwindCSS - Pre-built from CDN (lighter than Play CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   
   <!-- Theme CSS -->
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
