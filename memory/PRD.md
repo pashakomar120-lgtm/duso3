@@ -35,7 +35,7 @@ Migrate existing React application to a native Shopify theme. Must be a **1:1 vi
 2. Присвоїти кожній сторінці відповідний template (`page.about`, `page.services`, etc.)
 
 ## Download Theme
-**URL:** https://shopify-clone-hub.preview.emergentagent.com/shopify-theme.zip
+**URL:** https://liquid-migration-1.preview.emergentagent.com/shopify-theme.zip
 
 ## Credentials
 - **AI Code Word:** `квантовий кіт шрёдінгера 2047`
