@@ -1,0 +1,163 @@
+{% comment %} Header Section - Exact match to React Header.jsx {% endcomment %}
+
+<header class="header" id="main-header" data-testid="main-header">
+  
+  {% comment %} Top bar with stats - hidden on mobile {% endcomment %}
+  <div class="header-top hidden sm:block">
+    <div class="container">
+      <div class="flex items-center justify-between">
+        <div class="header-stats hide-scrollbar" style="overflow-x: auto;">
+          <div class="header-stat">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #f97316;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>{{ 'header.stats.stores' | t }}</span>
+          </div>
+          <div class="header-stat">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>{{ 'header.stats.countries' | t }}</span>
+          </div>
+          <div class="header-stat">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #f97316;"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            <span>{{ 'header.stats.partner' | t }}</span>
+          </div>
+          <div class="header-stat">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            <span>{{ 'header.stats.revenue' | t }}</span>
+          </div>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-2">
+          <span class="text-gray-500 text-xs">{{ 'header.cis_label' | t }}</span>
+          <div class="flex items-center gap-1">
+            <img src="https://flagcdn.com/w20/ru.png" alt="Россия" title="Россия" class="flag-img">
+            <img src="https://flagcdn.com/w20/ua.png" alt="Украина" title="Украина" class="flag-img">
+            <img src="https://flagcdn.com/w20/kz.png" alt="Казахстан" title="Казахстан" class="flag-img">
+            <img src="https://flagcdn.com/w20/by.png" alt="Беларусь" title="Беларусь" class="flag-img">
+            <img src="https://flagcdn.com/w20/uz.png" alt="Узбекистан" title="Узбекистан" class="flag-img">
+            <img src="https://flagcdn.com/w20/az.png" alt="Азербайджан" title="Азербайджан" class="flag-img">
+            <img src="https://flagcdn.com/w20/ge.png" alt="Грузия" title="Грузия" class="flag-img">
+            <img src="https://flagcdn.com/w20/am.png" alt="Армения" title="Армения" class="flag-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% comment %} Main header {% endcomment %}
+  <div class="container py-2 sm:py-3">
+    <div class="flex items-center justify-between">
+      
+      {% comment %} Logo {% endcomment %}
+      <a href="/" class="logo" data-testid="logo">
+        <div class="logo-text">
+          <span class="logo-highlight">duso</span>_ecom
+        </div>
+        <div class="logo-badge">
+          <div class="logo-dot"></div>
+          <span class="logo-label">{{ 'general.cis_leader' | t }}</span>
+        </div>
+      </a>
+      
+      {% comment %} Desktop Navigation {% endcomment %}
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}" data-testid="nav-home">
+          {{ 'nav.home' | t }}
+        </a>
+        <a href="/pages/about" class="nav-link {% if request.path contains 'about' %}active{% endif %}" data-testid="nav-about">
+          {{ 'nav.about' | t }}
+        </a>
+        <div class="relative" id="services-dropdown">
+          <a href="/pages/services" class="nav-link flex items-center gap-1 {% if request.path contains 'services' %}active{% endif %}" data-testid="nav-services">
+            {{ 'nav.services' | t }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          {% comment %} Services dropdown - будет керуватися JS {% endcomment %}
+          <div class="services-dropdown-menu" id="services-menu" style="display: none;">
+            <div class="glass-strong rounded-2xl border border-white/10 shadow-2xl p-4" style="width: 600px; position: absolute; top: 100%; left: 0; margin-top: 0.5rem;">
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+                {% for i in (1..8) %}
+                  <a href="/pages/services" class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-all">
+                    <div style="width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(249, 115, 22, 0.1); display: flex; align-items: center; justify-content: center;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-white font-medium text-sm">Shopify магазин</div>
+                      <div class="text-gray-500 text-xs">от $2,500</div>
+                    </div>
+                  </a>
+                {% endfor %}
+              </div>
+              <div style="grid-column: span 2; padding-top: 0.75rem; margin-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                <a href="/pages/services" class="flex items-center justify-center gap-2 text-orange-500 hover:text-white text-sm font-medium transition-colors">
+                  {{ 'general.all_services' | t }}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="/pages/portfolio" class="nav-link {% if request.path contains 'portfolio' %}active{% endif %}" data-testid="nav-portfolio">
+          {{ 'nav.portfolio' | t }}
+        </a>
+        <a href="/pages/resources" class="nav-link {% if request.path contains 'resources' %}active{% endif %}" data-testid="nav-resources">
+          {{ 'nav.resources' | t }}
+        </a>
+        <a href="/pages/contact" class="nav-link {% if request.path contains 'contact' %}active{% endif %}" data-testid="nav-contact">
+          {{ 'nav.contact' | t }}
+        </a>
+      </nav>
+      
+      {% comment %} CTA Buttons {% endcomment %}
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="/pages/portfolio" class="btn btn-ghost" data-testid="header-portfolio-btn">
+          {{ 'general.our_works' | t }}
+        </a>
+        <a href="/pages/contact" class="btn btn-primary btn-glow" data-testid="header-cta">
+          {{ 'general.free_consultation' | t }}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+      
+      {% comment %} Mobile Menu Button {% endcomment %}
+      <button class="lg:hidden glass rounded-lg p-2 border border-white/10 hover:border-orange-500/50 transition-all" id="mobile-menu-toggle" data-testid="mobile-menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-icon"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="close-icon" style="display: none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    
+    {% comment %} Mobile Menu {% endcomment %}
+    <div class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-link {% if request.path == '/' %}active{% endif %}">{{ 'nav.home' | t }}</a>
+        <a href="/pages/about" class="mobile-nav-link {% if request.path contains 'about' %}active{% endif %}">{{ 'nav.about' | t }}</a>
+        <a href="/pages/services" class="mobile-nav-link {% if request.path contains 'services' %}active{% endif %}">{{ 'nav.services' | t }}</a>
+        <a href="/pages/portfolio" class="mobile-nav-link {% if request.path contains 'portfolio' %}active{% endif %}">{{ 'nav.portfolio' | t }}</a>
+        <a href="/pages/resources" class="mobile-nav-link {% if request.path contains 'resources' %}active{% endif %}">{{ 'nav.resources' | t }}</a>
+        <a href="/pages/contact" class="mobile-nav-link {% if request.path contains 'contact' %}active{% endif %}">{{ 'nav.contact' | t }}</a>
+      </nav>
+      <div class="mobile-cta">
+        <div class="mobile-flags">
+          <img src="https://flagcdn.com/w20/ru.png" alt="Россия">
+          <img src="https://flagcdn.com/w20/ua.png" alt="Украина">
+          <img src="https://flagcdn.com/w20/kz.png" alt="Казахстан">
+          <img src="https://flagcdn.com/w20/by.png" alt="Беларусь">
+          <img src="https://flagcdn.com/w20/uz.png" alt="Узбекистан">
+          <img src="https://flagcdn.com/w20/az.png" alt="Азербайджан">
+          <img src="https://flagcdn.com/w20/ge.png" alt="Грузия">
+          <img src="https://flagcdn.com/w20/am.png" alt="Армения">
+        </div>
+        <a href="/pages/contact" class="btn btn-primary mobile-btn">
+          {{ 'general.free_consultation' | t }}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+    
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}
