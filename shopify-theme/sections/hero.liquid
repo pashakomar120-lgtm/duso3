@@ -1,0 +1,149 @@
+{% comment %} Hero Section - Exact match to React HeroSection.jsx {% endcomment %}
+
+<section class="hero relative overflow-hidden">
+  <div class="container relative z-10">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; min-height: 60vh; align-items: center;" class="hero-grid">
+      
+      {% comment %} Left Content {% endcomment %}
+      <div class="fade-in-up" style="max-width: 48rem;">
+        
+        {% comment %} Badge {% endcomment %}
+        <div class="hero-badge glass cursor-pointer mb-6 sm:mb-8" style="display: inline-flex;">
+          <div class="hero-badge-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+          <span class="hero-badge-text">{{ 'hero.badge' | t }}</span>
+          <span class="hero-badge-label">{{ 'general.cis_leader' | t }}</span>
+        </div>
+        
+        {% comment %} Main Headline {% endcomment %}
+        <div class="mb-4 sm:mb-6">
+          <h1 class="hero-title text-white">
+            {{ 'hero.title_1' | t }} <span class="text-orange-500 text-glow-orange">{{ 'hero.title_shopify' | t }}</span> {{ 'hero.title_2' | t }}
+          </h1>
+          <h1 class="hero-title">
+            <span class="text-white">{{ 'hero.title_3' | t }} </span>
+            <span class="gradient-text">{{ 'hero.title_sell' | t }}</span>
+          </h1>
+          <h1 class="hero-title text-white">
+            {{ 'hero.title_4' | t }} <span class="text-emerald-500 text-glow-emerald">{{ 'hero.title_cis' | t }}</span>
+          </h1>
+        </div>
+        
+        {% comment %} Description {% endcomment %}
+        <p class="hero-description mb-4 sm:mb-6">
+          {{ 'hero.description' | t }} <span class="text-white font-semibold">{{ 'hero.weeks' | t }}</span>. 
+          {{ 'hero.description_2' | t }} <span class="text-orange-500 font-semibold">{{ 'hero.projects' | t }}</span> {{ 'hero.description_3' | t }}
+        </p>
+        
+        {% comment %} Trust badges {% endcomment %}
+        <div class="hero-trust mb-6 sm:mb-8">
+          <div class="hero-trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>{{ 'hero.trust_1' | t }}</span>
+          </div>
+          <div class="hero-trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>{{ 'hero.trust_2' | t }}</span>
+          </div>
+          <div class="hero-trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>{{ 'hero.trust_3' | t }}</span>
+          </div>
+        </div>
+        
+        {% comment %} CTA Buttons {% endcomment %}
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6">
+          <a href="/pages/contact" class="btn btn-primary btn-glow px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto text-sm sm:text-base" data-testid="hero-cta-primary">
+            {{ 'general.free_consultation' | t }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/pages/portfolio" class="btn btn-secondary glass px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto text-sm sm:text-base" data-testid="hero-cta-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            {{ 'general.view_cases' | t }}
+          </a>
+        </div>
+        
+        {% comment %} Stats mini row {% endcomment %}
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value text-orange-500">{{ 'hero.stats.stores' | t }}</div>
+            <div class="hero-stat-label">{{ 'hero.stats.stores_label' | t }}</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value text-emerald-500">{{ 'hero.stats.revenue' | t }}</div>
+            <div class="hero-stat-label">{{ 'hero.stats.revenue_label' | t }}</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value text-white">{{ 'hero.stats.countries' | t }}</div>
+            <div class="hero-stat-label">{{ 'hero.stats.countries_label' | t }}</div>
+          </div>
+        </div>
+      </div>
+      
+      {% comment %} Right Content - Images Grid (visible on desktop) {% endcomment %}
+      <div class="hidden lg:block relative" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 40%;">
+        {% comment %} Background glows {% endcomment %}
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background: rgba(249, 115, 22, 0.2); border-radius: 9999px; filter: blur(100px);"></div>
+        <div style="position: absolute; top: 25%; right: 0; width: 200px; height: 200px; background: rgba(16, 185, 129, 0.15); border-radius: 9999px; filter: blur(80px);"></div>
+        
+        {% comment %} Images Grid {% endcomment %}
+        <div style="position: relative; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+          <div class="floating-card rounded-2xl overflow-hidden float" style="height: 10rem;" data-testid="hero-image-1">
+            <img src="https://images.unsplash.com/photo-1739459365519-9d3978d884aa?w=400" alt="E-commerce mockup 1" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="floating-card rounded-2xl overflow-hidden float-slow" style="height: 12rem; animation-delay: 0.5s;" data-testid="hero-image-2">
+            <img src="https://images.unsplash.com/photo-1642052503083-bc49dd433478?w=400" alt="E-commerce mockup 2" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="floating-card rounded-2xl overflow-hidden float-fast" style="height: 12rem; animation-delay: 1s;" data-testid="hero-image-3">
+            <img src="https://images.unsplash.com/photo-1588601515608-6a6814976b50?w=400" alt="E-commerce mockup 3" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="floating-card rounded-2xl overflow-hidden float" style="height: 10rem; animation-delay: 1.5s;" data-testid="hero-image-4">
+            <img src="https://images.unsplash.com/photo-1604074131228-9d48b811bd80?w=400" alt="E-commerce mockup 4" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          
+          {% comment %} Floating badges {% endcomment %}
+          <div class="glass rounded-xl p-3 border float-slow" style="position: absolute; bottom: -1rem; left: -1rem; border-color: rgba(16, 185, 129, 0.3);">
+            <div class="flex items-center gap-2">
+              <div style="width: 2rem; height: 2rem; background: rgba(16, 185, 129, 0.2); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div>
+                <div class="text-white text-xs font-bold">+340%</div>
+                <div class="text-gray-500" style="font-size: 0.625rem;">Рост продаж</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="glass rounded-xl p-3 border float" style="position: absolute; top: -1rem; right: -1rem; border-color: rgba(249, 115, 22, 0.3);">
+            <div class="flex items-center gap-2">
+              <div style="width: 2rem; height: 2rem; background: rgba(249, 115, 22, 0.2); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+              </div>
+              <div>
+                <div class="text-white text-xs font-bold">24/7</div>
+                <div class="text-gray-500" style="font-size: 0.625rem;">Поддержка</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 3fr 2fr !important;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": []
+}
+{% endschema %}
