@@ -1,0 +1,102 @@
+{% comment %}
+  Process Section - Exact copy from React ProcessSection.jsx
+{% endcomment %}
+
+<section class="py-24 relative z-10">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="text-emerald-500 text-sm font-medium tracking-wider uppercase mb-4 block">
+        {{ 'process.section_title' | t }}
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        {{ 'process.title_1' | t }} <span class="text-orange-500 text-glow-orange">{{ 'process.title_highlight' | t }}</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        {{ 'process.subtitle' | t }}
+      </p>
+    </div>
+
+    <!-- Process Steps -->
+    <div class="relative">
+      <!-- Connection line -->
+      <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500/50 via-emerald-500/50 to-orange-500/50 hidden lg:block"></div>
+
+      <div class="space-y-12 lg:space-y-0">
+        {% assign step_numbers = "01,02,03,04,05,06" | split: "," %}
+        {% assign step_icons = "message-circle,file-search,pen-tool,code,rocket,headphones" | split: "," %}
+        {% assign step_titles = "Консультация,Аналитика и стратегия,Дизайн,Разработка,Запуск,Поддержка" | split: "," %}
+        {% assign step_descriptions = "Обсуждаем ваши цели анализируем нишу и конкурентов. Бесплатно.,Разрабатываем детальный план проекта определяем KPI и этапы.,Создаём уникальный дизайн который конвертирует посетителей в покупателей.,Воплощаем дизайн в жизнь интегрируем все необходимые системы.,Тестируем оптимизируем и запускаем ваш магазин в продакшн.,Обеспечиваем техподдержку 24/7 и помогаем с развитием." | split: "," %}
+        {% assign step_durations = "1-2 дня,3-5 дней,1-2 недели,2-4 недели,2-3 дня,Постоянно" | split: "," %}
+        
+        {% for i in (0..5) %}
+          {% assign is_even = i | modulo: 2 %}
+          <div 
+            data-testid="process-step-{{ i }}"
+            class="lg:grid lg:grid-cols-2 lg:gap-16 items-center {% if i > 0 %}lg:mt-[-80px]{% endif %}"
+          >
+            <!-- Left side -->
+            <div class="{% if is_even == 0 %}lg:text-right lg:pr-16{% else %}lg:order-2 lg:pl-16{% endif %}">
+              {% if is_even == 0 %}
+                <div class="floating-card rounded-2xl p-6 inline-block text-left lg:text-right mb-8 lg:mb-0">
+                  <div class="flex items-center gap-4 mb-4 lg:flex-row-reverse">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center">
+                      <i data-lucide="{{ step_icons[i] }}" class="w-6 h-6 text-orange-500"></i>
+                    </div>
+                    <span class="text-4xl font-bold text-orange-500/20">{{ step_numbers[i] }}</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-2">{{ step_titles[i] }}</h3>
+                  <p class="text-gray-400 text-sm mb-3">{{ step_descriptions[i] }}</p>
+                  <span class="text-emerald-500 text-xs font-medium px-3 py-1 bg-emerald-500/10 rounded-full">
+                    {{ step_durations[i] }}
+                  </span>
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Right side -->
+            <div class="{% if is_even != 0 %}lg:text-left lg:pl-16{% else %}lg:order-2 lg:pr-16{% endif %}">
+              {% if is_even != 0 %}
+                <div class="floating-card rounded-2xl p-6 inline-block mb-8 lg:mb-0">
+                  <div class="flex items-center gap-4 mb-4">
+                    <span class="text-4xl font-bold text-emerald-500/20">{{ step_numbers[i] }}</span>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                      <i data-lucide="{{ step_icons[i] }}" class="w-6 h-6 text-emerald-500"></i>
+                    </div>
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-2">{{ step_titles[i] }}</h3>
+                  <p class="text-gray-400 text-sm mb-3">{{ step_descriptions[i] }}</p>
+                  <span class="text-orange-500 text-xs font-medium px-3 py-1 bg-orange-500/10 rounded-full">
+                    {{ step_durations[i] }}
+                  </span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Total time -->
+    <div class="text-center mt-16">
+      <div class="inline-flex items-center gap-4 glass rounded-2xl px-8 py-4">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-orange-500">2-6</div>
+          <div class="text-gray-500 text-xs">недель</div>
+        </div>
+        <div class="w-px h-12 bg-white/10"></div>
+        <div class="text-left">
+          <div class="text-white font-medium">{{ 'process.avg_time' | t }}</div>
+          <div class="text-gray-500 text-sm">{{ 'process.avg_time_desc' | t }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Process",
+  "settings": []
+}
+{% endschema %}
