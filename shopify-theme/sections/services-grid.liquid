@@ -1,0 +1,273 @@
+{% comment %}
+  Services Grid Section
+{% endcomment %}
+
+<style>
+  .services-grid {
+    padding: 5rem 0;
+  }
+
+  .services-grid__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .services-grid__container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .services-grid__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .services-grid__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+  }
+
+  .services-grid__badge-text {
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .services-grid__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .services-grid__title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .services-grid__title-accent {
+    color: var(--color-primary);
+    text-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+  }
+
+  .services-grid__subtitle {
+    color: var(--color-text);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .services-grid__subtitle {
+      font-size: 1.125rem;
+    }
+  }
+
+  .services-grid__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .services-grid__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .services-grid__card {
+    background: rgba(17, 24, 39, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .services-grid__card:hover {
+    border-color: rgba(249, 115, 22, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .services-grid__card-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(16, 185, 129, 0.2));
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .services-grid__card-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary);
+  }
+
+  .services-grid__card-title {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .services-grid__card-description {
+    color: var(--color-text);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .services-grid__card-price {
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+</style>
+
+<section class="services-grid">
+  <div class="services-grid__container">
+    <div class="services-grid__header">
+      <div class="services-grid__badge">
+        <span class="services-grid__badge-text">{{ section.settings.badge_text }}</span>
+      </div>
+      <h2 class="services-grid__title">
+        Наши <span class="services-grid__title-accent">услуги</span>
+      </h2>
+      <p class="services-grid__subtitle">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="services-grid__grid">
+      {% for block in section.blocks %}
+        <div class="services-grid__card" {{ block.shopify_attributes }}>
+          <div class="services-grid__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            </svg>
+          </div>
+          <h3 class="services-grid__card-title">{{ block.settings.title }}</h3>
+          <p class="services-grid__card-description">{{ block.settings.description }}</p>
+          <div class="services-grid__card-price">{{ block.settings.price }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Услуги",
+  "class": "section-services-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "default": "Полный спектр услуг",
+      "label": "Текст бейджа"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "default": "От создания магазина до его масштабирования — мы закрываем все потребности вашего e-commerce бизнеса",
+      "label": "Подзаголовок"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Услуга",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Создание магазина",
+          "label": "Название"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "default": "Разработка уникального интернет-магазина на Shopify с нуля",
+          "label": "Описание"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "default": "от $2,000",
+          "label": "Цена"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Услуги",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "title": "Создание магазина",
+            "description": "Разработка уникального интернет-магазина на Shopify с нуля с адаптивным дизайном",
+            "price": "от $2,000"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Редизайн магазина",
+            "description": "Обновление существующего магазина для повышения конверсии и UX",
+            "price": "от $1,500"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Миграция на Shopify",
+            "description": "Перенос вашего магазина с другой платформы на Shopify",
+            "price": "от $1,000"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Оптимизация скорости",
+            "description": "Ускорение загрузки сайта и улучшение Core Web Vitals",
+            "price": "от $500"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "SEO оптимизация",
+            "description": "Повышение позиций в поисковых системах и органического трафика",
+            "price": "от $800"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Техническая поддержка",
+            "description": "Регулярное обслуживание и развитие вашего магазина",
+            "price": "от $300/мес"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

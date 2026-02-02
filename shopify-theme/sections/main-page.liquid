@@ -1,0 +1,98 @@
+{% comment %}
+  Main Page Section for generic pages
+{% endcomment %}
+
+<style>
+  .main-page {
+    min-height: 60vh;
+    padding: 8rem 0 4rem;
+  }
+
+  @media (min-width: 640px) {
+    .main-page {
+      padding: 10rem 0 6rem;
+    }
+  }
+
+  .main-page__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .main-page__container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .main-page__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .main-page__title {
+      font-size: 3rem;
+    }
+  }
+
+  .main-page__content {
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .main-page__content h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .main-page__content h3 {
+    color: white;
+    font-size: 1.25rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .main-page__content p {
+    margin-bottom: 1rem;
+  }
+
+  .main-page__content ul,
+  .main-page__content ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .main-page__content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .main-page__content a {
+    color: var(--color-primary);
+  }
+
+  .main-page__content a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<section class="main-page">
+  <div class="main-page__container">
+    <h1 class="main-page__title">{{ page.title }}</h1>
+    <div class="main-page__content">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Основная страница",
+  "class": "section-main-page",
+  "settings": []
+}
+{% endschema %}

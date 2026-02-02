@@ -1,0 +1,270 @@
+{% comment %}
+  Testimonials Section
+{% endcomment %}
+
+<style>
+  .testimonials {
+    padding: 5rem 0;
+    background: rgba(17, 24, 39, 0.3);
+  }
+
+  .testimonials__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .testimonials__container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .testimonials__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .testimonials__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+  }
+
+  .testimonials__badge-text {
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .testimonials__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .testimonials__title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .testimonials__title-accent {
+    color: var(--color-secondary);
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+  }
+
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testimonials__card {
+    background: rgba(17, 24, 39, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .testimonials__card:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .testimonials__card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .testimonials__card-avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 1.125rem;
+  }
+
+  .testimonials__card-info {
+    flex: 1;
+  }
+
+  .testimonials__card-name {
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .testimonials__card-company {
+    color: var(--color-text-light);
+    font-size: 0.75rem;
+  }
+
+  .testimonials__card-flag {
+    width: 24px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  .testimonials__card-text {
+    color: var(--color-text);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .testimonials__card-stars {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .testimonials__card-star {
+    width: 16px;
+    height: 16px;
+    color: #fbbf24;
+    fill: #fbbf24;
+  }
+</style>
+
+<section class="testimonials">
+  <div class="testimonials__container">
+    <div class="testimonials__header">
+      <div class="testimonials__badge">
+        <span class="testimonials__badge-text">{{ section.settings.badge_text }}</span>
+      </div>
+      <h2 class="testimonials__title">
+        Отзывы наших <span class="testimonials__title-accent">клиентов</span>
+      </h2>
+    </div>
+
+    <div class="testimonials__grid">
+      {% for block in section.blocks %}
+        <div class="testimonials__card" {{ block.shopify_attributes }}>
+          <div class="testimonials__card-header">
+            <div class="testimonials__card-avatar">{{ block.settings.name | slice: 0 }}</div>
+            <div class="testimonials__card-info">
+              <div class="testimonials__card-name">{{ block.settings.name }}</div>
+              <div class="testimonials__card-company">{{ block.settings.company }}</div>
+            </div>
+            <img src="{{ block.settings.flag }}" alt="Flag" class="testimonials__card-flag" loading="lazy">
+          </div>
+          <p class="testimonials__card-text">"{{ block.settings.text }}"</p>
+          <div class="testimonials__card-stars">
+            {% for i in (1..5) %}
+              <svg class="testimonials__card-star" viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Отзывы",
+  "class": "section-testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "default": "98% довольных клиентов",
+      "label": "Текст бейджа"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Отзыв",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Иван Петров",
+          "label": "Имя"
+        },
+        {
+          "type": "text",
+          "id": "company",
+          "default": "CEO, TechStore",
+          "label": "Компания"
+        },
+        {
+          "type": "text",
+          "id": "flag",
+          "default": "https://flagcdn.com/w40/ru.png",
+          "label": "URL флага страны"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Отличная работа! Магазин готов за 3 недели, конверсия выросла на 40%.",
+          "label": "Текст отзыва"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Отзывы",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "Александр Иванов",
+            "company": "CEO, TechStore.ru",
+            "flag": "https://flagcdn.com/w40/ru.png",
+            "text": "Команда duso_ecom сделала невозможное — запустили наш магазин за 2 недели. Конверсия выросла на 45%!"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "Олена Коваленко",
+            "company": "Founder, BeautyShop.ua",
+            "flag": "https://flagcdn.com/w40/ua.png",
+            "text": "Профессионалы своего дела. Редизайн магазина принёс нам +60% к продажам за первый месяц."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "Нурлан Сатыбалдиев",
+            "company": "Director, KazMart.kz",
+            "flag": "https://flagcdn.com/w40/kz.png",
+            "text": "Миграция с WooCommerce прошла без единой ошибки. Теперь наш магазин работает в 3 раза быстрее!"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,226 @@
+{% comment %}
+  Clients Logos Section
+{% endcomment %}
+
+<style>
+  .clients {
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+
+  .clients__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .clients__container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .clients__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .clients__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+  }
+
+  .clients__badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .clients__badge-text {
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .clients__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .clients__title {
+      font-size: 2rem;
+    }
+  }
+
+  .clients__title-accent {
+    background: linear-gradient(135deg, #a855f7, #ec4899, var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .clients__subtitle {
+    color: var(--color-text);
+    font-size: 1rem;
+  }
+
+  .clients__countries {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .clients__countries {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 1rem;
+    }
+  }
+
+  .clients__country {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .clients__country:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+  }
+
+  .clients__country-flag {
+    width: 32px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin: 0 auto 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  @media (min-width: 640px) {
+    .clients__country-flag {
+      width: 48px;
+      height: 36px;
+    }
+  }
+
+  .clients__country-name {
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .clients__country-name {
+      display: block;
+      font-size: 0.75rem;
+    }
+  }
+
+  .clients__country-count {
+    color: var(--color-secondary);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  @media (min-width: 640px) {
+    .clients__country-count {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<section class="clients">
+  <div class="clients__container">
+    <div class="clients__header">
+      <div class="clients__badge">
+        <span class="clients__badge-dot"></span>
+        <span class="clients__badge-text">{{ section.settings.badge_text }}</span>
+      </div>
+      <h2 class="clients__title">
+        Наши <span class="clients__title-accent">клиенты</span> по всему СНГ
+      </h2>
+      <p class="clients__subtitle">Магазины из 8 стран доверяют нам свой e-commerce</p>
+    </div>
+
+    <div class="clients__countries">
+      <div class="clients__country">
+        <img src="https://flagcdn.com/w80/ru.png" alt="Россия" class="clients__country-flag" loading="lazy">
+        <div class="clients__country-name">Россия</div>
+        <div class="clients__country-count">3200+</div>
+      </div>
+      <div class="clients__country">
+        <img src="https://flagcdn.com/w80/ua.png" alt="Украина" class="clients__country-flag" loading="lazy">
+        <div class="clients__country-name">Украина</div>
+        <div class="clients__country-count">1500+</div>
+      </div>
+      <div class="clients__country">
+        <img src="https://flagcdn.com/w80/kz.png" alt="Казахстан" class="clients__country-flag" loading="lazy">
+        <div class="clients__country-name">Казахстан</div>
+        <div class="clients__country-count">800+</div>
+      </div>
+      <div class="clients__country">
+        <img src="https://flagcdn.com/w80/by.png" alt="Беларусь" class="clients__country-flag" loading="lazy">
+        <div class="clients__country-name">Беларусь</div>
+        <div class="clients__country-count">450+</div>
+      </div>
+      <div class="clients__country">
+        <img src="https://flagcdn.com/w80/uz.png" alt="Узбекистан" class="clients__country-flag" loading="lazy">
+        <div class="clients__country-name">Узбекистан</div>
+        <div class="clients__country-count">250+</div>
+      </div>
+      <div class="clients__country">
+        <img src="https://flagcdn.com/w80/az.png" alt="Азербайджан" class="clients__country-flag" loading="lazy">
+        <div class="clients__country-name">Азербайджан</div>
+        <div class="clients__country-count">180+</div>
+      </div>
+      <div class="clients__country">
+        <img src="https://flagcdn.com/w80/ge.png" alt="Грузия" class="clients__country-flag" loading="lazy">
+        <div class="clients__country-name">Грузия</div>
+        <div class="clients__country-count">80+</div>
+      </div>
+      <div class="clients__country">
+        <img src="https://flagcdn.com/w80/am.png" alt="Армения" class="clients__country-flag" loading="lazy">
+        <div class="clients__country-name">Армения</div>
+        <div class="clients__country-count">40+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Клиенты по странам",
+  "class": "section-clients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "default": "6500+ успешных проектов",
+      "label": "Текст бейджа"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Клиенты по странам"
+    }
+  ]
+}
+{% endschema %}
