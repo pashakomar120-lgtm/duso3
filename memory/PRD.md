@@ -1,64 +1,99 @@
-# duso_ecom - #1 E-commerce Agency in CIS
-
-## Last Updated: February 2, 2025
-
----
+# PRD - Shopify Theme Migration
 
 ## Original Problem Statement
-Build and maintain a professional e-commerce agency website (duso_ecom) targeting the CIS market. Migrate the React application to a native Shopify theme that is a 1:1 visual clone.
+Migrate existing React application to a native Shopify theme. Must be a **1:1 visual and functional clone** of the original site. The AI assistant functionality also needs to work in the new theme.
 
----
+## User Requirements
+1. **Shopify Theme Migration:** Rebuild entire React app as native Shopify theme using Liquid
+2. **Visual and Functional Parity:** Must be indistinguishable from React app
+3. **AI Assistant Integration:** Secret code `квантовий кіт шрёдінгера 2047` must work
+4. **Language:** All text in Russian
+
+## Architecture
+
+### Source (React App)
+```
+/app/frontend/src/
+├── components/     # React components
+├── pages/          # Page components  
+├── data/           # Mock data files
+└── index.css       # Global styles
+```
+
+### Destination (Shopify Theme)
+```
+/app/shopify-theme/
+├── assets/
+│   ├── theme.css   # TailwindCSS 2.x + custom styles
+│   └── theme.js    # Theme JavaScript
+├── layout/
+│   └── theme.liquid
+├── sections/       # 16+ Liquid sections
+│   ├── header.liquid
+│   ├── hero.liquid
+│   ├── scrolling-text.liquid
+│   ├── trusted-by.liquid
+│   ├── services.liquid
+│   ├── who-we-work-with.liquid
+│   ├── store-logos.liquid
+│   ├── cis.liquid
+│   ├── process.liquid
+│   ├── case-studies.liquid
+│   ├── ratings.liquid
+│   ├── testimonials.liquid
+│   ├── awards.liquid
+│   ├── cta.liquid
+│   ├── ai-assistant.liquid
+│   └── footer.liquid
+├── templates/
+│   ├── index.liquid
+│   ├── page.services.liquid
+│   ├── page.about.liquid
+│   ├── page.portfolio.liquid
+│   └── page.contact.liquid
+└── config/
+```
 
 ## What's Been Implemented
 
-### ✅ React Application (Complete)
-- Full responsive design
-- All homepage sections working
-- Admin panel with lead management
-- AI Assistant with GPT-4o-mini
+### ✅ Completed (2025-02-02)
+- Full Shopify theme skeleton with 16+ sections
+- Switched from Tailwind CDN to static CSS (fixed performance issues)
+- **Store Logos section** - Now shows real store names with flags and domains:
+  - TechStore, FashionHub, ElectroWorld, BeautyPro, SportMax, MegaStore (Russia)
+  - FashionUA, TechnoKyiv (Ukraine)
+  - КазахТекстиль, AlmatyShop (Kazakhstan)
+  - TechBY, MinskFashion (Belarus)
+  - UzFood Premium (Uzbekistan)
+  - BakuElectro (Azerbaijan)
+  - GeorgiaWine (Georgia)
+  - YerevanTech (Armenia)
+- **Trusted By section** - Now shows real brands: TechBrand, ShopMax, E-Store, DigiMart, CloudShop, NetCommerce
+- CSS animations for scroll effects
+- Hero, Services, Process, CIS, Testimonials, Awards, CTA sections completed
+- Secondary page templates created
 
-### ✅ Shopify Theme v2.0 (Complete - Ready for Testing)
-Created `/app/shopify-theme/` with full structure:
+## Current Issues
 
-**Sections implemented:**
-- `header.liquid` - Full header with stats bar, navigation, services dropdown, mobile menu
-- `hero.liquid` - Hero section with badge, title, description, CTAs, stats, floating images
-- `scrolling-text.liquid` - Animated marquee text
-- `clients.liquid` - Store logos carousel + countries grid with flags
-- `services.liquid` - Services tabs with detailed info and benefits
-- `audience.liquid` - "Who we work with" section with 3 cards
-- `cta.liquid` - Call to action with floating icons, stats
-- `footer.liquid` - 4-column footer with navigation, services, contacts
-- `contact-page.liquid` - Contact info, QR code, dual forms (quote/call)
-- `main-page.liquid` - Generic page template
+### P0 - Critical
+- [ ] Verify all buttons work correctly (JavaScript)
+- [ ] Verify all animations work properly
+- [ ] Test secondary pages (Services, About, Portfolio, Contact)
 
-**Supporting files:**
-- `assets/base.css` - Complete CSS (3000+ lines) with all animations
-- `assets/global.js` - JavaScript for interactions
-- `snippets/ai-assistant.liquid` - AI chat with secret phrase
-- `locales/ru.default.json` - All Russian translations
-- Config files and JSON templates
+### P1 - High Priority  
+- [ ] AI Assistant - Connect to backend `/api/ai` endpoint
+- [ ] Full content for secondary pages
 
-**ZIP file:** `/app/shopify-theme.zip` (38KB)
+## Upcoming Tasks
+1. Test theme in actual Shopify store
+2. Fix any visual discrepancies reported by user
+3. Implement full AI Assistant functionality
+4. Add email notifications for leads
 
----
-
-## Key Credentials
-- **AI Secret Phrase:** `квантовий кіт шрёдінгера 2047`
-- **Admin Username:** `duso_phantom_x7`
+## Credentials
+- **AI Code Word:** `квантовий кіт шрёдінгера 2047`
+- **Admin Login:** `duso_phantom_x7`
 - **Admin Password:** `Zk9#mNp$vR2@qLw8!xYj`
 
----
-
-## Pending Tasks
-
-### P1 - User Testing Required
-- [ ] Upload theme to Shopify and verify visually
-- [ ] Configure `ai_api_url` in Theme Settings for AI assistant
-- [ ] Create contact page with template "page.contact"
-
-### P2 - Future Enhancements  
-- [ ] Add more sections: Process, CIS, Ratings, Testimonials, Stats, CaseStudies, Awards
-- [ ] Add portfolio page template
-- [ ] Add blog templates
-- [ ] Connect forms to backend API
+## Download Theme
+**URL:** https://shopify-clone-hub.preview.emergentagent.com/shopify-theme.zip
