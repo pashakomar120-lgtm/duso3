@@ -1,0 +1,119 @@
+<section class="py-12 sm:py-20 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <div class="text-center mb-8 sm:mb-12">
+      <div class="inline-flex items-center gap-2 glass rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 border border-emerald-500/20">
+        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+        <span class="text-emerald-500 text-xs sm:text-sm font-medium">6500+ успешных проектов</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
+        Наши <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">клиенты</span> по всему СНГ
+      </h2>
+      <p class="text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto">Магазины из 8 стран доверяют нам свой e-commerce</p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#0a0a0b] to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#0a0a0b] to-transparent z-10 pointer-events-none"></div>
+
+      <div class="flex gap-4 sm:gap-6 overflow-hidden py-4" id="store-logos-scroll">
+        {% for j in (1..2) %}
+          {% for i in (1..10) %}
+            <div class="flex-shrink-0 group">
+              <div class="w-48 sm:w-52 h-20 sm:h-24 rounded-xl glass border border-white/5 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5 cursor-pointer">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-white/10">
+                  <span class="text-white font-bold text-xs sm:text-sm">S{{ i }}</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-white font-medium text-xs sm:text-sm truncate">Store {{ i }}</p>
+                  <p class="text-gray-500 text-[10px] sm:text-xs truncate">store{{ i }}.ru</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-2 sm:gap-4 mt-8 sm:mt-12">
+      <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-red-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-red-500/20 to-blue-500/20 flex items-center justify-center mb-2 sm:mb-3 overflow-hidden">
+            <img src="https://flagcdn.com/w80/ru.png" alt="Россия" class="w-8 h-6 sm:w-12 sm:h-9 object-cover rounded shadow-lg" loading="lazy">
+          </div>
+          <p class="text-white text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 hidden sm:block">Россия</p>
+          <p class="text-emerald-400 text-xs sm:text-lg font-bold">3200+</p>
+        </div>
+      </div>
+      <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-blue-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500/20 to-yellow-500/20 flex items-center justify-center mb-2 sm:mb-3 overflow-hidden">
+            <img src="https://flagcdn.com/w80/ua.png" alt="Украина" class="w-8 h-6 sm:w-12 sm:h-9 object-cover rounded shadow-lg" loading="lazy">
+          </div>
+          <p class="text-white text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 hidden sm:block">Украина</p>
+          <p class="text-emerald-400 text-xs sm:text-lg font-bold">1500+</p>
+        </div>
+      </div>
+      <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-cyan-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-500/20 to-yellow-500/20 flex items-center justify-center mb-2 sm:mb-3 overflow-hidden">
+            <img src="https://flagcdn.com/w80/kz.png" alt="Казахстан" class="w-8 h-6 sm:w-12 sm:h-9 object-cover rounded shadow-lg" loading="lazy">
+          </div>
+          <p class="text-white text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 hidden sm:block">Казахстан</p>
+          <p class="text-emerald-400 text-xs sm:text-lg font-bold">800+</p>
+        </div>
+      </div>
+      <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-green-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-red-500/20 to-green-500/20 flex items-center justify-center mb-2 sm:mb-3 overflow-hidden">
+            <img src="https://flagcdn.com/w80/by.png" alt="Беларусь" class="w-8 h-6 sm:w-12 sm:h-9 object-cover rounded shadow-lg" loading="lazy">
+          </div>
+          <p class="text-white text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 hidden sm:block">Беларусь</p>
+          <p class="text-emerald-400 text-xs sm:text-lg font-bold">450+</p>
+        </div>
+      </div>
+      <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-blue-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500/20 to-green-500/20 flex items-center justify-center mb-2 sm:mb-3 overflow-hidden">
+            <img src="https://flagcdn.com/w80/uz.png" alt="Узбекистан" class="w-8 h-6 sm:w-12 sm:h-9 object-cover rounded shadow-lg" loading="lazy">
+          </div>
+          <p class="text-white text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 hidden sm:block">Узбекистан</p>
+          <p class="text-emerald-400 text-xs sm:text-lg font-bold">250+</p>
+        </div>
+      </div>
+      <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-red-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500/20 to-red-500/20 flex items-center justify-center mb-2 sm:mb-3 overflow-hidden">
+            <img src="https://flagcdn.com/w80/az.png" alt="Азербайджан" class="w-8 h-6 sm:w-12 sm:h-9 object-cover rounded shadow-lg" loading="lazy">
+          </div>
+          <p class="text-white text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 hidden sm:block">Азербайджан</p>
+          <p class="text-emerald-400 text-xs sm:text-lg font-bold">180+</p>
+        </div>
+      </div>
+      <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-red-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-red-500/20 to-white/10 flex items-center justify-center mb-2 sm:mb-3 overflow-hidden">
+            <img src="https://flagcdn.com/w80/ge.png" alt="Грузия" class="w-8 h-6 sm:w-12 sm:h-9 object-cover rounded shadow-lg" loading="lazy">
+          </div>
+          <p class="text-white text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 hidden sm:block">Грузия</p>
+          <p class="text-emerald-400 text-xs sm:text-lg font-bold">80+</p>
+        </div>
+      </div>
+      <div class="glass rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-orange-500/50 transition-all duration-300 cursor-pointer group hover:scale-105">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center mb-2 sm:mb-3 overflow-hidden">
+            <img src="https://flagcdn.com/w80/am.png" alt="Армения" class="w-8 h-6 sm:w-12 sm:h-9 object-cover rounded shadow-lg" loading="lazy">
+          </div>
+          <p class="text-white text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 hidden sm:block">Армения</p>
+          <p class="text-emerald-400 text-xs sm:text-lg font-bold">40+</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Store Logos",
+  "settings": []
+}
+{% endschema %}
