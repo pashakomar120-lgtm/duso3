@@ -1,9 +1,5 @@
 {
   "sections": {
-    "header": {
-      "type": "header",
-      "settings": {}
-    },
     "hero": {
       "type": "hero",
       "settings": {}
@@ -58,10 +54,6 @@
     },
     "cta": {
       "type": "cta",
-      "settings": {}
-    },
-    "footer": {
-      "type": "footer",
       "settings": {}
     }
   },
