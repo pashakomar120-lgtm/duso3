@@ -339,6 +339,43 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+/* Testimonials Carousel Animations */
+.testimonials-scroll-left {
+  animation: testimonialsScrollLeft 60s linear infinite;
+}
+
+.testimonials-scroll-right {
+  animation: testimonialsScrollRight 60s linear infinite;
+}
+
+.testimonials-scroll-left-slow {
+  animation: testimonialsScrollLeft 80s linear infinite;
+}
+
+@keyframes testimonialsScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes testimonialsScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.testimonials-scroll-left:hover,
+.testimonials-scroll-right:hover,
+.testimonials-scroll-left-slow:hover {
+  animation-play-state: paused;
+}
+
+/* Line clamp */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Store Logos Scroll */
 @keyframes scrollLogos {
   0% { transform: translateX(0); }
