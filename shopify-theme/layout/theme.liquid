@@ -11,117 +11,162 @@
   {% endif %}
   
   <link rel="canonical" href="{{ canonical_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   {{ 'base.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
 </head>
 <body class="template-{{ template.name }}">
 
-  {% comment %} HEADER - Inline, no section {% endcomment %}
-  <header class="header" id="header">
-    <div class="header__top">
-      <div class="container">
-        <div class="header__top-content">
-          <span class="header__stat">✓ 6500+ проектов</span>
-          <span class="header__stat">✓ 8 стран СНГ</span>
-          <span class="header__stat">✓ Shopify Partner</span>
+  {% comment %} TOP BAR {% endcomment %}
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar__left">
+        <span class="topbar__item"><span class="topbar__icon">⚡</span> 6500+ магазинов</span>
+        <span class="topbar__item"><span class="topbar__icon">🌍</span> 8 стран СНГ</span>
+        <span class="topbar__item"><span class="topbar__icon">🏆</span> #1 Shopify Partner</span>
+        <span class="topbar__item"><span class="topbar__icon">📈</span> $3B+ оборот</span>
+      </div>
+      <div class="topbar__right">
+        <span class="topbar__label">Весь СНГ:</span>
+        <div class="topbar__flags">
+          <img src="https://flagcdn.com/w20/ru.png" alt="RU">
+          <img src="https://flagcdn.com/w20/ua.png" alt="UA">
+          <img src="https://flagcdn.com/w20/kz.png" alt="KZ">
+          <img src="https://flagcdn.com/w20/by.png" alt="BY">
+          <img src="https://flagcdn.com/w20/uz.png" alt="UZ">
+          <img src="https://flagcdn.com/w20/az.png" alt="AZ">
+          <img src="https://flagcdn.com/w20/ge.png" alt="GE">
+          <img src="https://flagcdn.com/w20/am.png" alt="AM">
         </div>
       </div>
     </div>
-    <div class="header__main">
-      <div class="container">
-        <div class="header__content">
-          <a href="/" class="header__logo">
-            <span class="header__logo-accent">duso</span>_ecom
-            <span class="header__logo-badge">#1 СНГ</span>
-          </a>
-          
-          <nav class="header__nav">
-            <a href="/" class="header__nav-link">Главная</a>
-            <a href="/pages/about" class="header__nav-link">О нас</a>
-            <a href="/collections/all" class="header__nav-link">Услуги</a>
-            <a href="/pages/portfolio" class="header__nav-link">Портфолио</a>
-            <a href="/pages/contact" class="header__nav-link">Контакты</a>
-          </nav>
-          
-          <a href="/pages/contact" class="header__cta">
-            Консультация
-          </a>
-          
-          <button class="header__burger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+  </div>
+
+  {% comment %} HEADER {% endcomment %}
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__content">
+        <a href="/" class="header__logo">
+          <span class="header__logo-orange">duso</span>_ecom
+          <span class="header__logo-badge">#1 СНГ</span>
+        </a>
+        
+        <nav class="header__nav">
+          <a href="/" class="header__link {% if template.name == 'index' %}is-active{% endif %}">Главная</a>
+          <a href="/pages/about" class="header__link">О нас</a>
+          <div class="header__dropdown">
+            <a href="/pages/services" class="header__link">Услуги <span class="header__arrow">▼</span></a>
+            <div class="header__dropdown-content">
+              <a href="/pages/services#shopify">Создание Shopify магазина</a>
+              <a href="/pages/services#redesign">Редизайн магазина</a>
+              <a href="/pages/services#migration">Миграция на Shopify</a>
+              <a href="/pages/services#optimization">Оптимизация скорости</a>
+              <a href="/pages/services#seo">SEO продвижение</a>
+              <a href="/pages/services#support">Техподдержка</a>
+            </div>
+          </div>
+          <a href="/pages/portfolio" class="header__link">Портфолио</a>
+          <a href="/pages/resources" class="header__link">Ресурсы</a>
+          <a href="/pages/contact" class="header__link">Контакты</a>
+        </nav>
+        
+        <a href="/pages/contact" class="header__cta">
+          Бесплатная консультация <span>→</span>
+        </a>
+        
+        <button class="header__burger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
     
-    <div class="header__mobile" id="mobile-menu">
-      <nav class="header__mobile-nav">
-        <a href="/" class="header__mobile-link">Главная</a>
-        <a href="/pages/about" class="header__mobile-link">О нас</a>
-        <a href="/collections/all" class="header__mobile-link">Услуги</a>
-        <a href="/pages/portfolio" class="header__mobile-link">Портфолио</a>
-        <a href="/pages/contact" class="header__mobile-link">Контакты</a>
-        <a href="/pages/contact" class="header__mobile-cta">Бесплатная консультация</a>
+    {% comment %} Mobile Menu {% endcomment %}
+    <div class="mobile-menu" id="mobile-menu">
+      <button class="mobile-menu__close" onclick="toggleMenu()">×</button>
+      <nav class="mobile-menu__nav">
+        <a href="/">Главная</a>
+        <a href="/pages/about">О нас</a>
+        <a href="/pages/services">Услуги</a>
+        <a href="/pages/portfolio">Портфолио</a>
+        <a href="/pages/resources">Ресурсы</a>
+        <a href="/pages/contact">Контакты</a>
       </nav>
+      <a href="/pages/contact" class="mobile-menu__cta">Бесплатная консультация →</a>
     </div>
+    <div class="mobile-overlay" id="mobile-overlay" onclick="toggleMenu()"></div>
   </header>
 
   <main id="main" role="main">
     {{ content_for_layout }}
   </main>
 
-  {% comment %} FOOTER - Inline {% endcomment %}
+  {% comment %} FOOTER {% endcomment %}
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="/" class="footer__logo">
-            <span class="footer__logo-accent">duso</span>_ecom
+            <span class="footer__logo-orange">duso</span>_ecom
+            <span class="footer__sparkle">✦</span>
           </a>
           <p class="footer__desc">Создаём успешные e-commerce проекты с 2015 года. Ваш надёжный партнёр в мире онлайн-торговли.</p>
           <div class="footer__socials">
             <a href="https://t.me/duso_ecom" class="footer__social" target="_blank">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.094.034.309.019.476z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.094.034.309.019.476z"/></svg>
             </a>
             <a href="#" class="footer__social">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="footer__social">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
             </a>
           </div>
         </div>
         
         <div class="footer__col">
-          <h4 class="footer__title">Навигация</h4>
+          <h4 class="footer__title"><span class="footer__dot footer__dot--orange"></span>Навигация</h4>
           <nav class="footer__links">
             <a href="/">Главная</a>
             <a href="/pages/about">О нас</a>
-            <a href="/collections/all">Услуги</a>
+            <a href="/pages/services">Услуги</a>
             <a href="/pages/portfolio">Портфолио</a>
             <a href="/pages/contact">Контакты</a>
           </nav>
         </div>
         
         <div class="footer__col">
-          <h4 class="footer__title">Контакты</h4>
-          <div class="footer__contacts">
-            <a href="mailto:hello@duso-ecom.com">hello@duso-ecom.com</a>
-            <a href="tel:+78001234567">+7 (800) 123-45-67</a>
-            <span>Москва, Россия</span>
-          </div>
+          <h4 class="footer__title"><span class="footer__dot footer__dot--green"></span>Популярные услуги</h4>
+          <nav class="footer__links">
+            <a href="/pages/services#shopify">Создание Shopify магазина</a>
+            <a href="/pages/services#redesign">Редизайн магазина</a>
+            <a href="/pages/services#migration">Миграция на Shopify</a>
+            <a href="/pages/services#optimization">Оптимизация</a>
+            <a href="/pages/services#seo">SEO продвижение</a>
+          </nav>
         </div>
         
         <div class="footer__col">
-          <h4 class="footer__title">Telegram</h4>
-          <div class="footer__qr">
-            <img src="https://customer-assets.emergentagent.com/job_responsive-admin-30/artifacts/z3erb60m_image.png" alt="QR Telegram" width="100" height="100">
+          <h4 class="footer__title"><span class="footer__dot footer__dot--orange"></span>Контакты</h4>
+          <div class="footer__contacts">
+            <a href="mailto:hello@duso-ecom.com" class="footer__contact">
+              <span class="footer__contact-icon">✉</span>
+              hello@duso-ecom.com
+            </a>
+            <a href="tel:+78001234567" class="footer__contact">
+              <span class="footer__contact-icon">📞</span>
+              +7 (800) 123-45-67
+            </a>
+            <span class="footer__contact">
+              <span class="footer__contact-icon">📍</span>
+              Москва, Россия
+            </span>
           </div>
         </div>
       </div>
       
       <div class="footer__bottom">
-        <p>© {{ 'now' | date: '%Y' }} duso_ecom. Все права защищены</p>
+        <p>© {{ 'now' | date: '%Y' }} <span class="footer__bottom-orange">duso_ecom</span>. Все права защищены</p>
         <div class="footer__legal">
           <a href="/pages/privacy">Политика конфиденциальности</a>
           <a href="/pages/terms">Условия использования</a>
@@ -130,67 +175,83 @@
     </div>
   </footer>
 
-  {% comment %} AI Chat Widget {% endcomment %}
-  <div class="ai-chat" id="ai-chat">
-    <button class="ai-chat__toggle" onclick="toggleChat()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  {% comment %} AI ASSISTANT {% endcomment %}
+  <div class="ai-assistant" id="ai-assistant">
+    <button class="ai-assistant__toggle" onclick="toggleAI()">
+      <span class="ai-assistant__icon">🤖</span>
+      <span class="ai-assistant__label">AI Эксперт</span>
+      <span class="ai-assistant__badge">⭐ 20 лет</span>
     </button>
-    <div class="ai-chat__window" id="chat-window">
-      <div class="ai-chat__header">
-        <div class="ai-chat__avatar">AI</div>
-        <div class="ai-chat__info">
-          <span class="ai-chat__name">AI Консультант</span>
-          <span class="ai-chat__status">● Онлайн</span>
+    
+    <div class="ai-assistant__window" id="ai-window">
+      <div class="ai-assistant__header">
+        <div class="ai-assistant__avatar">
+          <span>🤖</span>
         </div>
-        <button class="ai-chat__close" onclick="toggleChat()">×</button>
+        <div class="ai-assistant__info">
+          <span class="ai-assistant__name">AI Консультант duso_ecom</span>
+          <span class="ai-assistant__status"><span class="ai-assistant__dot"></span> Онлайн</span>
+        </div>
+        <button class="ai-assistant__close" onclick="toggleAI()">×</button>
       </div>
-      <div class="ai-chat__messages" id="chat-messages">
-        <div class="ai-chat__msg ai-chat__msg--bot">Привет! Я AI-консультант duso_ecom. Чем могу помочь?</div>
+      <div class="ai-assistant__messages" id="ai-messages">
+        <div class="ai-assistant__msg ai-assistant__msg--bot">
+          Привет! 👋 Я AI-консультант duso_ecom с 20-летним опытом в e-commerce. Задайте любой вопрос о Shopify, дизайне магазинов или маркетинге!
+        </div>
       </div>
-      <div class="ai-chat__input">
-        <input type="text" id="chat-input" placeholder="Напишите сообщение..." onkeypress="handleChatKeypress(event)">
-        <button onclick="sendChatMessage()">→</button>
+      <div class="ai-assistant__input">
+        <input type="text" id="ai-input" placeholder="Задайте вопрос..." onkeypress="if(event.key==='Enter')sendAI()">
+        <button onclick="sendAI()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
       </div>
     </div>
   </div>
 
   <script>
+    // Mobile Menu
     function toggleMenu() {
       document.getElementById('mobile-menu').classList.toggle('is-open');
+      document.getElementById('mobile-overlay').classList.toggle('is-visible');
+      document.body.style.overflow = document.getElementById('mobile-menu').classList.contains('is-open') ? 'hidden' : '';
     }
     
-    function toggleChat() {
-      document.getElementById('ai-chat').classList.toggle('is-open');
+    // AI Assistant
+    function toggleAI() {
+      document.getElementById('ai-assistant').classList.toggle('is-open');
     }
     
-    function sendChatMessage() {
-      const input = document.getElementById('chat-input');
-      const messages = document.getElementById('chat-messages');
+    function sendAI() {
+      const input = document.getElementById('ai-input');
+      const messages = document.getElementById('ai-messages');
       const text = input.value.trim();
       if (!text) return;
       
-      messages.innerHTML += '<div class="ai-chat__msg ai-chat__msg--user">' + text + '</div>';
+      messages.innerHTML += '<div class="ai-assistant__msg ai-assistant__msg--user">' + text + '</div>';
       input.value = '';
+      messages.scrollTop = messages.scrollHeight;
       
       setTimeout(() => {
         const responses = [
-          'Спасибо за вопрос! Оставьте заявку на странице контактов, и мы свяжемся с вами.',
-          'Отличный выбор! Мы специализируемся на Shopify магазинах уже более 8 лет.',
-          'Стоимость разработки от $2000. Для точного расчёта оставьте заявку.',
-          'Работаем со всеми странами СНГ! Россия, Украина, Казахстан, Беларусь и другие.'
+          '💡 Отличный вопрос! Для создания успешного Shopify магазина важны 3 вещи: уникальный дизайн, быстрая загрузка и удобный checkout. Хотите узнать подробнее?',
+          '📊 По нашей статистике, правильно оптимизированный Shopify магазин увеличивает конверсию на 40-60%. Оставьте заявку для бесплатного аудита!',
+          '🚀 Мы создали более 6500 магазинов по всему СНГ. Средний срок разработки — 2-4 недели. Стоимость от $2000.',
+          '✅ Рекомендую начать с бесплатной консультации. Мы проанализируем вашу нишу и предложим оптимальное решение. Перейдите на страницу контактов!'
         ];
-        messages.innerHTML += '<div class="ai-chat__msg ai-chat__msg--bot">' + responses[Math.floor(Math.random() * responses.length)] + '</div>';
+        messages.innerHTML += '<div class="ai-assistant__msg ai-assistant__msg--bot">' + responses[Math.floor(Math.random() * responses.length)] + '</div>';
         messages.scrollTop = messages.scrollHeight;
       }, 1000);
-    }
-    
-    function handleChatKeypress(e) {
-      if (e.key === 'Enter') sendChatMessage();
     }
     
     // Sticky header
     window.addEventListener('scroll', function() {
       document.getElementById('header').classList.toggle('is-scrolled', window.scrollY > 50);
+    });
+    
+    // Dropdown
+    document.querySelectorAll('.header__dropdown').forEach(dropdown => {
+      dropdown.addEventListener('mouseenter', () => dropdown.classList.add('is-open'));
+      dropdown.addEventListener('mouseleave', () => dropdown.classList.remove('is-open'));
     });
   </script>
 </body>
