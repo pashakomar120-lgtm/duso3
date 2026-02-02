@@ -1,0 +1,192 @@
+{
+  "general": {
+    "cis_countries": "Весь СНГ"
+  },
+  "header": {
+    "stores_count": "6500+ магазинов",
+    "countries_count": "8 стран СНГ",
+    "partner_title": "#1 Shopify Partner",
+    "revenue": "$3B+ оборот",
+    "nav_home": "Главная",
+    "nav_about": "О нас",
+    "nav_services": "Услуги",
+    "nav_portfolio": "Портфолио",
+    "nav_resources": "Ресурсы",
+    "nav_contact": "Контакты",
+    "our_works": "Наши работы",
+    "free_consultation": "Бесплатная консультация",
+    "all_services": "Все 13 услуг"
+  },
+  "hero": {
+    "badge": "E-COMMERCE EXPERT",
+    "rank": "#1 в СНГ",
+    "title_1": "Создаём",
+    "title_shopify": "Shopify",
+    "title_2": "магазины",
+    "title_3": "которые",
+    "title_sell": "продают",
+    "title_4": "по всему",
+    "title_cis": "СНГ",
+    "description_1": "От идеи до запуска за",
+    "description_weeks": "2-4 недели",
+    "description_2": "Сертифицированный Shopify Partner с опытом",
+    "description_projects": "6500+",
+    "description_3": "успешных проектов.",
+    "trust_1": "Shopify Plus Partner",
+    "trust_2": "98% довольных клиентов",
+    "trust_3": "Гарантия результата",
+    "cta_primary": "Бесплатная консультация",
+    "cta_secondary": "Смотреть кейсы",
+    "stat_stores": "Магазинов",
+    "stat_revenue": "Оборот клиентов",
+    "stat_countries": "Стран СНГ",
+    "badge_growth": "+340%",
+    "badge_growth_label": "Рост продаж",
+    "badge_support": "24/7",
+    "badge_support_label": "Поддержка"
+  },
+  "scrolling": {
+    "expert": "Shopify Expert",
+    "text": "Превращаем исключительные идеи в исключительный опыт",
+    "stores": "6500+ магазинов",
+    "conversion": "Конверсия +180%",
+    "revenue": "$3B+ оборота",
+    "satisfaction": "98% довольных клиентов"
+  },
+  "store_logos": {
+    "badge": "6500+ успешных проектов",
+    "title_1": "Наши",
+    "title_highlight": "клиенты",
+    "title_2": "по всему СНГ",
+    "subtitle": "Магазины из 8 стран доверяют нам свой e-commerce"
+  },
+  "services": {
+    "section_title": "Наши услуги",
+    "title_1": "Мы",
+    "title_highlight": "создаём",
+    "title_2": "успешные магазины",
+    "subtitle": "Выберите услугу и узнайте, как мы можем помочь вашему бизнесу расти",
+    "view_all": "Все услуги и цены",
+    "what_you_get": "Что вы получите:",
+    "gift_title": "ПОДАРОК"
+  },
+  "who_we_work_with": {
+    "section_title": "Наша аудитория",
+    "title_1": "Кому мы",
+    "title_highlight": "подходим",
+    "subtitle": "Работаем с компаниями любого размера — от стартапов до enterprise. Главное — амбиции и готовность расти.",
+    "not_found": "Не нашли себя? Напишите нам — найдём решение!",
+    "cta": "Обсудить проект"
+  },
+  "process": {
+    "section_title": "Как мы работаем",
+    "title_1": "Процесс",
+    "title_highlight": "от идеи до запуска",
+    "subtitle": "Прозрачный и предсказуемый процесс. Вы всегда знаете, что происходит.",
+    "avg_time": "Среднее время запуска",
+    "avg_time_desc": "в зависимости от сложности проекта"
+  },
+  "cis": {
+    "section_title": "География присутствия",
+    "title_1": "#1",
+    "title_2": "E-commerce агентство по",
+    "title_highlight": "СНГ",
+    "subtitle": "Работаем с бизнесами в 8 странах СНГ. Локальная экспертиза, глобальные стандарты.",
+    "countries": "Стран СНГ",
+    "cities": "Городов",
+    "projects": "Проектов",
+    "revenue": "Оборот клиентов",
+    "your_business": "Ваш бизнес в СНГ? Мы знаем местный рынок!",
+    "view_projects": "Смотреть все проекты",
+    "get_consultation": "Получить консультацию"
+  },
+  "ratings": {
+    "title": "Гордый E-commerce Партнёр, поддерживающий глобальный бизнес",
+    "rating_1": "Наивысший рейтинг 5/5 звёзд на",
+    "rating_2": "Топ-рейтинг с 325+ отзывами на",
+    "rating_3": "Идеальная оценка 5.0 на"
+  },
+  "testimonials": {
+    "section_title": "Отзывы",
+    "title_1": "Что говорят",
+    "title_highlight": "наши клиенты"
+  },
+  "trusted_by": {
+    "title_highlight": "Нам доверяют",
+    "title": "мечтатели, деятели и лидеры"
+  },
+  "stats": {
+    "section_title": "Наши достижения",
+    "title_1": "Цифры",
+    "title_highlight": "говорят",
+    "title_2": "сами за себя",
+    "subtitle": "От стартапов до глобальных брендов — реальные результаты, реальный рост",
+    "growing": "Растёт"
+  },
+  "case_studies": {
+    "section_title": "Портфолио",
+    "title_highlight": "Истории успеха,",
+    "title": "достойные внимания",
+    "view_all": "Смотреть все проекты"
+  },
+  "awards": {
+    "section_title": "Сертификация",
+    "title_1": "Награды &",
+    "title_highlight": "Партнёры",
+    "subtitle": "Официальные партнёры ведущих e-commerce платформ и сертифицированные эксперты с безупречной репутацией.",
+    "shopify_experts": "Shopify Эксперты",
+    "shopify_desc": "Сертифицированные профессионалы с экспертизой в разработке, миграции и маркетинге Shopify магазинов.",
+    "clutch_title": "Признание Clutch",
+    "clutch_badge": "Top B2B Company",
+    "clutch_desc": "Признаны как ведущий поставщик услуг на Clutch и GoodFirms.",
+    "stat_projects": "Проектов",
+    "stat_satisfaction": "Клиентов довольны",
+    "stat_experience": "Лет опыта",
+    "stat_experts": "Экспертов",
+    "learn_more": "Узнать больше о нас"
+  },
+  "cta": {
+    "badge": "Готовы к росту?",
+    "title_1": "Не довольствуйтесь",
+    "title_highlight": "вторым лучшим",
+    "title_2": "Когда",
+    "brand": "duso_ecom",
+    "title_3": "рядом",
+    "subtitle": "Бесплатная консультация • Индивидуальный подход • Гарантия результата",
+    "cta_primary": "Обсудить проект",
+    "cta_secondary": "Смотреть работы",
+    "stat_stores": "Магазинов",
+    "stat_satisfaction": "Довольны",
+    "stat_support": "Поддержка"
+  },
+  "footer": {
+    "description": "Создаём успешные e-commerce проекты с 2015 года. Ваш надёжный партнёр в мире онлайн-торговли.",
+    "navigation": "Навигация",
+    "popular_services": "Популярные услуги",
+    "contacts": "Контакты",
+    "copyright": "Все права защищены",
+    "privacy": "Политика конфиденциальности",
+    "terms": "Условия использования"
+  },
+  "ai_assistant": {
+    "title": "AI Консультант",
+    "badge": "GPT-4",
+    "experience": "20 лет опыта",
+    "online": "Онлайн",
+    "thinking": "Думаю...",
+    "placeholder": "Напишите вопрос...",
+    "welcome": "Добро пожаловать! Я AI-консультант duso_ecom с 20-летним опытом в e-commerce.",
+    "help_1": "Выбрать оптимальное решение для вашего магазина",
+    "help_2": "Рассчитать бюджет и сроки",
+    "help_3": "Узнать про лучшие практики продаж",
+    "help_4": "Получить эксклюзивные бонусы",
+    "ask": "Чем могу помочь?",
+    "suggestion_1": "Сколько стоит магазин на Shopify?",
+    "suggestion_2": "Какие гарантии вы даёте?",
+    "suggestion_3": "Покажите ваши кейсы",
+    "secret_success": "Верифікація пройдена успішно!",
+    "secret_welcome": "Ласкаво просимо до секретного порталу duso_ecom.",
+    "secret_button": "Відкрити панель управління",
+    "error": "Произошла техническая ошибка. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую через Telegram: @duso_ecom"
+  }
+}
