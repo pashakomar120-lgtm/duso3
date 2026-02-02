@@ -6,14 +6,14 @@
   <meta name="theme-color" content="#0a0a0b">
   
   <title>{{ page_title | default: 'duso_ecom' }} | #1 Shopify Partner в СНГ</title>
-  <meta name="description" content="{{ page_description | default: 'Создаём Shopify магазины, которые продают по всему СНГ. 6500+ успешных проектов. Сертифицированный Shopify Partner.' }}">
+  <meta name="description" content="{{ page_description | default: 'Создаём Shopify магазины, которые продают по всему СНГ. 6500+ успешных проектов.' }}">
   
-  <!-- Google Fonts - Inter -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- TailwindCSS - Pre-built from CDN (lighter than Play CDN) -->
+  <!-- TailwindCSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   
   <!-- Theme CSS -->
@@ -21,16 +21,17 @@
   
   {{ content_for_header }}
 </head>
-<body class="antialiased bg-[#0a0a0b] text-white min-h-screen overflow-x-hidden">
+<body class="antialiased" style="background-color: #0a0a0b; min-height: 100vh;">
+  
   <!-- Background gradient effects -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[150px]"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[150px]"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/5 rounded-full blur-[200px]"></div>
+  <div class="bg-glow-wrapper">
+    <div class="bg-glow-orange"></div>
+    <div class="bg-glow-emerald"></div>
+    <div class="bg-glow-center"></div>
   </div>
   
   <!-- Main content wrapper -->
-  <div class="relative z-10">
+  <div style="position: relative; z-index: 10;">
     {% section 'header' %}
     
     <main>
@@ -41,10 +42,10 @@
     {% section 'ai-assistant' %}
   </div>
   
-  <!-- Lucide Icons - Load after DOM -->
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   
   <!-- Theme JS -->
-  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  <script src="{{ 'theme.js' | asset_url }}"></script>
 </body>
 </html>
