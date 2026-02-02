@@ -1,5 +1,48 @@
 /* duso_ecom Shopify Theme - Main Stylesheet */
 /* ==========================================
+   TAILWIND CUSTOM COLORS (orange/emerald not in v2.x)
+   ========================================== */
+
+:root {
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --emerald-400: #34d399;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+}
+
+/* Custom color utilities */
+.text-orange-400 { color: var(--orange-400); }
+.text-orange-500 { color: var(--orange-500); }
+.text-orange-600 { color: var(--orange-600); }
+.text-emerald-400 { color: var(--emerald-400); }
+.text-emerald-500 { color: var(--emerald-500); }
+.text-emerald-600 { color: var(--emerald-600); }
+
+.bg-orange-500 { background-color: var(--orange-500); }
+.bg-orange-600 { background-color: var(--orange-600); }
+.bg-emerald-500 { background-color: var(--emerald-500); }
+.bg-emerald-600 { background-color: var(--emerald-600); }
+
+.from-orange-500 { --tw-gradient-from: var(--orange-500); }
+.to-orange-600 { --tw-gradient-to: var(--orange-600); }
+.from-orange-600 { --tw-gradient-from: var(--orange-600); }
+.to-orange-700 { --tw-gradient-to: var(--orange-700); }
+.from-emerald-500 { --tw-gradient-from: var(--emerald-500); }
+.to-emerald-600 { --tw-gradient-to: var(--emerald-600); }
+
+.border-orange-500 { border-color: var(--orange-500); }
+.border-emerald-500 { border-color: var(--emerald-500); }
+
+.shadow-orange-500\/30 { box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3); }
+.shadow-orange-500\/25 { box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.25); }
+.shadow-emerald-500\/30 { box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3); }
+
+.fill-orange-500 { fill: var(--orange-500); }
+
+/* ==========================================
    BASE STYLES
    ========================================== */
 
