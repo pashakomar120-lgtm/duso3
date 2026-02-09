@@ -1,9 +1,37 @@
 {
-  "name": "Duso Ecom Pro",
+  "name": "Theme settings",
   "settings": [
     {
       "type": "header",
-      "content": "General Settings"
+      "content": "General settings"
+    },
+    {
+      "type": "text",
+      "id": "store_name",
+      "label": "Store Name",
+      "default": "My Shopify Store"
+    },
+    {
+      "type": "text",
+      "id": "store_description",
+      "label": "Store Description",
+      "default": "The best store for amazing products."
+    },
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color",
+      "id": "color_primary",
+      "label": "Primary Color",
+      "default": "#ff0000"
+    },
+    {
+      "type": "color",
+      "id": "color_secondary",
+      "label": "Secondary Color",
+      "default": "#00ff00"
     }
   ]
 }
